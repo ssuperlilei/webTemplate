@@ -1,0 +1,23 @@
+{
+  "name": "@ll_lib/prettier-config",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./index.mjs",
+  "module": "./index.mjs",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "default": "./index.mjs"
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.1"
+  },
+  "peerDependencies": {
+    "prettier": "^3.4.2"
+  }
+}

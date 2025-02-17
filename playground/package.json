@@ -1,0 +1,29 @@
+{
+  "name": "@ll_lib/playground",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
+    "@ll_lib/directives": "workspace:*",
+    "@ll_lib/hooks": "workspace:*",
+    "@ll_lib/typescript-config": "workspace:*",
+    "@ll_lib/ui": "workspace:*",
+    "@ll_lib/utils": "workspace:*",
+    "ant-design-vue": "^4.2.6",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "sass": "^1.85.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "vitest": "^3.0.5"
+  }
+}

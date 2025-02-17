@@ -1,0 +1,80 @@
+{
+  "name": "vue3-component-lib-template",
+  "description": "This is a modern component library template based on Turborepo+Vue 3.5+TypeScript.",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.2.1",
+  "author": "huangmingfu <212149997@qq.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/huangmingfu/vue3-turbo-component-lib-template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huangmingfu/vue3-turbo-component-lib-template"
+  },
+  "bugs": "https://github.com/huangmingfu/vue3-turbo-component-lib-template/issues",
+  "keywords": [
+    "component library template",
+    "component library",
+    "ui framework",
+    "ui",
+    "turborepo",
+    "monorepo",
+    "vue3 typescript",
+    "vite6",
+    "turbo"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:docs": "pnpm -F @ll_lib/docs run dev",
+    "dev:play": "pnpm -F @ll_lib/playground run dev",
+    "build": "turbo run build",
+    "build:docs": "pnpm -F @ll_lib/docs run build",
+    "build:gulp": "gulp -f build/gulpfile.js",
+    "publish": "turbo run publish",
+    "lint:eslint": "eslint --max-warnings 0 \"**/*.{ts,tsx,js,jsx,cjs,mjs,vue}\" --fix",
+    "lint:format": "prettier --write \"**/*.{js,jsx,cjs,ts,tsx,mjs,mts,md,vue,scss,css,less,html,json}\"",
+    "lint:style": "stylelint \"**/*.{css,scss,less}\" --fix",
+    "lint:all": "pnpm run lint:eslint && pnpm run lint:style && pnpm run lint:format",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && turbo run clean",
+    "changeset:version": "pnpm changeset && pnpm changeset version",
+    "deps:update": "pnpm update -r --latest",
+    "deps:check": "pnpm outdated -r",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "turbo run build",
+    "prepare": "husky install",
+    "rename-pkg": "bash ./scripts/rename-package.sh"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.12",
+    "@commitlint/cli": "^19.7.1",
+    "@ll_lib/commitlint-config": "workspace:*",
+    "@ll_lib/directives": "workspace:*",
+    "@ll_lib/eslint-config": "workspace:*",
+    "@ll_lib/hooks": "workspace:*",
+    "@ll_lib/prettier-config": "workspace:*",
+    "@ll_lib/stylelint-config": "workspace:*",
+    "@ll_lib/typescript-config": "workspace:*",
+    "@ll_lib/ui": "workspace:*",
+    "@ll_lib/utils": "workspace:*",
+    "eslint": "^9.20.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.5.1",
+    "rollup": "^4.34.7",
+    "stylelint": "^16.14.1",
+    "turbo": "^2.4.2",
+    "typescript": "^5.7.3",
+    "vue": "^3.5.13"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=10"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "search-insights"
+      ]
+    }
+  }
+}

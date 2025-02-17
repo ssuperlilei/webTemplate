@@ -1,0 +1,27 @@
+{
+  "name": "@ll_lib/utils",
+  "description": "@LLlib utils library",
+  "version": "1.0.0",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "rm -rf dist && rollup -c rollup.config.mjs",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "publish": "pnpm publish"
+  },
+  "devDependencies": {
+    "@ll_lib/typescript-config": "workspace:*",
+    "@rollup/plugin-json": "^6.1.0",
+    "rollup": "^4.34.7",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-esbuild": "6.2.0"
+  }
+}

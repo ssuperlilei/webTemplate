@@ -1,0 +1,29 @@
+{
+  "name": "@ll_lib/docs",
+  "version": "1.0.0",
+  "description": "组件库模板说明文档",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "rm -rf .vitepress/dist && vitepress build",
+    "preview": "vitepress preview",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .vitepress/dist && rm -rf .vitepress/cache && rm -rf .vitepress/.temp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@ll_lib/directives": "workspace:*",
+    "@ll_lib/hooks": "workspace:*",
+    "@ll_lib/typescript-config": "workspace:*",
+    "@ll_lib/ui": "workspace:*",
+    "@ll_lib/utils": "workspace:*",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "sass": "^1.85.0",
+    "typescript": "^5.7.3",
+    "vitepress": "^1.6.3",
+    "vitepress-demo-plugin": "^1.2.3"
+  }
+}

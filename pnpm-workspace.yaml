@@ -1,0 +1,6 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'packages/lint-configs/*'
+  - 'playground'
+  - 'build'

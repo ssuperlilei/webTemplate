@@ -1,0 +1,32 @@
+{
+  "name": "@ll_lib/directives",
+  "version": "1.0.0",
+  "description": "@ll_lib directives library",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "rm -rf dist && rollup -c rollup.config.mjs",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "publish": "pnpm publish"
+  },
+  "devDependencies": {
+    "@ll_lib/typescript-config": "workspace:*",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.34.7",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-esbuild": "6.2.0",
+    "vue": "^3.5.13"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.13"
+  }
+}
