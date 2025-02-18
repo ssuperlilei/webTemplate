@@ -29,11 +29,13 @@
     "publish": "pnpm publish"
   },
   "devDependencies": {
+    "@ll_lib/i18n": "workspace:*",
     "@ll_lib/typescript-config": "workspace:*",
     "@types/node": "^22.13.4",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "sass": "^1.85.0",
+    "scroll-into-view-if-needed": "^3.1.0",
     "typescript": "^5.7.3",
     "vite": "^6.1.0",
     "vite-plugin-dts": "^4.5.0",

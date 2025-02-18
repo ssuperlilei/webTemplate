@@ -1,4 +1,4 @@
-import { asBrother, c, cB } from '../../../utils/cssr';
+import { asBrother, c, cB } from '~/_utils';
 
 export default c([
   cB('modal-body', [

@@ -1,4 +1,4 @@
-import { c } from '../../../utils/cssr';
+import { c } from '~/_utils';
 
 export default c([
   c(

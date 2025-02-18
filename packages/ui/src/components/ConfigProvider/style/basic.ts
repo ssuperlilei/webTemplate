@@ -1,4 +1,4 @@
-import { asBrother, c, cB, cE } from '../../../utils/cssr';
+import { asBrother, c, cB, cE } from '~/_utils';
 
 // 基础组件样式
 export default c([

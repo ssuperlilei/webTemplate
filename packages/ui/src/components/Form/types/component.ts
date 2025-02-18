@@ -18,7 +18,6 @@ import type {
 } from 'ant-design-vue';
 import { dividerProps } from 'ant-design-vue/es/divider';
 import type { CSSProperties, WatchOptions } from 'vue';
-import { PromiseFn, UnionToIntersection } from '../../../common/types/index';
 import type { RenderCallbackParams } from './form';
 
 export type { ComponentMapType } from '../utils/componentMap';

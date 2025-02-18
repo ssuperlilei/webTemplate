@@ -1,4 +1,4 @@
-import { asChild, c, cB } from '../../../utils/cssr';
+import { asChild, c, cB } from '~/_utils';
 
 export default c([
   c('.bm-form', [

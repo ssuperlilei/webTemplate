@@ -12,6 +12,7 @@ export default tseslint.config(
     languageOptions: {
       parserOptions: {
         parser: '@typescript-eslint/parser', // 使用 TypeScript ESLint 解析器
+        ecmaFeatures: { jsx: true }, // 启用 JSX
       },
     },
   },
@@ -45,6 +46,7 @@ export default tseslint.config(
           svg: 'always', // 强制 svg 元素始终自闭合
         },
       ],
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // 禁止未使用的变量，但允许以 _ 开头的变量
     },
   },
 );

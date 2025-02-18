@@ -27,14 +27,14 @@ import {
 } from 'ant-design-vue';
 
 import { defineComponent } from 'vue';
-import { BMPasswordInput } from '../../../PasswordInput';
+import BMPasswordInput from '~/components/PasswordInput';
 
 const Span = defineComponent({
   name: 'Span',
   props: {
     value: String,
   },
-  setup(props, { slots }) {
+  setup(props) {
     return () => <span>{props.value}</span>;
   },
 });

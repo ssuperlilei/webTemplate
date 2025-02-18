@@ -11,7 +11,6 @@ import {
   set,
 } from '@ll_lib/utils';
 import { DefineComponent, unref } from 'vue';
-import type { Key, Recordable } from '../../../common/types/index';
 import type { FormProps } from '../types/bm-form';
 import type { FormState } from './useFormState';
 

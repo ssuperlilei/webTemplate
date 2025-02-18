@@ -1,7 +1,9 @@
 import { withInstall } from '~/_utils';
-import ConfigProvider from './src/index.vue';
+import ConfigProvider from './index.vue';
 
-export const LLConfigProvider = withInstall(ConfigProvider);
-export default LLConfigProvider;
+export const defaultClsPrefix = 'ant';
+
+export const LConfigProvider = withInstall(ConfigProvider);
+export default LConfigProvider;
 export * from './ConfigProvider.type';
 export * from './hooks';

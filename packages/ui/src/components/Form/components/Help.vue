@@ -2,10 +2,9 @@
 import { InfoCircleOutlined } from '@ant-design/icons-vue';
 import { isArray, isFunction, isString } from '@ll_lib/utils';
 import { Tooltip } from 'ant-design-vue';
-import type { CSSProperties, PropType } from 'vue';
-import { computed, defineComponent, unref } from 'vue';
+import { type CSSProperties, type PropType, defineComponent } from 'vue';
 import { getSlot } from '../utils/tsxHelper';
-import { JSX } from 'vue/jsx-runtime';
+import type { JSX } from 'vue/jsx-runtime';
 
 const props = {
   /**
@@ -17,7 +16,7 @@ const props = {
    * Whether to display the serial number
    * @default: false
    */
-  showIndex: { type: Boolean },
+  showIndex: { type: Boolean, default: false },
   /**
    * Help text font color
    * @default: #ffffff
@@ -44,15 +43,17 @@ export default defineComponent({
   name: 'BasicHelp',
   components: { Tooltip },
   props,
-  setup(props, { slots }) {
-    const getTooltipStyle = computed(
-      (): CSSProperties => ({ color: props.color, fontSize: props.fontSize }),
-    );
-
-    const getOverlayStyle = computed((): CSSProperties => ({ maxWidth: props.maxWidth }));
-
-    function renderTitle() {
-      const textList = props.text;
+  computed: {
+    getTooltipStyle(): CSSProperties {
+      return { color: this.color, fontSize: this.fontSize };
+    },
+    getOverlayStyle(): CSSProperties {
+      return { maxWidth: this.maxWidth };
+    },
+  },
+  methods: {
+    renderTitle() {
+      const textList = this.text;
 
       if (isString(textList)) {
         return <p>{textList}</p>;
@@ -63,7 +64,7 @@ export default defineComponent({
           return (
             <p key={text}>
               <>
-                {props.showIndex ? `${index + 1}. ` : ''}
+                {this.showIndex ? `${index + 1}. ` : ''}
                 {text}
               </>
             </p>
@@ -74,21 +75,20 @@ export default defineComponent({
         return textList();
       }
       return null;
-    }
-
-    return () => {
-      return (
-        <Tooltip
-          overlayClassName="basic-help__wrap"
-          title={<div style={unref(getTooltipStyle)}>{renderTitle()}</div>}
-          autoAdjustOverflow={true}
-          overlayStyle={unref(getOverlayStyle)}
-          placement={props.placement as 'right'}
-        >
-          <span class="basic-help">{getSlot(slots) || <InfoCircleOutlined />}</span>
-        </Tooltip>
-      );
-    };
+    },
+  },
+  render() {
+    return (
+      <Tooltip
+        overlayClassName="basic-help__wrap"
+        title={<div style={this.getTooltipStyle}>{this.renderTitle()}</div>}
+        autoAdjustOverflow={true}
+        overlayStyle={this.getOverlayStyle}
+        placement={this.placement as 'right'}
+      >
+        <span class="basic-help">{getSlot(this.$slots) || <InfoCircleOutlined />}</span>
+      </Tooltip>
+    );
   },
 });
 </script>

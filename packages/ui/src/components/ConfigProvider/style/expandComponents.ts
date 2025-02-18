@@ -1,4 +1,4 @@
-import { c, cB, cE } from '../../../utils/cssr';
+import { c, cB, cE } from '~/_utils';
 
 const modalBasicStyle = [
   cB('modal-header', {

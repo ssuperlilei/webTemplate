@@ -2,7 +2,6 @@ import { cloneDeep, isFunction } from '@ll_lib/utils';
 import type { FormInstance } from 'ant-design-vue';
 import type { DefineComponent, SetupContext } from 'vue';
 import { computed, reactive, ref, unref, watch, watchEffect } from 'vue';
-import type { Recordable } from '../../../common/types/index';
 import { ActionColOptions } from '../enums/common';
 import type { ComponentProps, RenderCallbackParams } from '../types';
 import type { FormProps } from '../types/bm-form';

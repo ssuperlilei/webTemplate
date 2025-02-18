@@ -7,14 +7,14 @@
   >
     <template v-if="schema.component === 'Divider'">
       <div class="bmos-form-divider-container">
-        <div v-if="getComponentProps.showLeftBorder" class="bmos-form-divider-border"></div>
+        <div v-if="getComponentProps.showLeftBorder" class="bmos-form-divider-border" />
         <Divider v-bind="objectPick(getComponentProps, aDividerPropKeys)" class="bmos-form-divider">
-          <component :is="renderLabelHelpMessage"></component>
+          <component :is="renderLabelHelpMessage" />
         </Divider>
       </div>
     </template>
     <template v-else-if="schema.component === 'FormGroup'">
-      <component :is="formGroupLabel"></component>
+      <component :is="formGroupLabel" />
     </template>
     <Form.Item
       v-else
@@ -30,8 +30,8 @@
       :rules="getRules"
     >
       <template #label>
-        <component :is="renderLabelHelpMessage" v-if="labelIsFunction"></component>
-        <component :is="renderLabelHelpMessage"></component>
+        <component :is="renderLabelHelpMessage" v-if="labelIsFunction" />
+        <component :is="renderLabelHelpMessage" />
         <!-- <BMEllipsis v-else :other-width="10">
           <component :is="renderLabelHelpMessage"></component>
           <template v-if="!schema.noLabelTip" #title
@@ -39,7 +39,7 @@
           ></template>
         </BMEllipsis> -->
       </template>
-      <slot v-if="schema.slot" :name="schema.slot" v-bind="getValues"></slot>
+      <slot v-if="schema.slot" :name="schema.slot" v-bind="getValues" />
       <component
         :is="getComponent"
         v-else-if="!componentIsString"
@@ -50,7 +50,7 @@
         :disabled="getDisable"
         :loading="schema.loading"
         v-on="componentEvents"
-      ></component>
+      />
       <component
         :is="getComponent"
         v-else-if="getComponent"
@@ -70,10 +70,7 @@
           #[slotName]="slotData"
           :key="slotName"
         >
-          <component
-            :is="slotFn?.({ ...getValues, slotData }) ?? slotFn"
-            :key="slotName"
-          ></component>
+          <component :is="slotFn?.({ ...getValues, slotData }) ?? slotFn" :key="slotName" />
         </template>
       </component>
     </Form.Item>
@@ -93,7 +90,7 @@ import {
   isString,
   objectPick,
 } from '@ll_lib/utils';
-import { Col, Form, Spin, Divider } from 'ant-design-vue';
+import { Col, Divider, Form, Spin } from 'ant-design-vue';
 import type { RuleObject } from 'ant-design-vue/es/form/';
 import { computed, isVNode, nextTick, onMounted, toRefs, unref, watch } from 'vue';
 import BasicHelp from './components/Help.vue';
@@ -107,10 +104,9 @@ import type {
   RenderCallbackParams,
 } from './types';
 import { bmFormItemProps } from './types/bm-form-item';
-import type { ComponentMapType } from './utils/componentMap';
-import { componentMap } from './utils/componentMap';
+import { type ComponentMapType, componentMap } from './utils/componentMap';
 import { createPlaceholderMessage } from './utils/helper';
-import { t } from '@bmos/i18n';
+import { t } from '@ll_lib/i18n';
 // import { BMEllipsis } from '../../Ellipsis';
 import { aDividerPropKeys } from './types/component';
 
@@ -135,7 +131,7 @@ const getColConfig = (colProps: Partial<ColEx> | undefined): Record<string, any>
   const config = deepMerge({ ...baseColProps }, { ...colProps });
   return config;
 };
-// @ts-ignore
+
 const itemLabelWidthProp = useItemLabelWidth(schema, formPropsRef);
 
 const noFormItemMarginBottom = computed(() => {
@@ -234,7 +230,7 @@ const vNodeFactory = (
   values = unref(getValues),
 ): any => {
   if (isString(component)) {
-    return <>{component}</>;
+    return component;
   } else if (isVNode(component)) {
     return component;
   } else if (isFunction(component)) {
@@ -247,7 +243,7 @@ const vNodeFactory = (
     }
     return compKeys.reduce<Record<string, CustomRenderFn>>((slots, slotName) => {
       slots[slotName] = (...rest: any) =>
-        // @ts-ignore
+        // @ts-expect-error
         vNodeFactory(component[slotName], ...rest);
       return slots;
     }, {});
@@ -269,8 +265,7 @@ const componentIsString = computed(() => {
 const getComponent = computed(() => {
   const component = props.schema.component;
   return isString(component)
-    ? // @ts-ignore
-      (componentMap[component] ?? vNodeFactory(component))
+    ? (componentMap[component] ?? vNodeFactory(component))
     : vNodeFactory(component);
 });
 
@@ -297,6 +292,7 @@ const labelIsFunction = computed(() => isFunction(props.schema.label));
  */
 const getComponentProps = computed(() => {
   const { schema } = props;
+  // eslint-disable-next-line prefer-const
   let { componentProps = {}, component } = schema;
   if (isFunction(componentProps)) {
     componentProps = componentProps(unref(getValues)) ?? {};
@@ -335,7 +331,7 @@ const getComponentProps = computed(() => {
         showSearch: true,
         filterOption: (input: string, option: any) => {
           return (
-            // @ts-ignore
+            // @ts-expect-error
             option[componentProps.fieldNames?.label || 'label']
               ?.toLowerCase()
               ?.indexOf(input.toLowerCase()) >= 0
@@ -360,7 +356,7 @@ const componentEvents = computed(() => {
     if (/on([A-Z])/.test(key)) {
       // eg: onChange => change
       const eventKey = key.replace(/on([A-Z])/, '$1').toLocaleLowerCase();
-      // @ts-ignore
+      // @ts-expect-error
       prev[eventKey] = componentProps[key];
     }
     return prev;
@@ -398,6 +394,7 @@ const renderLabelHelpMessage = computed(() => {
 
 const formGroupLabel = computed(() => {
   const renderLabel = vNodeFactory(getLabel.value);
+  console.log('renderLabel', renderLabel);
   return (
     <div class="form-group-label" style={getComponentProps.value.style}>
       {renderLabel}
@@ -428,7 +425,7 @@ const getRules = computed(() => {
     const newRules = dynamicRules(unref(getValues)) as RuleObject[];
     if ((component === 'Input' || component === 'AutoComplete') && props.useMaxLengthRule) {
       newRules.push({
-        validator: (rule: any, value: any) => {
+        validator: (_rule: any, value: any) => {
           if (value && value.toString().length > 100) {
             return Promise.reject(t('输入内容过长, 不能超过100字符'));
           }
@@ -438,7 +435,7 @@ const getRules = computed(() => {
     }
     if (component === 'InputTextArea' && props.useMaxLengthRule) {
       newRules.push({
-        validator: (rule: any, value: any) => {
+        validator: (_rule: any, value: any) => {
           if (value && value.toString().length > 200) {
             return Promise.reject(t('输入内容过长, 不能超过200字符'));
           }
@@ -495,7 +492,7 @@ const getRules = computed(() => {
     rules = [
       ...rules,
       {
-        validator: (rule: any, value: any) => {
+        validator: (_rule: any, value: any) => {
           if (value && value.toString().length > 100) {
             return Promise.reject(t('输入内容过长, 不能超过100字符'));
           }
@@ -509,7 +506,7 @@ const getRules = computed(() => {
     rules = [
       ...rules,
       {
-        validator: (rule: any, value: any) => {
+        validator: (_rule: any, value: any) => {
           if (value && value.toString().length > 200) {
             return Promise.reject(t('输入内容过长, 不能超过200字符'));
           }
@@ -604,13 +601,6 @@ const initRequestConfig = () => {
     }
   }
 };
-
-// watch(
-//   () => props.schema,
-//   () => {
-//     initRequestConfig();
-//   },
-// );
 
 onMounted(() => {
   if (!getSchemaByFiled(props.schema.field)) {

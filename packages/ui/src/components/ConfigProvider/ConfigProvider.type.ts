@@ -1,6 +1,6 @@
 import { configProviderProps } from 'ant-design-vue/es/config-provider/context';
 import type { ExtractPropTypes, Ref } from 'vue';
-import { initDefaultProps } from '../../_utils';
+import { initDefaultProps } from '~/_utils';
 
 export interface ConfigProviderInjection {
   clsPrefixRef: Ref<string>;

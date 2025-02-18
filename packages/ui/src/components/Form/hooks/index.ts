@@ -6,7 +6,6 @@ export * from '../utils/componentMap';
 export * from '../utils/helper';
 export * from '../utils/tsxHelper';
 export * from './useAdvanced';
-export * from './useForm';
 export * from './useFormContext';
 export * from './useFormEvents';
 export * from './useFormMethods';

@@ -10,7 +10,6 @@ import {
 import { NamePath } from 'ant-design-vue/es/form/interface';
 import dayjs from 'dayjs';
 import { toRaw, unref, watch } from 'vue';
-import { Recordable } from '../../../common/types/index';
 import type { BMFormEmitFn } from '../types/bm-form';
 import type { FormSchema } from '../types/form';
 import { dateItemType, handleInputNumberValue } from '../utils/helper';

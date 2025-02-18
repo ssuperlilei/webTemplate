@@ -3,10 +3,10 @@
     <template #renderEmpty>
       <div style="text-align: center">
         <InfoCircleOutlined />
-        <p>{{ '暂无数据' }}</p>
+        <p>{{ t('暂无数据') }}</p>
       </div>
     </template>
-    <slot></slot>
+    <slot />
   </ConfigProvider>
 </template>
 
@@ -20,14 +20,15 @@ import { ConfigProvider } from 'ant-design-vue';
 import { computed, provide, ref, unref, useAttrs } from 'vue';
 import { configProviderInjectionKey } from './hooks/context';
 import { llConfigProviderProps } from './ConfigProvider.type';
-import { mountStyle } from '../../_utils';
+import { mountStyle } from '~/_utils';
 import commonStyle from './style/common';
 import basicStyle from './style/basic';
 import expandComponents from './style/expandComponents';
 import exception from './style/exception';
 import commonConfig from './common/config';
-import antDesignI18n, { AntDesignLocaleType } from './common/antDesignI18n';
+import antDesignI18n, { type AntDesignLocaleType } from './common/antDesignI18n';
 import { InfoCircleOutlined } from '@ant-design/icons-vue';
+import { t } from '@ll_lib/i18n';
 
 defineOptions({
   name: 'LLConfigProvider',
@@ -42,7 +43,7 @@ const dayjsLocaleMap: Record<string, string> = {
 
 dayjs.locale(dayjsLocaleMap[props.lang]);
 
-const attrs = useAttrs();
+const attrs = useAttrs() as Record<string, unknown>;
 // 传入的配置覆盖默认配置
 const getBindValue = computed(() => {
   return deepMerge(
@@ -54,7 +55,7 @@ const getBindValue = computed(() => {
   );
 });
 
-let prefix = ref<string>((props.prefixCls as string) || 'ant');
+const prefix = ref<string>((props.prefixCls as string) || 'ant');
 
 provide(configProviderInjectionKey, {
   clsPrefixRef: prefix,

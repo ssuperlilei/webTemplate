@@ -1,10 +1,9 @@
-import { I18nLanguageEnum, getLanguage, t } from '@bmos/i18n';
+import { I18nLanguageEnum, getLanguage, t } from '@ll_lib/i18n';
 import { isNumber, isString } from '@ll_lib/utils';
 import type { RuleObject } from 'ant-design-vue/es/form/';
 import dayjs from 'dayjs';
 import { Component, VNode } from 'vue';
 import { JSX } from 'vue/jsx-runtime';
-import type { Recordable } from '../../../common/types/index';
 import type { ComponentMapType } from '../types/component';
 
 function getPlaceholder(prefix: string, labelResult: string): string {
@@ -78,7 +77,7 @@ export function setComponentRuleType(
   }
 }
 
-export function processDateValue(attr: Recordable, component: string) {
+export function processDateValue(attr: Record<string, any>, component: string) {
   const { valueFormat, value } = attr;
   if (valueFormat) {
     // attr.value = isObject(value) ? dayjs(value).format(valueFormat) : value

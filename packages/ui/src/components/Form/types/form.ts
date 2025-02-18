@@ -3,7 +3,6 @@ import type { FormItemProps } from 'ant-design-vue/es/form/FormItem';
 import type { NamePath, RuleObject } from 'ant-design-vue/es/form/interface';
 import type { Component, HTMLAttributes, VNode } from 'vue';
 import { JSX } from 'vue/jsx-runtime';
-import type { Recordable } from '../../../common/types/index';
 import { BMFormType } from '../hooks';
 import type { formInstance } from './bm-form';
 import type { ColEx, ComponentMapType, ComponentProps } from './component';

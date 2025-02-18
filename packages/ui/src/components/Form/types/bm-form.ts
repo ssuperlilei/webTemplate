@@ -2,24 +2,23 @@ import { isObject } from '@ll_lib/utils';
 import { ButtonProps } from 'ant-design-vue';
 import { formProps } from 'ant-design-vue/es/form';
 import type { ComponentInternalInstance, CSSProperties, ExtractPropTypes, PropType } from 'vue';
-import type { EmitFn, Fn, Recordable } from '../../../common/types/index';
-import initDefaultProps from '../../../utils/initDefaultProps';
-import type BMForm from '../BMForm.vue';
+import { initDefaultProps } from '~/_utils';
+import type BMForm from '../Form.vue';
 import { ActionColOptions } from '../enums/common';
 import type { ColEx } from './component';
 import type { FieldMapToTime, FormSchema, RowProps } from './form';
 
 export const aFormPropKeys = Object.keys(formProps());
 
-// @ts-ignore
+const AntFormProps = initDefaultProps(formProps(), {
+  labelAlign: 'right',
+  layout: 'horizontal',
+  colon: false,
+});
+
 export const bmFormProps = {
   /** Ant Design vue 表单配置 */
-  ...initDefaultProps(formProps(), {
-    /** 默认表单配置 */
-    labelAlign: 'right',
-    layout: 'horizontal',
-    colon: false,
-  }),
+  ...AntFormProps,
   /** 预置字段默认值 */
   initialValues: {
     type: Object as PropType<Recordable>,
@@ -49,14 +48,14 @@ export const bmFormProps = {
   // 默认 col style
   baseColProps: {
     type: Object as PropType<Partial<ColEx>>,
-    default: {
-      span: ActionColOptions.SpanWithOutAdvance,
+    default: () => {
+      return { span: ActionColOptions.SpanWithOutAdvance };
     },
   },
   /** 在INPUT组件上单击回车时，是否自动提交 */
   autoSubmitOnEnter: { type: Boolean as PropType<boolean>, default: true },
   /** 禁用表单 */
-  disabled: { type: Boolean as PropType<boolean> },
+  disabled: { type: Boolean },
   /** 表单结束后空 span 占位符 */
   emptySpan: {
     type: [Number, Object] as PropType<number>,

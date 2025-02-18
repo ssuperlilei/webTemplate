@@ -20,7 +20,7 @@
             "
             :style="{ zIndex: 99 }"
           >
-            <template v-for="item in Object.keys($slots)" #[item]="data" :key="item">
+            <template v-for="item in Object.keys(slots)" #[item]="data" :key="item">
               <slot :name="item" v-bind="data || {}" />
             </template>
           </BMFormItem>
@@ -47,7 +47,7 @@
 <script lang="ts" setup>
 import { cloneDeep, isNullOrUnDef, objectPick } from '@ll_lib/utils';
 import { Form, Row } from 'ant-design-vue';
-import { ref, useAttrs, watch } from 'vue';
+import { ref, useAttrs, useSlots, watch } from 'vue';
 import FormAction from './components/FormAction.vue';
 import {
   type BMFormType,
@@ -60,7 +60,7 @@ import {
 import BMFormItem from './FormItem.vue';
 import { aFormPropKeys, bmFormEmits, bmFormProps } from './types/bm-form';
 import style from './style';
-import { mountStyle } from '../../_utils';
+import { mountStyle } from '~/_utils';
 
 defineOptions({
   name: 'BMForm',
@@ -69,7 +69,8 @@ defineOptions({
 const props = defineProps(bmFormProps);
 
 const emit = defineEmits(bmFormEmits);
-const attrs = useAttrs();
+const attrs = useAttrs() as Record<string, unknown>;
+const slots = useSlots() as Record<string, unknown>;
 // 表单内部状态
 const formState = useFormState({ props, attrs });
 const { formModel, getRowConfig, bmFormRef, getFormProps, getFormActionBindProps, formSchemasRef } =
