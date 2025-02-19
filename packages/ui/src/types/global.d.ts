@@ -16,7 +16,6 @@ declare module 'vue' {
     VDialog: (typeof import('@ll_lib/ui'))['VDialog'];
     LConfigProvider: (typeof import('@ll_lib/ui'))['LConfigProvider'];
     LPasswordInput: (typeof import('@ll_lib/ui'))['LPasswordInput'];
-    LForm: (typeof import('@ll_lib/ui'))['LForm'];
   }
 }
 

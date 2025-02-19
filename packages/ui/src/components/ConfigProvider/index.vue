@@ -20,15 +20,11 @@ import { ConfigProvider } from 'ant-design-vue';
 import { computed, provide, ref, unref, useAttrs } from 'vue';
 import { configProviderInjectionKey } from './hooks/context';
 import { llConfigProviderProps } from './ConfigProvider.type';
-import { mountStyle } from '~/_utils';
-import commonStyle from './style/common';
-import basicStyle from './style/basic';
-import expandComponents from './style/expandComponents';
-import exception from './style/exception';
 import commonConfig from './common/config';
 import antDesignI18n, { type AntDesignLocaleType } from './common/antDesignI18n';
 import { InfoCircleOutlined } from '@ant-design/icons-vue';
 import { t } from '@ll_lib/i18n';
+import { basicStyle, commonStyle, exceptionStyle, expandComponentsStyle } from './style';
 
 defineOptions({
   name: 'LLConfigProvider',
@@ -65,8 +61,8 @@ ConfigProvider.config({
   prefixCls: prefix,
 });
 
-mountStyle('-ll-config-provider', commonStyle, prefix.value);
-mountStyle('-ll-config-provider-basic', basicStyle, prefix.value);
-mountStyle('-ll-config-provider-common', expandComponents, prefix.value);
-mountStyle('-ll-config-provider-exception', exception, prefix.value, 'title');
+commonStyle(prefix.value);
+basicStyle(prefix.value);
+expandComponentsStyle(prefix.value);
+exceptionStyle(prefix.value);
 </script>

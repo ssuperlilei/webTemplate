@@ -23,8 +23,7 @@ import { computed, nextTick, ref, unref, useAttrs, useSlots } from 'vue';
 import { Input } from 'ant-design-vue';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons-vue';
 import { bmPasswordInputProps } from './PasswordInput.types';
-import style from './style';
-import { mountStyle } from '~/_utils';
+import { styleFn } from './style';
 import { t } from '@ll_lib/i18n';
 
 defineOptions({
@@ -60,5 +59,5 @@ const showPwd = () => {
   });
 };
 
-mountStyle('-bmos-password-input', style);
+styleFn();
 </script>

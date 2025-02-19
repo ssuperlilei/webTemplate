@@ -59,8 +59,7 @@ import {
 } from './hooks/';
 import BMFormItem from './FormItem.vue';
 import { aFormPropKeys, bmFormEmits, bmFormProps } from './types/bm-form';
-import style from './style';
-import { mountStyle } from '~/_utils';
+import { styleFn } from './style';
 
 defineOptions({
   name: 'BMForm',
@@ -120,7 +119,7 @@ watch(
 );
 
 // 绑定css
-mountStyle('-bmos-form', style);
+styleFn();
 
 emit('register', instance);
 
