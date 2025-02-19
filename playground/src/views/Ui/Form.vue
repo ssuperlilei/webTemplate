@@ -1,31 +1,33 @@
 <template>
-  <div>
-    <Card>
-      <LForm ref="myFormRef" v-bind="formProps" @submit="handleSubmit" @reset="handleSet">
-        <template #selectA="{ formModel, field }">
-          <Select
-            v-model:value="formModel[field]"
-            :options="optionsA"
-            mode="multiple"
-            allow-clear
-            @change="valueSelectA = formModel[field]"
-          />
-        </template>
-        <template #selectB="{ formModel, field }">
-          <Select
-            v-model:value="formModel[field]"
-            :options="optionsB"
-            mode="multiple"
-            allow-clear
-            @change="valueSelectB = formModel[field]"
-          />
-        </template>
-        <template #resetBefore>
-          <Button type="primary" shape="round" @click="returnClick"> 自定义 </Button>
-        </template>
-      </LForm>
-    </Card>
-  </div>
+  <LConfigProvider>
+    <div>
+      <Card>
+        <LForm ref="myFormRef" v-bind="formProps" @submit="handleSubmit" @reset="handleSet">
+          <template #selectA="{ formModel, field }">
+            <Select
+              v-model:value="formModel[field]"
+              :options="optionsA"
+              mode="multiple"
+              allow-clear
+              @change="valueSelectA = formModel[field]"
+            />
+          </template>
+          <template #selectB="{ formModel, field }">
+            <Select
+              v-model:value="formModel[field]"
+              :options="optionsB"
+              mode="multiple"
+              allow-clear
+              @change="valueSelectB = formModel[field]"
+            />
+          </template>
+          <template #resetBefore>
+            <Button type="primary" shape="round" @click="returnClick"> 自定义 </Button>
+          </template>
+        </LForm>
+      </Card>
+    </div>
+  </LConfigProvider>
 </template>
 
 <script lang="tsx" setup>
@@ -33,7 +35,13 @@ import { UploadOutlined } from '@ant-design/icons-vue';
 import { cloneDeep } from '@ll_lib/utils';
 import { Button, Card, RadioGroup, Select, message } from 'ant-design-vue';
 import { computed, ref, unref } from 'vue';
-import { type FormProps, type FormSchema, LForm, type formInstance } from '~/components';
+import {
+  type FormProps,
+  type FormSchema,
+  LConfigProvider,
+  LForm,
+  type formInstance,
+} from '~@ll_lib/ui';
 
 defineOptions({
   name: 'DemosFormBasicForm',

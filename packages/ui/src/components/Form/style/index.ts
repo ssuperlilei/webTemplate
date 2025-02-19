@@ -2,7 +2,7 @@ import { asChild, c, cB, mountStyle } from '~/_utils';
 
 export const styleFn = () => {
   mountStyle(
-    '-bmos-password-input',
+    '-bmos-from',
     c([
       c('.bm-form', [
         cB(
