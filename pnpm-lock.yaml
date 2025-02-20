@@ -300,6 +300,9 @@ importers:
       '@ll_lib/typescript-config':
         specifier: workspace:*
         version: link:../lint-configs/typescript-config
+      '@ll_lib/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@types/node':
         specifier: ^22.13.4
         version: 22.13.4

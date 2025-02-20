@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@ll_lib/i18n": "workspace:*",
+    "@ll_lib/utils": "workspace:*",
     "@ll_lib/typescript-config": "workspace:*",
     "@types/node": "^22.13.4",
     "@vitejs/plugin-vue": "^5.2.1",
@@ -41,7 +42,9 @@
     "vue": "^3.5.13"
   },
   "peerDependencies": {
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "@ant-design/icons-vue": "^7.0.1",
+    "ant-design-vue": "^4.2.6"
   },
   "dependencies": {
     "@css-render/plugin-bem": "^0.15.14",
