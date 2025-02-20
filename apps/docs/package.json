@@ -21,9 +21,12 @@
     "vue": "^3.5.13"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^4.1.1",
     "sass": "^1.85.0",
     "typescript": "^5.7.3",
     "vitepress": "^1.6.3",
-    "vitepress-demo-plugin": "^1.2.3"
+    "vitepress-demo-plugin": "^1.2.3",
+    "vite": "^6.1.0"
   }
 }

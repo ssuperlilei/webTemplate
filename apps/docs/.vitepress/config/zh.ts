@@ -10,7 +10,7 @@ export const zh = defineConfig({
     nav: [
       { text: '首页', link: '/' },
       // { text: '其他', link: '/markdown-examples' },
-      { text: '博客', link: 'https://huangmingfu.github.io/my-blog' },
+      // { text: '博客', link: 'https://huangmingfu.github.io/my-blog' },
       {
         text: '更多',
         items: [
@@ -35,6 +35,8 @@ export const zh = defineConfig({
         items: [
           { text: 'Button 按钮', link: '/packages/ui/button' },
           { text: 'Dialog 对话框', link: '/packages/ui/dialog' },
+          { text: 'PasswordInput 组件', link: '/packages/ui/passwordInput' },
+          { text: 'form 组件', link: '/packages/ui/form' },
         ],
       },
       {

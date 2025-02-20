@@ -75,7 +75,7 @@ class I18n {
       if (obj?.translation?.[key]) {
         return obj.translation[key];
       }
-      console.error(`i18n: ${key} not exists!`);
+      // console.error(`i18n: ${key} not exists!`);
     }
     return (i18next.t(key, options) || key) as string;
   }
@@ -91,7 +91,7 @@ class I18n {
         return obj.translation[key];
       }
     }
-    console.error(`i18n: ${key} not exists!`);
+    // console.error(`i18n: ${key} not exists!`);
     return false;
   }
 }
