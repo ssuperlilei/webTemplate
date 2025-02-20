@@ -106,7 +106,6 @@ const actionFilters = computed(() => {
         e?.stopPropagation?.();
         const key = getKey(item, index);
         loadingMap.value.set(key, true);
-        // @ts-expect-error
         await onClick(props.columnParams).finally(() => {
           loadingMap.value.delete(key);
         });
@@ -143,7 +142,6 @@ const menuActionFilters = computed(() => {
           e.stopPropagation();
           const key = getKey(item, index);
           loadingMap.value.set(key, true);
-          // @ts-expect-error
           await onClick(props.columnParams).finally(() => {
             loadingMap.value.delete(key);
           });
@@ -172,7 +170,6 @@ const isIfShow = (item: ActionItem) => {
     isIfShow = ifShow as boolean;
   }
   if (isFunction(ifShow)) {
-    // @ts-expect-error
     isIfShow = ifShow(item) as boolean;
   }
   return isIfShow;

@@ -1,7 +1,7 @@
 import { isEmpty } from '@ll_lib/utils';
 import type { Ref, SetupContext } from 'vue';
 import { nextTick, ref, unref, watch } from 'vue';
-import BMTable from '../table.vue';
+import BMTable from '../Table.vue';
 import type { TableInstance, TableProps } from '../types';
 
 export function useTable(props?: Partial<TableProps>) {

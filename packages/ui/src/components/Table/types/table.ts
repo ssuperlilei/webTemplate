@@ -5,7 +5,7 @@ import type { ExtractPropTypes, PropType } from 'vue';
 import { TableListResult } from '../Table.types';
 import type { FormProps } from '~/components/Form';
 import { initDefaultProps } from '~/_utils';
-import type Table from '../table.vue';
+import type Table from '../Table.vue';
 import { TableColumn } from './column';
 
 export const bmTableProps = {

@@ -66,7 +66,7 @@ export const useTableState = ({ props, emit }: UseTableStateParams): any => {
       pageSizeOptions: ['10', '20', '50', '100'],
       showQuickJumper: true,
       showSizeChanger: true, // 显示可改变每页数量
-      showTotal: (total) => `${t('共')} ${total} ${t('条')}`, // 显示总数
+      showTotal: (total: number) => `${t('共')} ${total} ${t('条')}`, // 显示总数
       ...props.pagination,
     };
   }

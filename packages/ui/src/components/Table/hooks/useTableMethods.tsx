@@ -239,7 +239,6 @@ export const useTableMethods = ({ state, props, emit }: UseTableMethodsContext) 
       updateData.push(data as Record<string, any>);
     }
     if (isArray(data)) {
-      // @ts-expect-error
       updateData = [...data];
     }
     headerSearchDataRef.value = {
