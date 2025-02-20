@@ -102,7 +102,7 @@ import type {
   FormSchema,
   RenderCallbackParams,
 } from './types';
-import { bmFormItemProps } from './types/bm-form-item';
+import { lFormItemProps } from './types/bm-form-item';
 import { type ComponentMapType, componentMap } from './utils/componentMap';
 import { createPlaceholderMessage } from './utils/helper';
 import { t } from '@ll_lib/i18n';
@@ -113,11 +113,11 @@ defineOptions({
   name: 'LFormItem',
 });
 
-const props = defineProps(bmFormItemProps);
+const props = defineProps(lFormItemProps);
 
 const emit = defineEmits(['update:formModel']);
 
-// bmForm组件实例
+// lForm组件实例
 const formContext = useFormContext();
 const { formPropsRef, setItemRef, updateSchema, getSchemaByFiled, appendSchemaByField } =
   formContext;

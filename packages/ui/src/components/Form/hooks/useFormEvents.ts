@@ -10,13 +10,13 @@ import {
 import { NamePath } from 'ant-design-vue/es/form/interface';
 import dayjs from 'dayjs';
 import { toRaw, unref, watch } from 'vue';
-import type { BMFormEmitFn } from '../types/bm-form';
+import type { LFormEmitFn } from '../types/bm-form';
 import type { FormSchema } from '../types/form';
 import { dateItemType, handleInputNumberValue } from '../utils/helper';
 import type { FormMethods, FormState } from './index';
 
 type UseFormActionContext = FormState & {
-  emit: BMFormEmitFn;
+  emit: LFormEmitFn;
   handleFormValues: FormMethods['handleFormValues'];
 };
 
@@ -30,14 +30,14 @@ export function useFormEvents(formActionContext: UseFormActionContext) {
     formModel,
     cacheFormModel,
     getFormProps,
-    bmFormRef,
+    lFormRef,
     defaultFormValues,
     originComponentPropsFnMap,
     handleFormValues,
   } = formActionContext;
 
   function getFormValues(): Recordable {
-    const formEl = unref(bmFormRef);
+    const formEl = unref(lFormRef);
     if (!formEl) return {};
     return handleFormValues(toRaw(unref(formModel)));
   }
@@ -333,7 +333,7 @@ export function useFormEvents(formActionContext: UseFormActionContext) {
    * @param {ScrollOptions} options 滚动配置
    */
   async function scrollToField(name: NamePath, options?: ScrollOptions | undefined) {
-    await bmFormRef.value?.scrollToField(name, options);
+    await lFormRef.value?.scrollToField(name, options);
   }
 
   /**
@@ -342,7 +342,7 @@ export function useFormEvents(formActionContext: UseFormActionContext) {
    * @return {*}
    */
   async function validateFields(nameList?: NamePath[] | undefined) {
-    return bmFormRef.value?.validateFields(nameList);
+    return lFormRef.value?.validateFields(nameList);
   }
 
   /**
@@ -353,7 +353,7 @@ export function useFormEvents(formActionContext: UseFormActionContext) {
   async function validate(nameList?: NamePath[] | undefined) {
     try {
       // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
-      await bmFormRef.value?.validate(nameList)!;
+      await lFormRef.value?.validate(nameList)!;
       return getFormValues();
     } catch (error: any) {
       if (error.errorFields && error.errorFields.length > 0 && getFormProps.value.scrollToError) {
@@ -370,7 +370,7 @@ export function useFormEvents(formActionContext: UseFormActionContext) {
    * @param {string | string[]} name
    */
   async function clearValidate(name?: string | string[]) {
-    await bmFormRef.value?.clearValidate(name);
+    await lFormRef.value?.clearValidate(name);
   }
 
   /**
@@ -385,7 +385,7 @@ export function useFormEvents(formActionContext: UseFormActionContext) {
       await submitFunc();
       return;
     }
-    const formEl = unref(bmFormRef);
+    const formEl = unref(lFormRef);
     if (!formEl) return;
     try {
       const values = await validate();

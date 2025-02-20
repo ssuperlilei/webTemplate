@@ -35,13 +35,8 @@ import { UploadOutlined } from '@ant-design/icons-vue';
 import { cloneDeep } from '@ll_lib/utils';
 import { Button, Card, RadioGroup, Select, message } from 'ant-design-vue';
 import { computed, ref, unref } from 'vue';
-import {
-  type FormProps,
-  type FormSchema,
-  LConfigProvider,
-  LForm,
-  type formInstance,
-} from '~@ll_lib/ui';
+import { type FormProps, type FormSchema, LConfigProvider, LForm } from '~@ll_lib/ui';
+import type { formInstance } from '@ll_lib/ui';
 
 defineOptions({
   name: 'DemosFormBasicForm',

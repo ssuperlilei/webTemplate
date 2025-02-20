@@ -1,6 +1,6 @@
 <template>
   <Form
-    ref="bmFormRef"
+    ref="lFormRef"
     v-bind="objectPick(getFormProps, aFormPropKeys)"
     class="bm-form"
     :model="formModel"
@@ -10,7 +10,7 @@
       <slot name="formHeader" />
       <slot>
         <template v-for="schemaItem in formSchemasRef" :key="schemaItem.field">
-          <BMFormItem
+          <LFormItem
             v-model:form-model="formModel"
             :schema="schemaItem"
             :use-max-length-rule="
@@ -23,7 +23,7 @@
             <template v-for="item in Object.keys(slots)" #[item]="data" :key="item">
               <slot :name="item" v-bind="data || {}" />
             </template>
-          </BMFormItem>
+          </LFormItem>
         </template>
         <FormAction
           v-if="getFormProps.showActionButtonGroup"
@@ -50,29 +50,30 @@ import { Form, Row } from 'ant-design-vue';
 import { ref, useAttrs, useSlots, watch } from 'vue';
 import FormAction from './components/FormAction.vue';
 import {
-  type BMFormType,
+  type LFormType,
   createFormContext,
   useAdvanced,
   useFormEvents,
   useFormMethods,
   useFormState,
 } from './hooks/';
-import BMFormItem from './FormItem.vue';
-import { aFormPropKeys, bmFormEmits, bmFormProps } from './types/bm-form';
+import LFormItem from './FormItem.vue';
+import { aFormPropKeys, lFormEmits, lFormProps } from './types/bm-form';
 import { styleFn } from './style';
 
 defineOptions({
   name: 'LForm',
 });
 
-const props = defineProps(bmFormProps);
+const props = defineProps(lFormProps);
 
-const emit = defineEmits(bmFormEmits);
+const emit = defineEmits(lFormEmits);
 const attrs = useAttrs() as Record<string, unknown>;
 const slots = useSlots() as Record<string, unknown>;
 // 表单内部状态
+// @ts-expect-error
 const formState = useFormState({ props, attrs });
-const { formModel, getRowConfig, bmFormRef, getFormProps, getFormActionBindProps, formSchemasRef } =
+const { formModel, getRowConfig, lFormRef, getFormProps, getFormActionBindProps, formSchemasRef } =
   formState;
 
 // 表单内部方法
@@ -88,7 +89,7 @@ const instance = {
   ...formState,
   ...formEvents,
   ...formMethods,
-} as BMFormType;
+} as LFormType;
 
 const actionColOptionsSpan = ref<number>(0);
 const updateActionColOptions = (span: number) => {

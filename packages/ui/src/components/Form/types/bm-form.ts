@@ -3,22 +3,25 @@ import { ButtonProps } from 'ant-design-vue';
 import { formProps } from 'ant-design-vue/es/form';
 import type { ComponentInternalInstance, CSSProperties, ExtractPropTypes, PropType } from 'vue';
 import { initDefaultProps } from '~/_utils';
-import type BMForm from '../Form.vue';
+import type LForm from '../Form.vue';
 import { ActionColOptions } from '../enums/common';
 import type { ColEx } from './component';
 import type { FieldMapToTime, FormSchema, RowProps } from './form';
+import type { Options as ScrollIntoViewOptions } from 'scroll-into-view-if-needed';
+// @ts-expect-error
+import type * as VueTypes from 'vue-types';
 
 export const aFormPropKeys = Object.keys(formProps());
 
-const AntFormProps = initDefaultProps(formProps(), {
-  labelAlign: 'right',
-  layout: 'horizontal',
-  colon: false,
-});
+export type ScrollIntoViewIfNeededType = ScrollIntoViewOptions;
 
-export const bmFormProps = {
+export const lFormProps = {
   /** Ant Design vue 表单配置 */
-  ...AntFormProps,
+  ...initDefaultProps(formProps(), {
+    labelAlign: 'right',
+    layout: 'horizontal',
+    colon: false,
+  }),
   /** 预置字段默认值 */
   initialValues: {
     type: Object as PropType<Recordable>,
@@ -139,7 +142,7 @@ export const bmFormProps = {
   scrollToError: { type: Boolean as PropType<boolean>, default: false },
 };
 
-export const bmFormEmits = {
+export const lFormEmits = {
   register: (exposed: ComponentInternalInstance['exposed']) => isObject(exposed),
   reset: (formModel: Recordable<any>) => isObject(formModel),
   submit: (formModel: Recordable<any>) => isObject(formModel),
@@ -147,13 +150,13 @@ export const bmFormEmits = {
   formModelChange: (_formModel: Recordable<any>) => true,
 };
 
-export type BMFormEmits = typeof bmFormEmits;
+export type LFormEmits = typeof lFormEmits;
 
-export type BMFormEmitFn = EmitFn<BMFormEmits>;
+export type LFormEmitFn = EmitFn<LFormEmits>;
 
-export type FormProps<T = any> = Partial<ExtractPropTypes<typeof bmFormProps>> & {
+export type FormProps<T = any> = Partial<ExtractPropTypes<typeof lFormProps>> & {
   schemas: FormSchema<T>[];
 };
 
 // @ts-ignore:next-line
-export type formInstance = Partial<InstanceType<typeof BMForm>>;
+export type formInstance = Partial<InstanceType<typeof LForm>>;

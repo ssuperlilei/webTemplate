@@ -45,7 +45,7 @@ export const useFormMethods = (formMethodsContext: UseFormMethodsContext) => {
     set(cacheFormModel, keys, value);
     // const { validateTrigger } = unref(getFormProps);
     // if (!validateTrigger || validateTrigger === 'change') {
-    //   bmFormRef.value?.validateFields([key]);
+    //   lFormRef.value?.validateFields([key]);
     // }
   };
 

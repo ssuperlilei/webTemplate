@@ -3,7 +3,7 @@ import type { FormItemProps } from 'ant-design-vue/es/form/FormItem';
 import type { NamePath, RuleObject } from 'ant-design-vue/es/form/interface';
 import type { Component, HTMLAttributes, VNode } from 'vue';
 import { JSX } from 'vue/jsx-runtime';
-import { BMFormType } from '../hooks';
+import { LFormType } from '../hooks';
 import type { formInstance } from './bm-form';
 import type { ColEx, ComponentMapType, ComponentProps } from './component';
 
@@ -24,7 +24,7 @@ export interface RenderCallbackParams<T = string> {
   field: T extends string ? string : GetFieldKeys<T>;
   values: any;
   /** 动态表单实例 */
-  formInstance: BMFormType;
+  formInstance: LFormType;
   /** 作用域插槽数据 */
   slotData?: Recordable;
 }

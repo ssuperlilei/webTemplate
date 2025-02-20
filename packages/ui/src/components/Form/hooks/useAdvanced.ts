@@ -1,16 +1,16 @@
 import { isBoolean, isFunction, isNumber, isObject } from '@ll_lib/utils';
 import { Ref, computed, unref, watch } from 'vue';
-import type { BMFormEmitFn } from '../types/bm-form';
+import type { LFormEmitFn } from '../types/bm-form';
 import type { ColEx } from '../types/component';
-import type { BMFormType } from './';
+import type { LFormType } from './';
 import { useBreakpoint } from './useBreakpoint';
 
 const BASIC_COL_LEN = 24;
 const BASIC_LINE_HIDDEN = 1;
 
 type UseAdvancedContext = {
-  instance: BMFormType;
-  emit: BMFormEmitFn;
+  instance: LFormType;
+  emit: LFormEmitFn;
   actionColOptionsSpan: Ref<number>;
 };
 

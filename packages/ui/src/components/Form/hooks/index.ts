@@ -12,4 +12,4 @@ export * from './useFormMethods';
 export * from './useFormState';
 export * from './useLabelWidth';
 
-export type BMFormType = FormState & FormEvents & FormMethods;
+export type LFormType = FormState & FormEvents & FormMethods;

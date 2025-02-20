@@ -40,7 +40,7 @@ export const useFormState = ({ props, attrs }: useFormStateParams): any => {
   // 缓存的表单值，用于恢复form-item v-if为true后的值
   const cacheFormModel = { ...props.initialValues };
   // 表单实例
-  const bmFormRef = ref<FormInstance>();
+  const lFormRef = ref<FormInstance>();
   // 将所有的表单组件实例保存起来
   const compRefMap = new Map<string, DefineComponent<any>>();
   // 初始时的componentProps，用于updateSchema更新时不覆盖componentProps为函数时的值
@@ -91,7 +91,7 @@ export const useFormState = ({ props, attrs }: useFormStateParams): any => {
   return {
     formModel,
     defaultFormValues,
-    bmFormRef,
+    lFormRef,
     formPropsRef,
     cacheFormModel,
     compRefMap,

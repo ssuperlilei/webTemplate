@@ -64,7 +64,7 @@ type ButtonOptions = Partial<ExtractPropTypes<ReturnType<typeof buttonProps>>> &
 };
 
 defineOptions({
-  name: 'BMFormAction',
+  name: 'LFormAction',
   inheritAttrs: false,
 });
 

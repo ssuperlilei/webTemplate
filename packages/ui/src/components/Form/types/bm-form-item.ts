@@ -1,7 +1,7 @@
 import { PropType } from 'vue';
 import type { FormSchema } from './form';
 
-export const bmFormItemProps = {
+export const lFormItemProps = {
   formModel: {
     type: Object as PropType<Record<string, any>>,
     default: () => ({}),
@@ -16,4 +16,4 @@ export const bmFormItemProps = {
   },
 };
 
-export type BMFormItemProps = typeof bmFormItemProps;
+export type LFormItemProps = typeof lFormItemProps;
