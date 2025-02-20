@@ -6,3 +6,5 @@ export function createInjectionKey<T>(key: string): InjectionKey<T> {
 }
 export const configProviderInjectionKey =
   createInjectionKey<ConfigProviderInjection>('ll-config-provider');
+
+export const llPropsKey = createInjectionKey('ll-props');

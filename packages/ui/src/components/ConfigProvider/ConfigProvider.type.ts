@@ -5,7 +5,9 @@ import { initDefaultProps } from '~/_utils';
 export interface ConfigProviderInjection {
   clsPrefixRef: Ref<string>;
 }
-
+export interface LLPropsInjection {
+  hasPermission: (code: string) => boolean;
+}
 // props 对象
 export const llConfigProviderProps = {
   ...initDefaultProps(configProviderProps(), {}),

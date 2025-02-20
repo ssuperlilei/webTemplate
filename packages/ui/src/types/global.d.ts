@@ -18,6 +18,7 @@ declare module 'vue' {
     LPasswordInput: (typeof import('@ll_lib/ui'))['LPasswordInput'];
     LForm: (typeof import('@ll_lib/ui'))['LForm'];
     LEllipsis: (typeof import('@ll_lib/ui'))['LEllipsis'];
+    LTable: (typeof import('@ll_lib/ui'))['LTable'];
   }
 }
 
