@@ -1,7 +1,7 @@
 import { asBrother, c, cB, cE, mountStyle } from '~/_utils';
 export const basicStyle = (prefix: string) => {
   mountStyle(
-    '-ll-config-provider',
+    '-ll-config-basic-provider',
     c([
       // 滚动条
       c(

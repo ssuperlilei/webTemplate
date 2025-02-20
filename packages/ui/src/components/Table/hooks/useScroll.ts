@@ -1,4 +1,4 @@
-import { debounce } from '@bmos/utils';
+import { debounce } from '@ll_lib/utils';
 import { Ref, computed, getCurrentInstance, onBeforeUnmount, ref } from 'vue';
 import type { TableProps } from '../types';
 
