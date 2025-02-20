@@ -44,7 +44,6 @@ export const commonStyle = (prefix: string) => {
       font-size: 14px;
       font-family:"思源黑体","Microsoft YaHei" !important;
       line-height: 1.4;
-      overflow: hidden;
       -webkit-text-size-adjust: 100%;
       -webkit-tap-highlight-color: transparent;
     
