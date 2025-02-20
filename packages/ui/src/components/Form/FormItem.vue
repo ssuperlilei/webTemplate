@@ -31,13 +31,12 @@
     >
       <template #label>
         <component :is="renderLabelHelpMessage" v-if="labelIsFunction" />
-        <component :is="renderLabelHelpMessage" />
-        <!-- <BMEllipsis v-else :other-width="10">
-          <component :is="renderLabelHelpMessage"></component>
-          <template v-if="!schema.noLabelTip" #title
-            ><component :is="renderLabelHelpMessage"></component
-          ></template>
-        </BMEllipsis> -->
+        <LEllipsis v-else :other-width="10">
+          <component :is="renderLabelHelpMessage" />
+          <template v-if="!schema.noLabelTip" #title>
+            <component :is="renderLabelHelpMessage" />
+          </template>
+        </LEllipsis>
       </template>
       <slot v-if="schema.slot" :name="schema.slot" v-bind="getValues" />
       <component
@@ -107,11 +106,11 @@ import { bmFormItemProps } from './types/bm-form-item';
 import { type ComponentMapType, componentMap } from './utils/componentMap';
 import { createPlaceholderMessage } from './utils/helper';
 import { t } from '@ll_lib/i18n';
-// import { BMEllipsis } from '../../Ellipsis';
+import LEllipsis from '../Ellipsis';
 import { aDividerPropKeys } from './types/component';
 
 defineOptions({
-  name: 'BMFormItem',
+  name: 'LFormItem',
 });
 
 const props = defineProps(bmFormItemProps);
@@ -230,7 +229,7 @@ const vNodeFactory = (
   values = unref(getValues),
 ): any => {
   if (isString(component)) {
-    return component;
+    return <>{component}</>;
   } else if (isVNode(component)) {
     return component;
   } else if (isFunction(component)) {

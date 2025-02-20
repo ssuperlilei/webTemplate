@@ -62,7 +62,7 @@ import { aFormPropKeys, bmFormEmits, bmFormProps } from './types/bm-form';
 import { styleFn } from './style';
 
 defineOptions({
-  name: 'BMForm',
+  name: 'LForm',
 });
 
 const props = defineProps(bmFormProps);

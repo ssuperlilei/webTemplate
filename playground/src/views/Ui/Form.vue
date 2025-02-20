@@ -115,7 +115,7 @@ const schemas: FormSchema[] = [
   {
     field: 'field1',
     component: 'Input',
-    label: '字段1',
+    label: '字段字段1字段1字段1字段1字段1字段11',
     componentProps: () => {
       return {
         placeholder: '自定义placeholder',
@@ -168,14 +168,6 @@ const schemas: FormSchema[] = [
     },
   },
   {
-    field: 'field6',
-    component: 'Divider',
-    label: '字段6',
-    colProps: {
-      span: 24,
-    },
-  },
-  {
     field: 'field5',
     component: 'CheckboxGroup',
     label: '字段5',
@@ -219,19 +211,6 @@ const schemas: FormSchema[] = [
     field: 'field9',
     component: 'Switch',
     label: '字段9',
-  },
-  {
-    field: 'field12',
-    component: 'FormGroup',
-    label: '字段12',
-    colProps: {
-      span: 24,
-    },
-    componentProps: {
-      style: {
-        borderTop: '1px solid #e8e8e8',
-      },
-    },
   },
   {
     field: 'field10',
@@ -393,8 +372,10 @@ const schemas: FormSchema[] = [
           // console.log(e)
           let citiesOptions =
             e == 1
-              ? citiesOptionsData[provincesOptions[0].id]
-              : citiesOptionsData[provincesOptions[1].id];
+              ? // @ts-expect-error
+                citiesOptionsData[provincesOptions[0].id]
+              : // @ts-expect-error
+                citiesOptionsData[provincesOptions[1].id];
           // console.log(citiesOptions)
           if (e === undefined) {
             citiesOptions = [];
@@ -507,12 +488,14 @@ options.value = Array.from({ length: 10 }).map((_, i) => ({
 }));
 
 const optionsA = computed(() => {
+  // @ts-expect-error
   return cloneDeep(unref(options)).map((op) => {
     op.disabled = unref(valueSelectB).indexOf(op.value) !== -1;
     return op;
   });
 });
 const optionsB = computed(() => {
+  // @ts-expect-error
   return cloneDeep(unref(options)).map((op: { disabled: boolean; value: string }) => {
     op.disabled = unref(valueSelectA).indexOf(op.value) !== -1;
     return op;

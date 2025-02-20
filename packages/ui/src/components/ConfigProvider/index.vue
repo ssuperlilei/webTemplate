@@ -27,7 +27,7 @@ import { t } from '@ll_lib/i18n';
 import { basicStyle, commonStyle, exceptionStyle, expandComponentsStyle } from './style';
 
 defineOptions({
-  name: 'LLConfigProvider',
+  name: 'LConfigProvider',
 });
 
 const props = defineProps(llConfigProviderProps);

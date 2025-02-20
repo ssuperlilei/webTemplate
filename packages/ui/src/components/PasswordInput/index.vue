@@ -27,7 +27,7 @@ import { styleFn } from './style';
 import { t } from '@ll_lib/i18n';
 
 defineOptions({
-  name: 'BMPasswordInput',
+  name: 'LPasswordInput',
   inheritAttrs: false,
 });
 const props = defineProps(bmPasswordInputProps);
