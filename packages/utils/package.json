@@ -1,7 +1,7 @@
 {
   "name": "@ll_lib/utils",
   "description": "@LLlib utils library",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
