@@ -10,13 +10,13 @@ export const zh = defineConfig({
     nav: [
       { text: '首页', link: '/' },
       // { text: '其他', link: '/markdown-examples' },
-      // { text: '博客', link: 'https://huangmingfu.github.io/my-blog' },
+      // { text: '博客', link: 'https://ssuperlilei.github.io/my-blog' },
       {
         text: '更多',
         items: [
           {
             text: '更新日志',
-            link: 'https://github.com/huangmingfu/vue3-turbo-component-lib-template/blob/master/CHANGELOG.md',
+            link: 'https://github.com/ssuperlilei/webTemplate/blob/master/CHANGELOG.md',
           },
           // {
           //   text: '参与贡献',
@@ -52,8 +52,6 @@ export const zh = defineConfig({
         items: [{ text: '字符串工具', link: '/packages/utils/string' }],
       },
     ],
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/huangmingfu/vue3-turbo-component-lib-template' },
-    ],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/ssuperlilei/webTemplate' }],
   },
 });

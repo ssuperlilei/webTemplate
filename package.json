@@ -3,14 +3,14 @@
   "description": "This is a modern component library template based on Turborepo+Vue 3.5+TypeScript.",
   "version": "1.0.0",
   "packageManager": "pnpm@10.2.1",
-  "author": "huangmingfu <212149997@qq.com>",
+  "author": "ssuperlilei <212149997@qq.com>",
   "license": "MIT",
-  "homepage": "https://github.com/huangmingfu/vue3-turbo-component-lib-template",
+  "homepage": "https://github.com/ssuperlilei/webTemplate",
   "repository": {
     "type": "git",
-    "url": "https://github.com/huangmingfu/vue3-turbo-component-lib-template"
+    "url": "https://github.com/ssuperlilei/webTemplate"
   },
-  "bugs": "https://github.com/huangmingfu/vue3-turbo-component-lib-template/issues",
+  "bugs": "https://github.com/ssuperlilei/webTemplate/issues",
   "keywords": [
     "component library template",
     "component library",

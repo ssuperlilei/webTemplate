@@ -68,14 +68,14 @@ pnpm add @hmflib/ui @hmflib/utils @hmflib/hooks @hmflib/directives
 
 > Equipped with international language switching
 
-![](https://huangmingfu.github.io/drawing-bed/images/pic-go/202412291431548.png)
-![](https://huangmingfu.github.io/drawing-bed/images/pic-go/202411271629728.png)
-![](https://huangmingfu.github.io/drawing-bed/images/pic-go/202411271629672.png)
+![](https://ssuperlilei.github.io/drawing-bed/images/pic-go/202412291431548.png)
+![](https://ssuperlilei.github.io/drawing-bed/images/pic-go/202411271629728.png)
+![](https://ssuperlilei.github.io/drawing-bed/images/pic-go/202411271629672.png)
 
 ### playground
 
-![](https://huangmingfu.github.io/drawing-bed/images/pic-go/202411271630381.png)
-![](https://huangmingfu.github.io/drawing-bed/images/pic-go/202411271631563.png)
+![](https://ssuperlilei.github.io/drawing-bed/images/pic-go/202411271630381.png)
+![](https://ssuperlilei.github.io/drawing-bed/images/pic-go/202411271631563.png)
 
 ## Related Links
 
@@ -91,7 +91,7 @@ pnpm add @hmflib/ui @hmflib/utils @hmflib/hooks @hmflib/directives
 ## Help Guide
 
 1. If you encounter issues executing `rm -rf` or other `shell` commands, you can run the commands using Git Bash terminal (which comes with Git after installation).
-   ![Run Commands in Git Bash](https://huangmingfu.github.io/drawing-bed/images/pic-go/202412251542234.png)
+   ![Run Commands in Git Bash](https://ssuperlilei.github.io/drawing-bed/images/pic-go/202412251542234.png)
    For commands like `clean`, `rename-pkg`, etc., located in the project root directory, you can use the above method to resolve the issue.
 
 2. If you encounter failures when running `pnpm run dev`, you need to first execute the build command: `pnpm run build`, and then run `pnpm run dev`.
