@@ -49,7 +49,11 @@ export const zh = defineConfig({
       },
       {
         text: '工具函数（@ll_lib/utils）',
-        items: [{ text: '字符串工具', link: '/packages/utils/string' }],
+        items: [{ text: '类型方法', link: '/packages/utils/types' }],
+      },
+      {
+        text: 'i18n（@ll_lib/i18n）',
+        items: [{ text: '多语言', link: '/packages/i18n/index' }],
       },
     ],
     socialLinks: [{ icon: 'github', link: 'https://github.com/ssuperlilei/webTemplate' }],

@@ -139,7 +139,7 @@ export const getLanguage = () => {
 };
 
 // 使用示例
-// import { t, changeLanguage, init } from '@bmos/i18n';
+// import { t, changeLanguage, init } from '@ll_lib/i18n';
 //   init({
 //     lng: 'zh-CN',
 //   });

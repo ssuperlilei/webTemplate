@@ -9,7 +9,7 @@ export default defineConfig({
   ...shared,
   locales: {
     root: { label: '简体中文', ...zh },
-    en: { label: 'English', ...en },
+    // en: { label: 'English', ...en },
   },
   vite: {
     plugins: [vueJsx() as any],
