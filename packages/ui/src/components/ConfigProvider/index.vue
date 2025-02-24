@@ -18,7 +18,7 @@ import 'dayjs/locale/ru';
 import { deepMerge, removeEmpty } from '@ll_lib/utils';
 import { ConfigProvider } from 'ant-design-vue';
 import { computed, provide, ref, unref, useAttrs } from 'vue';
-import { configProviderInjectionKey } from './hooks/context';
+import { configProviderInjectionKey, llPropsKey } from './hooks/context';
 import { llConfigProviderProps } from './ConfigProvider.type';
 import commonConfig from './common/config';
 import antDesignI18n, { type AntDesignLocaleType } from './common/antDesignI18n';
@@ -55,6 +55,10 @@ const prefix = ref<string>((props.prefixCls as string) || 'ant');
 
 provide(configProviderInjectionKey, {
   clsPrefixRef: prefix,
+});
+
+provide(llPropsKey, {
+  ...props.llProps,
 });
 
 ConfigProvider.config({
