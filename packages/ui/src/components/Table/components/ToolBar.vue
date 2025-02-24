@@ -1,9 +1,9 @@
 <template>
-  <div class="bmos-tool-bar">
+  <div class="ll-tool-bar">
     <slot name="headerTitle" v-bind="tableInstance">
-      <div class="bmos-tool-bar-title">
+      <div class="ll-tool-bar-title">
         {{ props.title }}
-        <BMHelp v-if="props.titleTooltip" class="bmos-tool-bar-help" :text="props.titleTooltip" />
+        <BMHelp v-if="props.titleTooltip" class="ll-tool-bar-help" :text="props.titleTooltip" />
       </div>
     </slot>
 

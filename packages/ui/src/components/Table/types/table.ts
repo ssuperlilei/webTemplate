@@ -8,7 +8,7 @@ import { initDefaultProps } from '~/_utils';
 import type Table from '../Table.vue';
 import { TableColumn } from './column';
 
-export const bmTableProps = {
+export const llTableProps = {
   ...initDefaultProps(tableProps(), {
     rowKey: 'id',
     bordered: false,
@@ -170,7 +170,7 @@ export type OnResizeColumnCallbackParams = Parameters<NonNullable<TableProps['on
 /** 表格onResizeColumn事件回调函数 */
 export type OnResizeColumnCallback = TableProps['onResizeColumn'];
 
-export type TableProps = Partial<ExtractPropTypes<typeof bmTableProps>>;
+export type TableProps = Partial<ExtractPropTypes<typeof llTableProps>>;
 
 export const tableEmits = {
   register: (_instance: any) => true,

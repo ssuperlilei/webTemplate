@@ -34,7 +34,7 @@ import { Button, Checkbox, CheckboxGroup, Col, Row, Space } from 'ant-design-vue
 const buttonBoxStyle = `padding-top: 12px;
   box-sizing: border-box;
   margin-top: 12px;
-  border-top: 1px solid var(--bmos-second-level-border-color);`;
+  border-top: 1px solid var(--ll-second-level-border-color);`;
 
 const emit = defineEmits(['update:value', 'search', 'reset']);
 

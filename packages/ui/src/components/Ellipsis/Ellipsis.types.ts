@@ -3,10 +3,10 @@ import type { ExtractPropTypes, PropType } from 'vue';
 import { initDefaultProps } from '~/_utils';
 
 // props 对象
-export const bmEllipsisProps = {
+export const llEllipsisProps = {
   ...initDefaultProps(tooltipProps(), {
     placement: 'bottom',
-    overlayClassName: 'bmos-tooltip-ellipsis',
+    overlayClassName: 'll-tooltip-ellipsis',
   }),
   // 兄弟元素宽度， 相对于父级节点
   otherWidth: {
@@ -26,4 +26,4 @@ export const bmEllipsisProps = {
 };
 
 // props 类型
-export type BMEllipsisProps = Partial<ExtractPropTypes<typeof bmEllipsisProps>>;
+export type BMEllipsisProps = Partial<ExtractPropTypes<typeof llEllipsisProps>>;

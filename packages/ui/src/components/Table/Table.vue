@@ -1,11 +1,11 @@
 <template>
-  <div :key="tableKey" class="bmos-table">
+  <div :key="tableKey" class="ll-table">
     <LForm
       v-if="search"
       ref="queryFormRef"
       submit-on-reset
       :class="[
-        props.showSearchBorder ? 'bmos-table-form-border' : '',
+        props.showSearchBorder ? 'll-table-form-border' : '',
         !props.showToolBar && props.showSearchBorder ? 'has-margin-bottom' : '',
       ]"
       v-bind="getFormProps"
@@ -18,7 +18,7 @@
         <slot :name="item" v-bind="data || {}" />
       </template>
     </LForm>
-    <div :class="['bmos-table-container', props.virtualScroll ? virtualizedClass : '']">
+    <div :class="['ll-table-container', props.virtualScroll ? virtualizedClass : '']">
       <ToolBar
         v-if="showToolBar"
         :title="headerTitle"
@@ -41,9 +41,7 @@
         <template #customFilterIcon="{ column }">
           <SearchOutlined
             :style="{
-              color: headerSearchDataRef[column.dataIndex]
-                ? 'var(--bmos-primary-color)'
-                : '#6C7380',
+              color: headerSearchDataRef[column.dataIndex] ? 'var(--ll-primary-color)' : '#6C7380',
             }"
           />
         </template>
@@ -53,9 +51,7 @@
         >
           <span
             :style="{
-              color: headerSearchDataRef[column.dataIndex]
-                ? 'var(--bmos-primary-color)'
-                : undefined,
+              color: headerSearchDataRef[column.dataIndex] ? 'var(--ll-primary-color)' : undefined,
             }"
           >
             {{ column.title }}
@@ -104,7 +100,7 @@ import {
   useVirtualized,
 } from './hooks';
 import { ToolBar } from './components';
-import { bmTableProps, tableEmits } from './types';
+import { llTableProps, tableEmits } from './types';
 import type { TableActionType } from './Table.types';
 import LForm from '~/components/Form';
 import { styleFn } from './style';
@@ -116,7 +112,7 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const props = defineProps(bmTableProps);
+const props = defineProps(llTableProps);
 const emit = defineEmits(tableEmits);
 const slots = useSlots();
 

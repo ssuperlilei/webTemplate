@@ -7,7 +7,6 @@ import type { TableMethods, TableState } from '../hooks';
 import type { TableActionType, TableColumn, TableProps } from '../types';
 import { TableAction } from '../components';
 import { ColumnKeyFlag } from '../types/column';
-import type { DataIndex } from 'ant-design-vue/es/vc-table/interface';
 
 export type UseTableColumnsContext = {
   state: TableState;
@@ -43,13 +42,13 @@ export const useColumns = ({ state, methods, props, tableAction }: UseTableColum
 
   watchEffect(() => {
     const innerProps = { ...unref(getProps) };
-    const columns = cloneDeep(
+    const columns: TableColumn[] = cloneDeep(
       useInnerColumns.value!.filter((n: { hideInTable: any }) => !n.hideInTable),
     );
     // 是否开启拖拽排序
     if (
       innerProps?.dragSort &&
-      columns.every((item: { dataIndex: string }) => item.dataIndex !== 'BMOS_SORT')
+      columns.every((item: TableColumn) => item.dataIndex !== 'BMOS_SORT')
     ) {
       columns.unshift({
         dataIndex: 'BMOS_SORT',
@@ -66,7 +65,7 @@ export const useColumns = ({ state, methods, props, tableAction }: UseTableColum
     // 是否添加序号列
     if (
       innerProps?.showIndex &&
-      columns.every((item: { dataIndex: string }) => item.dataIndex !== 'BMOS_INDEX')
+      columns.every((item: TableColumn) => item.dataIndex !== 'BMOS_INDEX')
     ) {
       columns.unshift({
         dataIndex: 'BMOS_INDEX',
@@ -133,11 +132,10 @@ export const useColumns = ({ state, methods, props, tableAction }: UseTableColum
                 let value = record[child.dataIndex as string];
                 if (isArray(child.dataIndex)) {
                   // 找对象的值, 如果中途找不到值或者链路中有 undefined 则返回空值
-                  // @ts-expect-error
                   value = child.dataIndex?.reduce((prev: any, next: any) => prev?.[next], record);
                 }
                 if (isEmpty(value)) {
-                  return <span class="bmos-table-empty-column">-</span>;
+                  return <span class="ll-table-empty-column">-</span>;
                 } else {
                   return `${value}`;
                 }
@@ -153,11 +151,10 @@ export const useColumns = ({ state, methods, props, tableAction }: UseTableColum
           let value = record[item.dataIndex as string];
           if (isArray(item.dataIndex)) {
             // 找对象的值
-            // @ts-expect-error
             value = item.dataIndex?.reduce((prev: any, next: any) => prev?.[next], record);
           }
           if (isEmpty(value)) {
-            return <span class="bmos-table-empty-column">-</span>;
+            return <span class="ll-table-empty-column">-</span>;
           } else {
             return `${value}`;
           }
@@ -172,11 +169,10 @@ export const useColumns = ({ state, methods, props, tableAction }: UseTableColum
    */
   const addColumn = (columns: TableColumn | TableColumn[], dataIndex?: string) => {
     const newColumns = Array.isArray(columns) ? columns : [columns];
-    const columnsData = cloneDeep(unref(innerColumns));
+    const columnsData: TableColumn[] = cloneDeep(unref(innerColumns));
     if (dataIndex) {
       const index = columnsData.findIndex(
-        (item: { dataIndex: string; key: string }) =>
-          item.dataIndex === dataIndex || item.key === dataIndex,
+        (item: TableColumn) => item.dataIndex === dataIndex || item.key === dataIndex,
       );
       columnsData.splice(index, 0, ...newColumns);
     } else {
@@ -191,11 +187,10 @@ export const useColumns = ({ state, methods, props, tableAction }: UseTableColum
    */
   const addColumnAfter = (columns: TableColumn | TableColumn[], dataIndex?: string) => {
     const newColumns = Array.isArray(columns) ? columns : [columns];
-    const columnsData = cloneDeep(unref(innerColumns));
+    const columnsData: TableColumn[] = cloneDeep(unref(innerColumns));
     if (dataIndex) {
       const index = columnsData.findIndex(
-        (item: { dataIndex: string; key: string }) =>
-          item.dataIndex === dataIndex || item.key === dataIndex,
+        (item: TableColumn) => item.dataIndex === dataIndex || item.key === dataIndex,
       );
       columnsData.splice(index + 1, 0, ...newColumns);
     } else {
@@ -209,10 +204,10 @@ export const useColumns = ({ state, methods, props, tableAction }: UseTableColum
    * @param {string | string[]} dataIndex
    */
   const removeColumn = (dataIndex: string | string[]) => {
-    const columnsData = cloneDeep(unref(useInnerColumns));
+    const columnsData: TableColumn[] = cloneDeep(unref(useInnerColumns));
     const dataIndexList = Array.isArray(dataIndex) ? dataIndex : [dataIndex];
     const newColumns = columnsData.filter(
-      (item: { dataIndex: string }) => !dataIndexList.includes(item.dataIndex as string),
+      (item: TableColumn) => !dataIndexList.includes(item.dataIndex as string),
     );
     useInnerColumns.value = newColumns;
   };
@@ -222,23 +217,16 @@ export const useColumns = ({ state, methods, props, tableAction }: UseTableColum
    * @param {TableColumn | TableColumn[]} columns
    */
   const updateColumn = (columns: TableColumn | TableColumn[]) => {
-    const columnsData = cloneDeep({ ...unref(getProps) }!.columns);
+    const columnsData: TableColumn[] = cloneDeep({ ...unref(getProps) }!.columns);
     const updateColumns = Array.isArray(columns) ? columns : [columns];
-    const newColumns = columnsData.map(
-      (item: {
-        dataIndex:
-          | Omit<DataIndex, string>
-          | (DataIndex & (string | Omit<DataIndex, string>))
-          | undefined;
-      }) => {
-        const index = updateColumns.findIndex((col) => col.dataIndex === item.dataIndex);
-        if (index === -1) return item;
-        return {
-          ...item,
-          ...updateColumns[index],
-        };
-      },
-    );
+    const newColumns = columnsData.map((item: TableColumn) => {
+      const index = updateColumns.findIndex((col) => col.dataIndex === item.dataIndex);
+      if (index === -1) return item;
+      return {
+        ...item,
+        ...updateColumns[index],
+      };
+    });
     useInnerColumns.value = newColumns;
   };
   /**

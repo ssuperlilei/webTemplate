@@ -3,7 +3,7 @@ import type { ExtractPropTypes } from 'vue';
 import { initDefaultProps } from '~/_utils';
 
 // props 对象
-export const bmPasswordInputProps = {
+export const llPasswordInputProps = {
   ...initDefaultProps(inputProps(), {
     type: 'text',
     autocomplete: 'off',
@@ -12,4 +12,4 @@ export const bmPasswordInputProps = {
 };
 
 // props 类型
-export type BMPasswordInputProps = Partial<ExtractPropTypes<typeof bmPasswordInputProps>>;
+export type LLPasswordInputProps = Partial<ExtractPropTypes<typeof llPasswordInputProps>>;

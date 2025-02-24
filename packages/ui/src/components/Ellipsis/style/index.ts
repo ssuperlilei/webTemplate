@@ -4,7 +4,7 @@ export const styleFn = () => {
     '-ll-ellipsis',
     c([
       c(
-        '.bmos-ellipsis-container',
+        '.ll-ellipsis-container',
         `
       display:inline-flex;
       align-items: center;
@@ -12,7 +12,7 @@ export const styleFn = () => {
     `,
       ),
       c(
-        '.bmos-ellipsis-span',
+        '.ll-ellipsis-span',
         `
         display: inline-block;
         max-width: 100%;
@@ -22,7 +22,7 @@ export const styleFn = () => {
         `,
       ),
       c(
-        '.bmos-double-ellipsis-span',
+        '.ll-double-ellipsis-span',
         `
       line-height: 24px;
       white-space: normal;
@@ -36,7 +36,7 @@ export const styleFn = () => {
         [
           {
             hasPrefix: false,
-            name: '.bmos-tooltip-ellipsis',
+            name: '.ll-tooltip-ellipsis',
           },
           {
             hasPrefix: true,
@@ -48,7 +48,7 @@ export const styleFn = () => {
       `,
       ),
       c(
-        '.bmos-tooltip-ellipsis',
+        '.ll-tooltip-ellipsis',
         `
       padding-top: 0;
         `,
@@ -64,11 +64,11 @@ export const styleFn = () => {
             `
         padding: 4px 8px;
         font-size: 12px;
-        color: var(--bmos-third-level-text-color);
+        color: var(--ll-third-level-text-color);
         background-color: #FFFEFC;
         border-radius: 0;
         box-shadow: none;
-        border: 1px solid var(--bmos-first-level-border-color);
+        border: 1px solid var(--ll-first-level-border-color);
         `,
           ),
         ],

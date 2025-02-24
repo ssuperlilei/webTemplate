@@ -11,7 +11,7 @@ import {
   set,
 } from '@ll_lib/utils';
 import { DefineComponent, unref } from 'vue';
-import type { FormProps } from '../types/bm-form';
+import type { FormProps } from '../types/ll-form';
 import type { FormState } from './useFormState';
 
 type UseFormMethodsContext = FormState;

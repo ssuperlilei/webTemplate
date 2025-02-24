@@ -1,6 +1,6 @@
 import { isBoolean, isFunction, isNumber, isObject } from '@ll_lib/utils';
 import { Ref, computed, unref, watch } from 'vue';
-import type { LFormEmitFn } from '../types/bm-form';
+import type { LFormEmitFn } from '../types/ll-form';
 import type { ColEx } from '../types/component';
 import type { LFormType } from './';
 import { useBreakpoint } from './useBreakpoint';

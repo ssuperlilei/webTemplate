@@ -1,9 +1,9 @@
 <template>
   <Input
-    ref="bmPasswordRef"
+    ref="llPasswordRef"
     v-bind="getBindValue"
     :placeholder="t('请输入密码')"
-    :readonly="bmPasswordReadonly"
+    :readonly="llPasswordReadonly"
     :class="[pwdClass == true ? 'no-autofill-pwd' : 'no-auto2']"
     @focus="focusPasswordInput"
   >
@@ -22,7 +22,7 @@
 import { computed, nextTick, ref, unref, useAttrs, useSlots } from 'vue';
 import { Input } from 'ant-design-vue';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons-vue';
-import { bmPasswordInputProps } from './PasswordInput.types';
+import { llPasswordInputProps } from './PasswordInput.types';
 import { styleFn } from './style';
 import { t } from '@ll_lib/i18n';
 
@@ -30,20 +30,20 @@ defineOptions({
   name: 'LPasswordInput',
   inheritAttrs: false,
 });
-const props = defineProps(bmPasswordInputProps);
+const props = defineProps(llPasswordInputProps);
 
 const attrs = useAttrs() as Record<string, unknown>;
 const slots = useSlots() as Record<string, unknown>;
 const getBindValue = computed(() => ({ ...unref(attrs), ...props, autocomplete: 'off' }));
 
-const bmPasswordRef = ref<any>(null);
+const llPasswordRef = ref<any>(null);
 
 const passwordType = ref<string>('text');
 const pwdClass = ref<boolean>(true);
-const bmPasswordReadonly = ref<boolean>(true);
+const llPasswordReadonly = ref<boolean>(true);
 
 const focusPasswordInput = () => {
-  bmPasswordReadonly.value = false;
+  llPasswordReadonly.value = false;
 };
 
 const showPwd = () => {
@@ -55,7 +55,7 @@ const showPwd = () => {
     pwdClass.value = true;
   }
   nextTick(() => {
-    bmPasswordRef.value?.focus();
+    llPasswordRef.value?.focus();
   });
 };
 

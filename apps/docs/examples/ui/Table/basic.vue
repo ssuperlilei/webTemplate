@@ -1,5 +1,5 @@
 <template>
-  <LConfigProvider>
+  <Layout>
     <LTable
       ref="tableInstance"
       :data-request="loadData"
@@ -33,9 +33,9 @@
       </p>
     </template> -->
       <template #toolbar="{ reload }">
-        <a-button type="primary">新增</a-button>
-        <a-button>导入</a-button>
-        <a-button @click="reload">刷新</a-button>
+        <Button type="primary">新增</Button>
+        <Button>导入</Button>
+        <Button @click="reload">刷新</Button>
       </template>
     </LTable>
     <Modal v-model:open="open" title="Basic Modal" @ok="handleOk">
@@ -43,22 +43,22 @@
       <p>Some contents...</p>
       <p>Some contents...</p>
     </Modal>
-  </LConfigProvider>
+  </Layout>
 </template>
 
 <script lang="tsx" setup>
 import {
   type DataRequestFn,
   type FormProps,
-  LConfigProvider,
   LTable,
   type TableColumn,
   type TableInstance,
-} from '~@ll_lib/ui';
+} from '@ll_lib/ui';
 import type { GetRowKey } from 'ant-design-vue/es/table/interface';
 import { reactive, ref } from 'vue';
-import { Modal, Tag } from 'ant-design-vue';
+import { Button, Modal, Tag } from 'ant-design-vue';
 import { debounce } from '@ll_lib/utils';
+import Layout from '../Layout.vue';
 
 const open = ref<boolean>(false);
 
@@ -173,7 +173,7 @@ const columns: TableColumn[] = [
   {
     title: '衣服',
     align: 'center',
-    // hideInSearch: true,
+    hideInSearch: true,
     dataIndex: 'clothes',
     formItemProps: {
       component: 'Select',
@@ -182,8 +182,7 @@ const columns: TableColumn[] = [
   {
     title: '价格',
     align: 'center',
-    // hideInSearch: true,
-    headerSearchComponent: 'Input',
+    hideInSearch: true,
     dataIndex: 'price',
     formItemProps: {
       component: 'Select',
@@ -193,7 +192,7 @@ const columns: TableColumn[] = [
   {
     title: '状态',
     align: 'center',
-    // hideInSearch: true,
+    hideInSearch: true,
     dataIndex: 'status',
     formItemProps: {
       component: 'Select',
@@ -253,7 +252,7 @@ const columns: TableColumn[] = [
     align: 'left',
     key: 'ACTION',
     fixed: 'right',
-    width: 250,
+    width: 500,
     actions: ({ record }) => [
       {
         label: '编辑',
@@ -306,7 +305,7 @@ const formProps = reactive<Partial<FormProps>>({
   baseColProps: {
     span: 8,
   },
-  showAdvancedButton: true,
+  showAdvancedButton: false,
   showAdvancedButtonBadge: true,
   advancedBadgeCount: 2,
 });

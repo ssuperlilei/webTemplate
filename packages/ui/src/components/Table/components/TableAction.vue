@@ -7,7 +7,7 @@
     >
       <Button
         type="link"
-        class="bmos-table-action-btn"
+        class="ll-table-action-btn"
         :loading="loadingMap.get(getKey(actionItem, index))"
         :style="{
           maxWidth: '100px',
@@ -24,7 +24,7 @@
   </template>
   <template v-if="menuActionFilters.length">
     <Dropdown>
-      <Button class="bmos-table-action-dropdown-btn" type="link" :icon="h(EllipsisOutlined)" />
+      <Button class="ll-table-action-dropdown-btn" type="link" :icon="h(EllipsisOutlined)" />
       <template #overlay>
         <Menu @click="handleMenuClick">
           <Menu-Item
@@ -33,7 +33,7 @@
           >
             <Button
               type="link"
-              class="bmos-table-dropdown-btn"
+              class="ll-table-dropdown-btn"
               :loading="loadingMap.get(getKey(actionItem, index))"
               :style="{
                 maxWidth: '100px',
@@ -125,8 +125,8 @@ const actionFilters = computed(() => {
   return curActions;
 });
 
-const bmosProps: LLPropsInjection = inject(llPropsKey) as LLPropsInjection;
-const hasPermission = bmosProps?.hasPermission;
+const llProps: LLPropsInjection = inject(llPropsKey) as LLPropsInjection;
+const hasPermission = llProps?.hasPermission;
 const menuActionFilters = computed(() => {
   const curActionFilters = props.actions.filter((item) => {
     return isIfShow(item) && (!item.code || hasPermission?.(item.code));

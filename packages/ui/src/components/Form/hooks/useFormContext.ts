@@ -1,7 +1,7 @@
 import { inject, provide } from 'vue';
 import type { LFormType } from './';
 
-const key = Symbol('bm-form');
+const key = Symbol('ll-form');
 
 export async function createFormContext(instance: LFormType) {
   provide(key, instance);

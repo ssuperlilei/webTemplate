@@ -43,6 +43,66 @@
 | formKey                 | formKey                               | `Number、String`                                           | `formKey`                                                                  |
 | scrollToError           | 是否滑动到错误项                      | `Boolean`                                                  | `false`                                                                    |
 
+### FormSchema 参数
+
+| 属性                   | 说明                                                                                         | 类型                                                                                               | 默认值   |
+| ---------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------- |
+| field                  | 字段名                                                                                       | string                                                                                             | -        |
+| changeEvent            | 字段值改变触发方法                                                                           | string                                                                                             | `change` |
+| label                  | 标签名                                                                                       | string                                                                                             | -        |
+| helpMessage            | 帮助信息                                                                                     | string                                                                                             | -        |
+| helpComponentProps     | 帮助信息组件配置                                                                             | `Partial<TooltipProps>`                                                                            | -        |
+| labelWidth             | 标签宽度                                                                                     | string                                                                                             | -        |
+| componentProps         | 组件属性配置                                                                                 | `Partial<ComponentProps> \| (opt: RenderCallbackParams<T>): ComponentProps`                        | -        |
+| componentSlots         | 组件插槽                                                                                     | `(opt: RenderCallbackParams<T>) => Recordable<CustomRenderFn<T>> \| Recordable<CustomRenderFn<T>>` | -        |
+| required               | 是否必填                                                                                     | `boolean \| ((renderCallbackParams: RenderCallbackParams<T>) => boolean)`                          | false    |
+| rules                  | 校验规则                                                                                     | `Rule[]`                                                                                           | -        |
+| rulesMessageJoinLabel  | 是否把 label 添加进校验信息                                                                  | `boolean`                                                                                          | `true`   |
+| loading                | 是否加载中                                                                                   | `boolean`                                                                                          | false    |
+| formItemProps          | Form.Item 属性                                                                               | `Partial<FormItemProps>`                                                                           | -        |
+| colProps               | Col 属性                                                                                     | `Partial<ColProps>`                                                                                | -        |
+| order                  | 排序                                                                                         | `number`                                                                                           | -        |
+| defaultValue           | 默认值                                                                                       | `any`                                                                                              | -        |
+| isAdvanced             | 是否显示展开收起按钮                                                                         | `boolean`                                                                                          | true     |
+| labelFullWidth         | 标签是否占满整行                                                                             | `boolean`                                                                                          | false    |
+| span                   | 栅格占位格数                                                                                 | `number`                                                                                           | -        |
+| vShow                  | 是否显示(作用同v-show)                                                                       | `boolean \| ((renderCallbackParams: RenderCallbackParams<T>) => boolean)`                          | -        |
+| VIf                    | 是否显示(作用同v-if)                                                                         | `boolean \| ((renderCallbackParams: RenderCallbackParams<T>) => boolean)`                          | -        |
+| renderColContent       | 自定义渲染 col 内容                                                                          | `CustomRenderFn<T>`                                                                                | -        |
+| noFormItemMarginBottom | 是否去掉 FormItem 的 margin-bottom                                                           | `boolean`                                                                                          | `false`  |
+| noLabelTip             | 是否去掉 label 的 tooltip                                                                    | `boolean`                                                                                          | `false`  |
+| slot                   | 自定义渲染slot, 如 slot为 name, 在form的template标签中加入插槽 name ，就可以显示为这项的内容 | `string`                                                                                           | -        |
+| colSlot                | 自定义渲染col slot                                                                           | `string`                                                                                           | -        |
+| noLabel                | 是否不显示label                                                                              | `boolean`                                                                                          | `false`  |
+| dynamicDisabled        | 动态禁用                                                                                     | `boolean \| ((renderCallbackParams: RenderCallbackParams<T>) => boolean)`                          | -        |
+| useMaxLengthRule       | 是否使用默认的长度校验（input 100 字符， textarea 200 字符）                                 | `boolean`                                                                                          | `true`   |
+| dynamicRules           | 动态校验规则                                                                                 | `Rule[] \| ((renderCallbackParams: RenderCallbackParams<T>) => RuleItem[])`                        | -        |
+
+### FormProps
+
+| 属性              | 说明                     | 类型            | 默认值 |
+| ----------------- | ------------------------ | --------------- | ------ |
+| AntV 表单项的属性 | 都支持                   | -               | -      |
+| request           | 组件异步请求数据         | `RequestConfig` | -      |
+| requestResult     | 请求结果                 | `any`           | -      |
+| style             | 组件样式                 | `CSSProperties` | -      |
+| vModelKey         | 手动指定v-model绑定的key | `string`        | -      |
+
+```ts
+// RequestConfig 类型
+/** 组件异步请求配置 */
+type RequestConfig =
+  | PromiseFn<RenderCallbackParams, any>
+  | {
+      /** 指定监听的字段名, 当该字段值发生变化时会调用 callback */
+      watchFields: string[];
+      callback: PromiseFn<RenderCallbackParams, any>;
+      options?: WatchOptions;
+      /** debounce 请求防抖 */
+      wait?: number;
+    };
+```
+
 ### Events
 
 | 事件名          | 说明             | 回调参数 |
@@ -80,3 +140,17 @@
 | clearValidate        | 清除校验                                                                                   | nameList 校验指定的表单项                                                | -               |
 | handleSubmit         | 提交表单                                                                                   | -                                                                        | `Promise`       |
 | handleEnterPress     | 监听键盘事件                                                                               | `e 事件 KeyboardEvent`                                                   | -               |
+
+### 插槽
+
+支持自定义渲染的插槽
+
+| 名称          | 说明                 |
+| ------------- | -------------------- |
+| formHeader    | 表头                 |
+| formFooter    | 表尾                 |
+| default       | 传入之后以传入的为主 |
+| advanceBefore | 展开图标之前         |
+| resetBefore   | 重置按钮之前         |
+| submitBefore  | 提交按钮之前         |
+| submitAfter   | 提交按钮之后         |

@@ -1,7 +1,7 @@
 import { isNumber, isUnDef } from '@ll_lib/utils';
 import type { Ref } from 'vue';
 import { computed, ref, unref } from 'vue';
-import type { FormProps } from '../types/bm-form';
+import type { FormProps } from '../types/ll-form';
 import type { FormSchema } from '../types/form';
 
 export function useItemLabelWidth(schemaRef: Ref<FormSchema>, formPropsRef: Ref<FormProps>) {

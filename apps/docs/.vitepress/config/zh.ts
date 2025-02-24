@@ -34,8 +34,8 @@ export const zh = defineConfig({
         text: '组件（@ll_lib/ui）',
         items: [
           { text: 'ConfigProvider 组件', link: '/packages/ui/configProvider' },
-          // { text: 'Dialog 对话框', link: '/packages/ui/dialog' },
           { text: 'PasswordInput 组件', link: '/packages/ui/passwordInput' },
+          { text: 'table 组件', link: '/packages/ui/table' },
           { text: 'form 组件', link: '/packages/ui/form' },
         ],
       },

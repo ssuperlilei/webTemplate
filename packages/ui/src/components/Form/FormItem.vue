@@ -6,9 +6,9 @@
     class="from-col"
   >
     <template v-if="schema.component === 'Divider'">
-      <div class="bmos-form-divider-container">
-        <div v-if="getComponentProps.showLeftBorder" class="bmos-form-divider-border" />
-        <Divider v-bind="objectPick(getComponentProps, aDividerPropKeys)" class="bmos-form-divider">
+      <div class="ll-form-divider-container">
+        <div v-if="getComponentProps.showLeftBorder" class="ll-form-divider-border" />
+        <Divider v-bind="objectPick(getComponentProps, aDividerPropKeys)" class="ll-form-divider">
           <component :is="renderLabelHelpMessage" />
         </Divider>
       </div>
@@ -102,7 +102,7 @@ import type {
   FormSchema,
   RenderCallbackParams,
 } from './types';
-import { lFormItemProps } from './types/bm-form-item';
+import { lFormItemProps } from './types/ll-form-item';
 import { type ComponentMapType, componentMap } from './utils/componentMap';
 import { createPlaceholderMessage } from './utils/helper';
 import { t } from '@ll_lib/i18n';

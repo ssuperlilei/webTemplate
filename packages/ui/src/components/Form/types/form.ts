@@ -4,7 +4,7 @@ import type { NamePath, RuleObject } from 'ant-design-vue/es/form/interface';
 import type { Component, HTMLAttributes, VNode } from 'vue';
 import { JSX } from 'vue/jsx-runtime';
 import { LFormType } from '../hooks';
-import type { formInstance } from './bm-form';
+import type { formInstance } from './ll-form';
 import type { ColEx, ComponentMapType, ComponentProps } from './component';
 
 export type { RowProps };
@@ -62,8 +62,6 @@ export interface FormSchema<T = string> {
   field: T extends string ? string : GetFieldKeys<T>;
   // Event name triggered by internal value change, default change
   changeEvent?: string;
-  // Variable name bound to v-model Default value
-  valueField?: string;
   // Label name
   label?: string | ((v: RenderCallbackParams<T>) => string) | CustomRenderFn<T>;
   // Auxiliary text

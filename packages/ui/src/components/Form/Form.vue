@@ -2,7 +2,7 @@
   <Form
     ref="lFormRef"
     v-bind="objectPick(getFormProps, aFormPropKeys)"
-    class="bm-form"
+    class="ll-form"
     :model="formModel"
     @keypress.enter="handleEnterPress"
   >
@@ -58,7 +58,7 @@ import {
   useFormState,
 } from './hooks/';
 import LFormItem from './FormItem.vue';
-import { aFormPropKeys, lFormEmits, lFormProps } from './types/bm-form';
+import { aFormPropKeys, lFormEmits, lFormProps } from './types/ll-form';
 import { styleFn } from './style';
 
 defineOptions({
@@ -71,7 +71,6 @@ const emit = defineEmits(lFormEmits);
 const attrs = useAttrs() as Record<string, unknown>;
 const slots = useSlots() as Record<string, unknown>;
 // 表单内部状态
-// @ts-expect-error
 const formState = useFormState({ props, attrs });
 const { formModel, getRowConfig, lFormRef, getFormProps, getFormActionBindProps, formSchemasRef } =
   formState;

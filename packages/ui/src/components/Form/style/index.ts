@@ -2,9 +2,9 @@ import { asChild, c, cB, mountStyle } from '~/_utils';
 
 export const styleFn = () => {
   mountStyle(
-    '-bmos-from',
+    '-ll-from',
     c([
-      c('.bm-form', [
+      c('.ll-form', [
         cB(
           'picker',
           `
@@ -28,7 +28,7 @@ export const styleFn = () => {
         `,
         ),
         c(
-          '.bmos-action-advance-btn',
+          '.ll-action-advance-btn',
           `
         padding-left: 16px;
         padding-right: 0;
@@ -42,9 +42,9 @@ export const styleFn = () => {
           font-weight: 600;
           line-height: 20px;
           letter-spacing: 0em;
-          color: var(--bmos-second-level-text-color);
+          color: var(--ll-second-level-text-color);
           text-align: left;
-          padding: var(--bmos-margin-small) 0;
+          padding: var(--ll-margin-small) 0;
         `,
         ),
         c(
@@ -79,7 +79,7 @@ export const styleFn = () => {
             height: 36px;
             width: 100%;
           `,
-              [c('.bmos-ellipsis-span', `width: 100%;`)],
+              [c('.ll-ellipsis-span', `width: 100%;`)],
             ),
           ]),
         ]),
@@ -94,25 +94,25 @@ export const styleFn = () => {
           ]),
         ]),
         c(
-          '.bmos-form-divider-container',
+          '.ll-form-divider-container',
           `
           display: flex;
           align-items: center;
-          margin: 0 0 var(--bmos-margin-medium) 0;
+          margin: 0 0 var(--ll-margin-medium) 0;
         `,
           [
             c(
-              '.bmos-form-divider-border',
+              '.ll-form-divider-border',
               `
               width: 4px;
               height: 16px;
               border-radius: 2px;
-              background-color: var(--bmos-primary-color);
+              background-color: var(--ll-primary-color);
               z-index: 9;
             `,
             ),
             c(
-              '.bmos-form-divider',
+              '.ll-form-divider',
               `
             line-height: 14px;
             font-size: 14px;

@@ -2,7 +2,7 @@ import { c, mountStyle } from '~/_utils';
 
 export const styleFn = () => {
   mountStyle(
-    '-bmos-password-input',
+    '-ll-password-input',
     c([
       c(
         '.no-autofill-pwd',

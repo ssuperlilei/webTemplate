@@ -1,5 +1,5 @@
 <template>
-  <span ref="ellipsisRef" class="bmos-ellipsis-container">
+  <span ref="ellipsisRef" class="ll-ellipsis-container">
     <Tooltip v-if="showToolTip" ref="toolTip" v-bind="mergedProps">
       <template v-for="(_, key) in slots" #[key]>
         <slot :name="key" />
@@ -15,13 +15,13 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref, useAttrs, useSlots, watchEffect } from 'vue';
 import { Tooltip } from 'ant-design-vue';
-import { bmEllipsisProps } from './Ellipsis.types';
+import { llEllipsisProps } from './Ellipsis.types';
 import { styleFn } from './style';
 
 defineOptions({
   name: 'LEllipsis',
 });
-const props = defineProps(bmEllipsisProps);
+const props = defineProps(llEllipsisProps);
 const slots = useSlots() as Record<string, any>;
 const attrs = useAttrs() as Record<string, any>;
 
@@ -31,11 +31,11 @@ const mergedProps = computed(() => {
   const originalClass = attrs.class ? String(attrs.class) : '';
   base.class = props.double
     ? originalClass
-      ? `${originalClass} bmos-ellipsis-span bmos-double-ellipsis-span`
-      : 'bmos-double-ellipsis-span bmos-ellipsis-span'
+      ? `${originalClass} ll-ellipsis-span ll-double-ellipsis-span`
+      : 'll-double-ellipsis-span ll-ellipsis-span'
     : originalClass
-      ? `${originalClass} bmos-ellipsis-span`
-      : 'bmos-ellipsis-span';
+      ? `${originalClass} ll-ellipsis-span`
+      : 'll-ellipsis-span';
   return base;
 });
 // 获取 span 的绑定属性（只包含 class 和 style）

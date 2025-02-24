@@ -8,7 +8,7 @@
             v-if="showAdvancedButton && !hideAdvanceBtn"
             type="link"
             size="small"
-            class="bmos-action-advance-btn"
+            class="ll-action-advance-btn"
             @click="toggleAdvanced"
           >
             <Space :size="6" align="center">

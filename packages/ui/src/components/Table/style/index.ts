@@ -2,9 +2,9 @@ import { mountStyle, asMultipleClass, c, cB } from '~/_utils';
 
 export const styleFn = () => {
   mountStyle(
-    '-bmos-table',
+    '-ll-table',
     c(
-      '.bmos-table',
+      '.ll-table',
       `
       height: 100%;
       display: flex;
@@ -12,7 +12,7 @@ export const styleFn = () => {
     `,
       [
         c(
-          '.bmos-table-container',
+          '.ll-table-container',
           `
       flex: 1;
       overflow-y: hidden;
@@ -42,7 +42,7 @@ export const styleFn = () => {
       `,
         ),
         c(
-          '.bmos-tool-bar',
+          '.ll-tool-bar',
           `
       display: flex;
       justify-content: space-between;
@@ -51,7 +51,7 @@ export const styleFn = () => {
     `,
         ),
         c(
-          '.bmos-tool-bar-title',
+          '.ll-tool-bar-title',
           `
       display: flex;
       align-items: center;
@@ -61,14 +61,14 @@ export const styleFn = () => {
     `,
         ),
         c(
-          '.bmos-tool-bar-help',
+          '.ll-tool-bar-help',
           `
     padding-top: 3px;
       margin-left: 6px;
     `,
         ),
         c(
-          '.bmos-action-list',
+          '.ll-action-list',
           `
       display: flex;
     `,
@@ -84,25 +84,25 @@ export const styleFn = () => {
           ],
         ),
         c(
-          '.bmos-table-form-border',
+          '.ll-table-form-border',
           `
-      border-bottom: 1px solid var(--bmos-second-level-border-color);
+      border-bottom: 1px solid var(--ll-second-level-border-color);
     `,
         ),
         c(
           '.has-margin-bottom',
           `
-      margin-bottom: var(--bmos-margin-medium);
+      margin-bottom: var(--ll-margin-medium);
     `,
         ),
         c(
-          '.bmos-table-action-btn',
+          '.ll-table-action-btn',
           `
       padding: 6px;
     `,
         ),
         c(
-          '.bmos-table-action-dropdown-btn',
+          '.ll-table-action-dropdown-btn',
           `
       vertical-align: super;
     `,
@@ -218,7 +218,7 @@ export const styleFn = () => {
         cB(
           'table-body',
           `
-      border-bottom: 1px solid var(--bmos-second-level-border-color) !important;
+      border-bottom: 1px solid var(--ll-second-level-border-color) !important;
     `,
           [
             c(
