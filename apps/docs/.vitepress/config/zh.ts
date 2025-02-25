@@ -49,7 +49,10 @@ export const zh = defineConfig({
       },
       {
         text: '工具函数（@ll_lib/utils）',
-        items: [{ text: '类型方法', link: '/packages/utils/types' }],
+        items: [
+          { text: '类型方法', link: '/packages/utils/types' },
+          { text: '常用方法', link: '/packages/utils/func' },
+        ],
       },
       {
         text: 'i18n（@ll_lib/i18n）',
