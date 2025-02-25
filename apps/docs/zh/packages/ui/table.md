@@ -31,8 +31,9 @@ Table 组件提供了高级表格展示功能，支持分页、排序、搜索�
 ```
 
 ![alt text](image-3.png)
-
-<demo vue="ui/table/basic.vue" />
+::: raw
+<demo class="vp-raw" vue="ui/table/basic.vue" />
+:::
 
 ## API
 

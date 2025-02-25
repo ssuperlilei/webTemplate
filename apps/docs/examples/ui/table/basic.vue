@@ -128,7 +128,7 @@ const columns: TableColumn[] = [
     dataIndex: 'name',
     fixed: 'left',
     sorter: true,
-    width: 300,
+    width: 200,
     resizable: true,
     formItemProps: {
       defaultValue: '李白',
@@ -252,7 +252,7 @@ const columns: TableColumn[] = [
     align: 'left',
     key: 'ACTION',
     fixed: 'right',
-    width: 500,
+    width: 260,
     actions: ({ record }) => [
       {
         label: '编辑',

@@ -101,12 +101,12 @@ export const styleFn = () => {
       padding: 6px;
     `,
         ),
-        c(
-          '.ll-table-action-dropdown-btn',
-          `
-      vertical-align: super;
-    `,
-        ),
+        //     c(
+        //       '.ll-table-action-dropdown-btn',
+        //       `
+        //   vertical-align: super;
+        // `,
+        //     ),
         cB(
           'table-selection-column',
           `
