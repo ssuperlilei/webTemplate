@@ -58,6 +58,10 @@ export const zh = defineConfig({
         text: 'i18n（@ll_lib/i18n）',
         items: [{ text: '多语言', link: '/packages/i18n/index' }],
       },
+      {
+        text: '关键代码',
+        items: [{ text: '不定高度虚拟列表', link: '/packages/keyCode/virtualized' }],
+      },
     ],
     socialLinks: [{ icon: 'github', link: 'https://github.com/ssuperlilei/webTemplate' }],
   },
