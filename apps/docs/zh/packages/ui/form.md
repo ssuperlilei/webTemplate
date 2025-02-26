@@ -4,7 +4,9 @@
 
 ## 基础用法
 
-<demo vue="ui/form/basic.vue" />
+::: raw
+<demo class="vp-raw" vue="ui/form/basic.vue" />
+:::
 
 ## API
 
