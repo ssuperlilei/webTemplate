@@ -23,5 +23,8 @@
     "rollup": "^4.34.7",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-esbuild": "6.2.0"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13"
   }
 }
