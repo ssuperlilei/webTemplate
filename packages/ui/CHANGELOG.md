@@ -1,5 +1,11 @@
 # @ll_lib/ui
 
+## 3.0.0
+
+### Major Changes
+
+- 26eba1e: feat: init
+
 ## 2.0.0
 
 ### Major Changes
