@@ -1,4 +1,4 @@
-import { isArray, isAsyncFunction, isBoolean, isFunction, isObject } from '@ll_lib/utils';
+import { isArray, isAsyncFunction, isBoolean, isFunction, isObject } from '@ssuperlilei-lib/utils';
 // import { useInfiniteScroll } from '@vueuse/core';
 import { SorterResult } from 'ant-design-vue/es/table/interface';
 import { nextTick, unref } from 'vue';

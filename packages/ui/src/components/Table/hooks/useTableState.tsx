@@ -1,5 +1,5 @@
-import { t } from '@ll_lib/i18n';
-import { omit } from '@ll_lib/utils';
+import { t } from '@ssuperlilei-lib/i18n';
+import { omit } from '@ssuperlilei-lib/utils';
 import type { TableProps as AntTableProps, InputProps, Table } from 'ant-design-vue';
 import type { Slots } from 'vue';
 import { computed, inject, ref, unref, watch } from 'vue';

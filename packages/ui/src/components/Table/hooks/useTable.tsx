@@ -1,4 +1,4 @@
-import { isEmpty } from '@ll_lib/utils';
+import { isEmpty } from '@ssuperlilei-lib/utils';
 import type { Ref, SetupContext } from 'vue';
 import { nextTick, ref, unref, watch } from 'vue';
 import BMTable from '../Table.vue';
