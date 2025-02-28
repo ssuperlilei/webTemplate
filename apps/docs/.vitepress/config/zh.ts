@@ -9,7 +9,7 @@ export const zh = defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      // { text: '其他', link: '/markdown-examples' },
+      { text: '个人简历', link: '/resume' },
       // { text: '博客', link: 'https://ssuperlilei.github.io/my-blog' },
       {
         text: '更多',
