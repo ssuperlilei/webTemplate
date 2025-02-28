@@ -10,7 +10,7 @@ export const zh = defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '个人简历', link: '/resume' },
-      { text: '博客', link: '/blog/quickDeleteNodeModules' },
+      { text: '博客', link: '/blog/iframe' },
       {
         text: '更多',
         items: [
@@ -63,7 +63,10 @@ export const zh = defineConfig({
       '/blog': [
         {
           text: 'npm',
-          items: [{ text: '删除 node_modules', link: '/blog/quickDeleteNodeModules' }],
+          items: [
+            { text: 'iframe 微前端问题', link: '/blog/iframe' },
+            { text: '删除 node_modules', link: '/blog/quickDeleteNodeModules' },
+          ],
         },
       ],
       '/resume': [],
