@@ -1,5 +1,5 @@
 {
-  "name": "@ll_lib/utils",
+  "name": "@ssuperlilei-lib/utils",
   "description": "@LLlib utils library",
   "version": "3.0.0",
   "main": "dist/cjs/index.js",
@@ -18,7 +18,7 @@
     "publish": "pnpm publish"
   },
   "devDependencies": {
-    "@ll_lib/typescript-config": "workspace:*",
+    "@ssuperlilei-lib/typescript-config": "workspace:*",
     "@rollup/plugin-json": "^6.1.0",
     "rollup": "^4.34.7",
     "rollup-plugin-dts": "^6.1.1",

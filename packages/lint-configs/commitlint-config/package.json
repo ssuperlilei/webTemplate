@@ -1,5 +1,5 @@
 {
-  "name": "@ll_lib/commitlint-config",
+  "name": "@ssuperlilei-lib/commitlint-config",
   "version": "2.0.0",
   "private": true,
   "type": "module",

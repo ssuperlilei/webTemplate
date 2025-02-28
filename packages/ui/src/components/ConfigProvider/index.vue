@@ -15,7 +15,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/en';
 import 'dayjs/locale/ru';
-import { deepMerge, removeEmpty } from '@ll_lib/utils';
+import { deepMerge, removeEmpty } from '@ssuperlilei-lib/utils';
 import { ConfigProvider } from 'ant-design-vue';
 import { computed, provide, ref, unref, useAttrs } from 'vue';
 import { configProviderInjectionKey, llPropsKey } from './hooks/context';
@@ -23,7 +23,7 @@ import { llConfigProviderProps } from './ConfigProvider.type';
 import commonConfig from './common/config';
 import antDesignI18n, { type AntDesignLocaleType } from './common/antDesignI18n';
 import { InfoCircleOutlined } from '@ant-design/icons-vue';
-import { t } from '@ll_lib/i18n';
+import { t } from '@ssuperlilei-lib/i18n';
 import { basicStyle, commonStyle, exceptionStyle, expandComponentsStyle } from './style';
 
 defineOptions({

@@ -6,7 +6,7 @@ import {
   isObject,
   isString,
   uniqBy,
-} from '@ll_lib/utils';
+} from '@ssuperlilei-lib/utils';
 import { NamePath } from 'ant-design-vue/es/form/interface';
 import dayjs from 'dayjs';
 import { toRaw, unref, watch } from 'vue';

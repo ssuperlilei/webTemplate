@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { VDialog } from '@ll_lib/ui';
+import { VDialog } from '@ssuperlilei-lib/ui';
 import { ref } from 'vue';
 const open = ref(false);
 </script>

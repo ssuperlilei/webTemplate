@@ -8,10 +8,10 @@
 
 ```bash
 "dev": "turbo run dev", // 启动所有包的开发环境
-"dev:docs": "pnpm -F @ll_lib/docs run dev", // 启动文档应用
-"dev:play": "pnpm -F @ll_lib/playground run dev", // 启动演练场
+"dev:docs": "pnpm -F @ssuperlilei-lib/docs run dev", // 启动文档应用
+"dev:play": "pnpm -F @ssuperlilei-lib/playground run dev", // 启动演练场
 "build": "turbo run build", // 构建所有包
-"build:docs": "pnpm -F @ll_lib/docs run build", // 构建文档应用
+"build:docs": "pnpm -F @ssuperlilei-lib/docs run build", // 构建文档应用
 "build:gulp": "gulp -f build/gulpfile.cjs",// 使用gulp管理的统一打包脚本
 "format": "prettier --write \"**/*.{js,jsx,ts,tsx,mjs,mts,md,vue}\"", // 格式化所有包的代码
 "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist && turbo run clean", // 清理所有包
@@ -20,14 +20,14 @@
 "preinstall": "npx only-allow pnpm", // 确保使用 pnpm 安装依赖
 "postinstall": "turbo run build",// 安装依赖后，构建所有包，确保项目成功运行
 "prepare": "husky install", // 安装 Husky 钩子
-"rename-pkg": "bash ./scripts/rename-package.sh" // 一键重命名包，如：@ll_lib -> @vue3-lib
+"rename-pkg": "bash ./scripts/rename-package.sh" // 一键重命名包，如：@ssuperlilei-lib -> @vue3-lib
 ```
 
 ## 🚀 快速开始
 
 ```bash
-# 以下请替换为自己的包名，@ll_lib 可以通过 rename-pkg 命令，一键更改为属于自己的包名，如 pnpm rename-pkg "@ll_lib" "@vue3-lib"
-pnpm add @ll_lib/ui @ll_lib/utils @ll_lib/hooks @ll_lib/i18n
+# 以下请替换为自己的包名，@ssuperlilei-lib 可以通过 rename-pkg 命令，一键更改为属于自己的包名，如 pnpm rename-pkg "@ssuperlilei-lib" "@vue3-lib"
+pnpm add @ssuperlilei-lib/ui @ssuperlilei-lib/utils @ssuperlilei-lib/hooks @ssuperlilei-lib/i18n
 ```
 
 ## 帮助指南

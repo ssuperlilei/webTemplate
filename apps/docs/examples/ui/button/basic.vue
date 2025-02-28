@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-// import { VButton } from '@ll_lib/ui';
+// import { VButton } from '@ssuperlilei-lib/ui';
 </script>
 
 <style scoped>

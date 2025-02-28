@@ -1,4 +1,4 @@
-# @ll_lib/ui
+# @ssuperlilei-lib/ui
 
 Vue 3 组件库，基于 Vue 3 + TypeScript 构建的现代化组件库。
 
@@ -13,11 +13,11 @@ Vue 3 组件库，基于 Vue 3 + TypeScript 构建的现代化组件库。
 ## 安装
 
 ```bash
-npm install @ll_lib/ui
+npm install @ssuperlilei-lib/ui
 
-yarn add @ll_lib/ui
+yarn add @ssuperlilei-lib/ui
 
-pnpm add @ll_lib/ui
+pnpm add @ssuperlilei-lib/ui
 ```
 
 ## 快速开始
@@ -29,8 +29,8 @@ pnpm add @ll_lib/ui
 import { createApp } from 'vue';
 import App from './App.vue';
 
-import VUI from '@ll_lib/ui';
-import '@ll_lib/ui/style.css';
+import VUI from '@ssuperlilei-lib/ui';
+import '@ssuperlilei-lib/ui/style.css';
 
 const app = createApp(App);
 app.use(VUI);
@@ -44,8 +44,8 @@ app.mount('#app');
 import { createApp } from 'vue';
 import App from './App.vue';
 
-import { Button } from '@ll_lib/ui';
-import '@ll_lib/ui/style.css';
+import { Button } from '@ssuperlilei-lib/ui';
+import '@ssuperlilei-lib/ui/style.css';
 
 const app = createApp(App);
 app.use(Button);
@@ -68,7 +68,7 @@ app.mount('#app');
 </template>
 
 <script setup lang="ts">
-import { VButton, VDialog } from '@ll_lib/ui';
+import { VButton, VDialog } from '@ssuperlilei-lib/ui';
 import { ref } from 'vue';
 const open = ref(false);
 </script>

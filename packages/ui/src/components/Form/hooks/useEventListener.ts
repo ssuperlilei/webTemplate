@@ -1,4 +1,4 @@
-import { debounce, throttle } from '@ll_lib/utils';
+import { debounce, throttle } from '@ssuperlilei-lib/utils';
 import type { Ref } from 'vue';
 import { ref, unref, watch } from 'vue';
 

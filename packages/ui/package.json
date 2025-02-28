@@ -1,6 +1,6 @@
 {
-  "name": "@ll_lib/ui",
-  "description": "@ll_lib ui library",
+  "name": "@ssuperlilei-lib/ui",
+  "description": "@ssuperlilei-lib ui library",
   "version": "3.0.0",
   "type": "module",
   "main": "dist/cjs/index.js",
@@ -29,9 +29,9 @@
     "publish": "pnpm publish"
   },
   "devDependencies": {
-    "@ll_lib/i18n": "workspace:*",
-    "@ll_lib/utils": "workspace:*",
-    "@ll_lib/typescript-config": "workspace:*",
+    "@ssuperlilei-lib/i18n": "workspace:*",
+    "@ssuperlilei-lib/utils": "workspace:*",
+    "@ssuperlilei-lib/typescript-config": "workspace:*",
     "@types/node": "^22.13.4",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",

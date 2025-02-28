@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCounter } from '@ll_lib/hooks';
+import { useCounter } from '@ssuperlilei-lib/hooks';
 
 const { count, increment, decrement } = useCounter();
 </script>

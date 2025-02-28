@@ -1,4 +1,4 @@
-import { isNumber, isUnDef } from '@ll_lib/utils';
+import { isNumber, isUnDef } from '@ssuperlilei-lib/utils';
 import type { Ref } from 'vue';
 import { computed, ref, unref } from 'vue';
 import type { FormProps } from '../types/ll-form';

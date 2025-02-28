@@ -1,6 +1,6 @@
 <script lang="tsx">
 import { InfoCircleOutlined } from '@ant-design/icons-vue';
-import { isArray, isFunction, isString } from '@ll_lib/utils';
+import { isArray, isFunction, isString } from '@ssuperlilei-lib/utils';
 import { Tooltip } from 'ant-design-vue';
 import { type CSSProperties, type PropType, defineComponent } from 'vue';
 import { getSlot } from '../utils/tsxHelper';

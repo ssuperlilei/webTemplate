@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { vFocus } from '@ll_lib/directives';
+import { vFocus } from '@ssuperlilei-lib/directives';
 </script>
 
 <style scoped>

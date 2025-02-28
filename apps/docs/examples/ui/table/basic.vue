@@ -53,11 +53,11 @@ import {
   LTable,
   type TableColumn,
   type TableInstance,
-} from '@ll_lib/ui';
+} from '@ssuperlilei-lib/ui';
 import type { GetRowKey } from 'ant-design-vue/es/table/interface';
 import { reactive, ref } from 'vue';
 import { Button, Modal, Tag } from 'ant-design-vue';
-import { debounce } from '@ll_lib/utils';
+import { debounce } from '@ssuperlilei-lib/utils';
 import Layout from '../Layout.vue';
 
 const open = ref<boolean>(false);

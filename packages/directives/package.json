@@ -1,7 +1,7 @@
 {
-  "name": "@ll_lib/directives",
+  "name": "@ssuperlilei-lib/directives",
   "version": "3.0.0",
-  "description": "@ll_lib directives library",
+  "description": "@ssuperlilei-lib directives library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
@@ -18,7 +18,7 @@
     "publish": "pnpm publish"
   },
   "devDependencies": {
-    "@ll_lib/typescript-config": "workspace:*",
+    "@ssuperlilei-lib/typescript-config": "workspace:*",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.34.7",

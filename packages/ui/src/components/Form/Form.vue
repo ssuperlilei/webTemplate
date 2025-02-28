@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cloneDeep, isNullOrUnDef, objectPick } from '@ll_lib/utils';
+import { cloneDeep, isNullOrUnDef, objectPick } from '@ssuperlilei-lib/utils';
 import { Form, Row } from 'ant-design-vue';
 import { ref, useAttrs, useSlots, watch } from 'vue';
 import FormAction from './components/FormAction.vue';

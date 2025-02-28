@@ -1,4 +1,4 @@
 {
-  "extends": "@ll_lib/typescript-config/base.json",
+  "extends": "@ssuperlilei-lib/typescript-config/base.json",
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.tsx"]
 }

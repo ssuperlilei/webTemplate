@@ -1,8 +1,8 @@
 {
-  "extends": "@ll_lib/typescript-config/vite.json",
+  "extends": "@ssuperlilei-lib/typescript-config/vite.json",
   "compilerOptions": {
     "skipLibCheck": true,
-    "types": ["vite/client", "@ll_lib/ui/global.d.ts"],
+    "types": ["vite/client", "@ssuperlilei-lib/ui/global.d.ts"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",

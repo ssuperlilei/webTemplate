@@ -1,5 +1,5 @@
 {
-  "extends": "@ll_lib/typescript-config/base.json",
+  "extends": "@ssuperlilei-lib/typescript-config/base.json",
   "include": ["src/**/*.ts", "src/**/*.d.ts"],
   "compilerOptions": {
     "target": "ESNext",

@@ -16,19 +16,19 @@ Install using a package manager:
 ::: code-group
 
 ```bash [npm]
-npm install @ll_lib/ui @ll_lib/utils @ll_lib/hooks @ll_lib/directives
+npm install @ssuperlilei-lib/ui @ssuperlilei-lib/utils @ssuperlilei-lib/hooks @ssuperlilei-lib/directives
 ```
 
 ```bash [yarn]
-yarn add @ll_lib/ui @ll_lib/utils @ll_lib/hooks @ll_lib/directives
+yarn add @ssuperlilei-lib/ui @ssuperlilei-lib/utils @ssuperlilei-lib/hooks @ssuperlilei-lib/directives
 ```
 
 ```bash [pnpm]
-pnpm add @ll_lib/ui @ll_lib/utils @ll_lib/hooks @ll_lib/directives
+pnpm add @ssuperlilei-lib/ui @ssuperlilei-lib/utils @ssuperlilei-lib/hooks @ssuperlilei-lib/directives
 ```
 
 ```bash [bun]
-bun add @ll_lib/ui @ll_lib/utils @ll_lib/hooks @ll_lib/directives
+bun add @ssuperlilei-lib/ui @ssuperlilei-lib/utils @ssuperlilei-lib/hooks @ssuperlilei-lib/directives
 ```
 
 :::
@@ -40,16 +40,16 @@ bun add @ll_lib/ui @ll_lib/utils @ll_lib/hooks @ll_lib/directives
 ```ts
 // Global import
 import { createApp } from 'vue';
-import UI from '@ll_lib/ui';
-import '@ll_lib/ui/style.css';
+import UI from '@ssuperlilei-lib/ui';
+import '@ssuperlilei-lib/ui/style.css';
 const app = createApp(App);
 app.use(UI);
 // Additionally, add the following configuration to tsconfig.json for type hints:
-// "types": ["@ll_lib/ui/global.d.ts"]
+// "types": ["@ssuperlilei-lib/ui/global.d.ts"]
 
 // Import on demand
-import { Button } from '@ll_lib/ui';
-import '@ll_lib/ui/style.css';
+import { Button } from '@ssuperlilei-lib/ui';
+import '@ssuperlilei-lib/ui/style.css';
 const app = createApp(App);
 app.use(Button);
 ```
@@ -57,25 +57,25 @@ app.use(Button);
 ### Utility Functions
 
 ```ts
-import { isString } from '@ll_lib/utils';
+import { isString } from '@ssuperlilei-lib/utils';
 console.log(isString('hello')); // true
 ```
 
 ### Hooks
 
 ```ts
-import { useCounter } from '@ll_lib/hooks';
+import { useCounter } from '@ssuperlilei-lib/hooks';
 const { count, increment, decrement } = useCounter();
 ```
 
 ### Directives
 
 ```ts
-import { vFocus } from '@ll_lib/directives';
+import { vFocus } from '@ssuperlilei-lib/directives';
 // Global import
 app.directive('focus', vFocus);
 
 // Import on demand
-import { vFocus } from '@ll_lib/directives';
+import { vFocus } from '@ssuperlilei-lib/directives';
 app.directive('focus', vFocus);
 ```

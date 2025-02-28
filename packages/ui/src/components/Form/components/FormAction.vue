@@ -57,7 +57,7 @@ import { useFormContext } from '../hooks/useFormContext';
 import type { ColEx } from '../types/component';
 import Arrow from './Arrow.vue';
 import { ActionColOptions } from '../enums/common';
-import { t } from '@ll_lib/i18n';
+import { t } from '@ssuperlilei-lib/i18n';
 
 type ButtonOptions = Partial<ExtractPropTypes<ReturnType<typeof buttonProps>>> & {
   text?: string;

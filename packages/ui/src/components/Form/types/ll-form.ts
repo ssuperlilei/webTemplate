@@ -1,4 +1,4 @@
-import { isObject } from '@ll_lib/utils';
+import { isObject } from '@ssuperlilei-lib/utils';
 import { ButtonProps } from 'ant-design-vue';
 import { formProps } from 'ant-design-vue/es/form';
 import type { ComponentInternalInstance, CSSProperties, ExtractPropTypes, PropType } from 'vue';

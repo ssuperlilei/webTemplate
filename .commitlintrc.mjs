@@ -1,1 +1,1 @@
-export { default } from '@ll_lib/commitlint-config';
+export { default } from '@ssuperlilei-lib/commitlint-config';

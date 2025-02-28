@@ -1,4 +1,4 @@
-# @ll_lib/directives
+# @ssuperlilei-lib/directives
 
 ## 3.0.0
 

@@ -1,5 +1,5 @@
 {
-  "name": "@ll_lib/playground",
+  "name": "@ssuperlilei-lib/playground",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
-    "@ll_lib/directives": "workspace:*",
-    "@ll_lib/hooks": "workspace:*",
-    "@ll_lib/typescript-config": "workspace:*",
-    "@ll_lib/ui": "workspace:*",
-    "@ll_lib/utils": "workspace:*",
+    "@ssuperlilei-lib/directives": "workspace:*",
+    "@ssuperlilei-lib/hooks": "workspace:*",
+    "@ssuperlilei-lib/typescript-config": "workspace:*",
+    "@ssuperlilei-lib/ui": "workspace:*",
+    "@ssuperlilei-lib/utils": "workspace:*",
     "ant-design-vue": "^4.2.6",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"

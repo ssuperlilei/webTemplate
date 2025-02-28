@@ -31,22 +31,22 @@ export const en = defineConfig({
         items: [{ text: 'Introduction', link: 'en/guide/index' }],
       },
       {
-        text: 'Components (@ll_lib/ui)',
+        text: 'Components (@ssuperlilei-lib/ui)',
         items: [
           { text: 'Button', link: 'en/packages/ui/button' },
           { text: 'Dialog', link: 'en/packages/ui/dialog' },
         ],
       },
       {
-        text: 'Hooks (@ll_lib/hooks)',
+        text: 'Hooks (@ssuperlilei-lib/hooks)',
         items: [{ text: 'useCounter', link: 'en/packages/hooks/useCounter' }],
       },
       {
-        text: 'Directives (@ll_lib/directives)',
+        text: 'Directives (@ssuperlilei-lib/directives)',
         items: [{ text: 'vFocus', link: 'en/packages/directives/vFocus' }],
       },
       {
-        text: 'Utilities (@ll_lib/utils)',
+        text: 'Utilities (@ssuperlilei-lib/utils)',
         items: [{ text: 'String Utils', link: 'en/packages/utils/string' }],
       },
     ],

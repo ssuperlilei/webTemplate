@@ -1,4 +1,4 @@
-# @ll_lib/commitlint-config
+# @ssuperlilei-lib/commitlint-config
 
 ## 2.0.0
 

@@ -1,4 +1,4 @@
-# @ll_lib/prettier-config
+# @ssuperlilei-lib/prettier-config
 
 ## 2.0.0
 

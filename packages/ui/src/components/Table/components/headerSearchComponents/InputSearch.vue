@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { t } from '@ll_lib/i18n';
+import { t } from '@ssuperlilei-lib/i18n';
 import { computed, ref } from 'vue';
 import { Button, Input, Space } from 'ant-design-vue';
 

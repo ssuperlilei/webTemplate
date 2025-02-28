@@ -1,7 +1,7 @@
 {
-  "name": "@ll_lib/i18n",
+  "name": "@ssuperlilei-lib/i18n",
   "version": "3.0.0",
-  "description": "@ll_lib i18n library",
+  "description": "@ssuperlilei-lib i18n library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
@@ -18,7 +18,7 @@
     "publish": "pnpm publish"
   },
   "devDependencies": {
-    "@ll_lib/typescript-config": "workspace:*",
+    "@ssuperlilei-lib/typescript-config": "workspace:*",
     "@rollup/plugin-json": "^6.1.0",
     "rollup": "^4.34.7",
     "rollup-plugin-dts": "^6.1.1",
