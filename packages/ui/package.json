@@ -30,21 +30,21 @@
   },
   "devDependencies": {
     "@ssuperlilei-lib/i18n": "workspace:*",
-    "@ssuperlilei-lib/utils": "workspace:*",
     "@ssuperlilei-lib/typescript-config": "workspace:*",
-    "@types/node": "^22.13.4",
+    "@ssuperlilei-lib/utils": "workspace:*",
+    "@types/node": "^22.13.8",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
-    "sass": "^1.85.0",
-    "typescript": "^5.7.3",
-    "vite": "^6.1.0",
-    "vite-plugin-dts": "^4.5.0",
+    "sass": "^1.85.1",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0",
+    "vite-plugin-dts": "^4.5.1",
     "vue": "^3.5.13"
   },
   "peerDependencies": {
-    "vue": "^3.5.13",
     "@ant-design/icons-vue": "^7.0.1",
-    "ant-design-vue": "^4.2.6"
+    "ant-design-vue": "^4.2.6",
+    "vue": "^3.5.13"
   },
   "dependencies": {
     "@css-render/plugin-bem": "^0.15.14",

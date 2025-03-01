@@ -45,7 +45,7 @@
     "rename-pkg": "bash ./scripts/rename-package.sh"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.27.12",
+    "@changesets/cli": "^2.28.1",
     "@commitlint/cli": "^19.7.1",
     "@ssuperlilei-lib/commitlint-config": "workspace:*",
     "@ssuperlilei-lib/directives": "workspace:*",
@@ -56,14 +56,14 @@
     "@ssuperlilei-lib/typescript-config": "workspace:*",
     "@ssuperlilei-lib/ui": "workspace:*",
     "@ssuperlilei-lib/utils": "workspace:*",
-    "eslint": "^9.20.1",
+    "eslint": "^9.21.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-    "prettier": "^3.5.1",
-    "rollup": "^4.34.7",
-    "stylelint": "^16.14.1",
-    "turbo": "^2.4.2",
-    "typescript": "^5.7.3",
+    "prettier": "^3.5.2",
+    "rollup": "^4.34.9",
+    "stylelint": "^16.15.0",
+    "turbo": "^2.4.4",
+    "typescript": "^5.8.2",
     "vue": "^3.5.13"
   },
   "engines": {
