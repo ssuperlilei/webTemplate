@@ -62,8 +62,9 @@ export const zh = defineConfig({
       ],
       '/blog': [
         {
-          text: 'npm',
+          text: '杂知识',
           items: [
+            { text: 'Git 的技巧', link: '/blog/git' },
             { text: 'iframe 微前端问题', link: '/blog/iframe' },
             { text: '删除 node_modules', link: '/blog/quickDeleteNodeModules' },
           ],
