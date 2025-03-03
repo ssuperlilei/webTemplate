@@ -78,8 +78,6 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       # 构建项目
-      # 需要先构建 @mylib/ui 等包后再构建docs
-      # 不能只 pnpm run build:docs 会报如:failed to resolve entry for package "@mylib/hooks"的错误
       - name: Build Project
         run: pnpm run build
 
