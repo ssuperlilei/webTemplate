@@ -13,6 +13,9 @@ on:
 # 设置时区
 env:
   TZ: Asia/Shanghai
+  # 添加节点版本环境变量方便引用
+  NODE_VERSION: 20
+  PNPM_VERSION: latest
 
 # 权限设置
 permissions:
@@ -25,8 +28,8 @@ permissions:
 
 # 并发控制配置
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true # 取消正在进行的运行，节省资源
 
 # 定义执行任务
 jobs:
@@ -34,59 +37,66 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # node v20 运行
-    strategy:
-      matrix:
-        node-version: [20]
-
     steps:
       # 拉取代码
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # 保留 Git 信息
           fetch-depth: 0
 
       # 设置使用 Node.js 版本
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.NODE_VERSION }}
 
       # 使用 最新的 PNPM
       # 你也可以指定为具体的版本
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
         with:
-          version: latest
-          # version: 9
+          version: ${{ env.PNPM_VERSION }}
           run_install: false
 
-        # 安装依赖
-      - name: Install dependencies
+      # 添加PNPM缓存以加速构建
+      - name: Get PNPM store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup PNPM cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      # 安装依赖
+      - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-        # 构建项目
-        # 需要先构建 @mylib/ui 等包后再构建docs
-        # 不能只 pnpm run build:docs 会报如:failed to resolve entry for package "@mylib/hooks"的错误
-      - name: Build docs project
-        run: |
-          echo ${{ github.workspace }}
-          pnpm run build
+      # 构建项目
+      # 需要先构建 @mylib/ui 等包后再构建docs
+      # 不能只 pnpm run build:docs 会报如:failed to resolve entry for package "@mylib/hooks"的错误
+      - name: Build Project
+        run: pnpm run build
 
-        # 资源拷贝
-      - name: Build with Jekyll
+      # 资源拷贝
+      - name: Prepare Static Files
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./apps/docs/.vitepress/dist
           destination: ./_site
 
-        # 上传 _site 的资源，用于后续部署
-      - name: Upload artifact
+      # 上传 _site 的资源，用于后续部署
+      - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
 
   # 部署任务
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
