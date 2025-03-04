@@ -1,5 +1,11 @@
 # @ssuperlilei/ui
 
+## 3.0.2
+
+### Patch Changes
+
+- fix: update readme
+
 ## 3.0.1
 
 ### Patch Changes
