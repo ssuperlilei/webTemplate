@@ -1,4 +1,4 @@
-import { isBoolean, isFunction, isNumber, isObject } from '@ssuperlilei-lib/utils';
+import { isBoolean, isFunction, isNumber, isObject } from '@ssuperlilei/utils';
 import { Ref, computed, unref, watch } from 'vue';
 import type { LFormEmitFn } from '../types/ll-form';
 import type { ColEx } from '../types/component';

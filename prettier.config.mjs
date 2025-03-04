@@ -1,1 +1,1 @@
-export { default } from '@ssuperlilei-lib/prettier-config';
+export { default } from '@ssuperlilei/prettier-config';

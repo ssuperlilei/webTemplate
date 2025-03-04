@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import * as utils from '@ssuperlilei-lib/utils';
+import * as utils from '@ssuperlilei/utils';
 
 const allUtils = Object.entries(utils).map(([name, fn], index) => {
   return {

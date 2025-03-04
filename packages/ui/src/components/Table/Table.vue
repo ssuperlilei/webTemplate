@@ -104,7 +104,7 @@ import { llTableProps, tableEmits } from './types';
 import type { TableActionType } from './Table.types';
 import LForm from '~/components/Form';
 import { styleFn } from './style';
-import { deepEqual, isObject } from '@ssuperlilei-lib/utils';
+import { deepEqual, isObject } from '@ssuperlilei/utils';
 import { SearchOutlined } from '@ant-design/icons-vue';
 
 defineOptions({

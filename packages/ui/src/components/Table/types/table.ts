@@ -1,4 +1,4 @@
-import { isBoolean } from '@ssuperlilei-lib/utils';
+import { isBoolean } from '@ssuperlilei/utils';
 import { tableProps } from 'ant-design-vue/es/table';
 import type { GetRowKey, TablePaginationConfig } from 'ant-design-vue/es/table/interface';
 import type { ExtractPropTypes, PropType } from 'vue';

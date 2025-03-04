@@ -11,7 +11,7 @@
 在 `main.js` 中全局注册 `vFocus` 指令：
 
 ```js
-import { globalRegister } from '@ssuperlilei-lib/directives';
+import { globalRegister } from '@ssuperlilei/directives';
 
 const app = createApp(App);
 // globalRegister(app, ['vFocus']); // 注册 vFocus 指令

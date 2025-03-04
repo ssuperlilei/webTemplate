@@ -1,4 +1,4 @@
-import { unique, chunk } from '@ssuperlilei-lib/utils';
+import { unique, chunk } from '@ssuperlilei/utils';
 import { describe, expect, it } from 'vitest';
 
 describe('array工具', () => {

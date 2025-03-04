@@ -1,27 +1,27 @@
 {
   "folders": [
     {
-      "name": "@ssuperlilei-lib/docs",
+      "name": "@ssuperlilei/docs",
       "path": "apps/docs",
     },
     {
-      "name": "@ssuperlilei-lib/playground",
+      "name": "@ssuperlilei/playground",
       "path": "playground",
     },
     {
-      "name": "@ssuperlilei-lib/utils",
+      "name": "@ssuperlilei/utils",
       "path": "packages/utils",
     },
     {
-      "name": "@ssuperlilei-lib/ui",
+      "name": "@ssuperlilei/ui",
       "path": "packages/ui",
     },
     {
-      "name": "@ssuperlilei-lib/hooks",
+      "name": "@ssuperlilei/hooks",
       "path": "packages/hooks",
     },
     {
-      "name": "@ssuperlilei-lib/directives",
+      "name": "@ssuperlilei/directives",
       "path": "packages/directives",
     },
   ],

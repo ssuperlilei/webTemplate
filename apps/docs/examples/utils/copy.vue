@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { copyToClipboard } from '@ssuperlilei-lib/utils';
+import { copyToClipboard } from '@ssuperlilei/utils';
 import { Button, message } from 'ant-design-vue';
 
 const copyText = async () => {

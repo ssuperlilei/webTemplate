@@ -7,5 +7,5 @@
   "access": "restricted",
   "baseBranch": "master",
   "updateInternalDependencies": "patch",
-  "ignore": ["@ssuperlilei-lib/build", "@ssuperlilei-lib/playground", "@ssuperlilei-lib/docs"]
+  "ignore": ["@ssuperlilei/build", "@ssuperlilei/playground", "@ssuperlilei/docs"]
 }

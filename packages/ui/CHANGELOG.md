@@ -1,4 +1,4 @@
-# @ssuperlilei-lib/ui
+# @ssuperlilei/ui
 
 ## 3.0.0
 

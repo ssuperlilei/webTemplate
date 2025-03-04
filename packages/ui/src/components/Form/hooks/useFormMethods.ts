@@ -9,7 +9,7 @@ import {
   isString,
   omit,
   set,
-} from '@ssuperlilei-lib/utils';
+} from '@ssuperlilei/utils';
 import { DefineComponent, unref } from 'vue';
 import type { FormProps } from '../types/ll-form';
 import type { FormState } from './useFormState';

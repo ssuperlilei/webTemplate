@@ -1,4 +1,4 @@
-# @ssuperlilei-lib/hooks
+# @ssuperlilei/hooks
 
 ## 3.0.0
 

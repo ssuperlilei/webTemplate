@@ -1,4 +1,4 @@
 export default {
   root: true,
-  extends: '@ssuperlilei-lib/stylelint-config',
+  extends: '@ssuperlilei/stylelint-config',
 };

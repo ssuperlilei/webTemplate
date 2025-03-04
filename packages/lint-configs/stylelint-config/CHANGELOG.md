@@ -1,4 +1,4 @@
-# @ssuperlilei-lib/stylelint-config
+# @ssuperlilei/stylelint-config
 
 ## 2.0.0
 

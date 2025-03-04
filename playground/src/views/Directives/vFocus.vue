@@ -3,5 +3,5 @@
 </template>
 
 <script setup lang="ts">
-import { vFocus } from '@ssuperlilei-lib/directives';
+import { vFocus } from '@ssuperlilei/directives';
 </script>

@@ -1,8 +1,8 @@
 {
-  "extends": "@ssuperlilei-lib/typescript-config/vite.json",
+  "extends": "@ssuperlilei/typescript-config/vite.json",
   "compilerOptions": {
     "skipLibCheck": true,
-    // "types": ["vite/client", "@ssuperlilei-lib/ui/global.d.ts"], // 已在env.d.ts引入了
+    // "types": ["vite/client", "@ssuperlilei/ui/global.d.ts"], // 已在env.d.ts引入了
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -17,7 +17,7 @@
     "paths": {
       "@/*": ["src/*"],
       "~/*": ["../packages/ui/src/*"],
-      "~@ssuperlilei-lib/ui": ["../packages/ui/src/index.ts"]
+      "~@ssuperlilei/ui": ["../packages/ui/src/index.ts"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]

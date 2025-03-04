@@ -26,7 +26,7 @@ const llProps = {
 <script setup lang="tsx">
 import { Button } from 'ant-design-vue';
 import { inject } from 'vue';
-import { type LLPropsInjection, llPropsKey } from '@ssuperlilei-lib/ui';
+import { type LLPropsInjection, llPropsKey } from '@ssuperlilei/ui';
 
 const llPropsInject: LLPropsInjection = inject(llPropsKey) as LLPropsInjection;
 const hasPermission = llPropsInject?.hasPermission;

@@ -1,5 +1,5 @@
 {
-  "name": "@ssuperlilei-lib/typescript-config",
+  "name": "@ssuperlilei/typescript-config",
   "version": "2.0.0",
   "private": true,
   "publishConfig": {

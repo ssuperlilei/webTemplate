@@ -1,11 +1,11 @@
 # useCounter
 
-> 多语言封装，提供了一些常用的多语言方法, 用于 @ssuperlilei-lib/ui 组件库中。
+> 多语言封装，提供了一些常用的多语言方法, 用于 @ssuperlilei/ui 组件库中。
 
 ## 基础用法
 
 ```typescript
-import { t, changeLanguage, init } from '@ssuperlilei-lib/i18n';
+import { t, changeLanguage, init } from '@ssuperlilei/i18n';
 init({
   lng: 'zh_CN',
   sources: {

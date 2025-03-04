@@ -1,4 +1,4 @@
-import { isFunction } from '@ssuperlilei-lib/utils';
+import { isFunction } from '@ssuperlilei/utils';
 import type { Slots } from 'vue';
 
 /**

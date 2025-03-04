@@ -1,5 +1,5 @@
 {
-  "name": "@ssuperlilei-lib/docs",
+  "name": "@ssuperlilei/docs",
   "version": "1.0.0",
   "description": "组件库模板说明文档",
   "main": "index.js",
@@ -13,11 +13,11 @@
   "author": "ssuperlilei <15528022618@163.com>",
   "license": "MIT",
   "dependencies": {
-    "@ssuperlilei-lib/directives": "workspace:*",
-    "@ssuperlilei-lib/hooks": "workspace:*",
-    "@ssuperlilei-lib/typescript-config": "workspace:*",
-    "@ssuperlilei-lib/ui": "workspace:*",
-    "@ssuperlilei-lib/utils": "workspace:*",
+    "@ssuperlilei/directives": "workspace:*",
+    "@ssuperlilei/hooks": "workspace:*",
+    "@ssuperlilei/typescript-config": "workspace:*",
+    "@ssuperlilei/ui": "workspace:*",
+    "@ssuperlilei/utils": "workspace:*",
     "vue": "^3.5.13"
   },
   "devDependencies": {

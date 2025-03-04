@@ -24,7 +24,7 @@ import { Input } from 'ant-design-vue';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons-vue';
 import { llPasswordInputProps } from './PasswordInput.types';
 import { styleFn } from './style';
-import { t } from '@ssuperlilei-lib/i18n';
+import { t } from '@ssuperlilei/i18n';
 
 defineOptions({
   name: 'LPasswordInput',

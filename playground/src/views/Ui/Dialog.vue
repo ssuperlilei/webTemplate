@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { VDialog } from '~@ssuperlilei-lib/ui';
+import { VDialog } from '~@ssuperlilei/ui';
 import { ref } from 'vue';
 console.log(VDialog);
 const open = ref(false);

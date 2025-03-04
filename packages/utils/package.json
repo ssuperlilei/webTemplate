@@ -1,5 +1,5 @@
 {
-  "name": "@ssuperlilei-lib/utils",
+  "name": "@ssuperlilei/utils",
   "description": "@LLlib utils library",
   "version": "3.0.0",
   "main": "dist/cjs/index.js",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-json": "^6.1.0",
-    "@ssuperlilei-lib/typescript-config": "workspace:*",
+    "@ssuperlilei/typescript-config": "workspace:*",
     "rollup": "^4.34.9",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-esbuild": "6.2.1"

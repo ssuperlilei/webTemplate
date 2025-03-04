@@ -16,19 +16,19 @@ Install using a package manager:
 ::: code-group
 
 ```bash [npm]
-npm install @ssuperlilei-lib/ui @ssuperlilei-lib/utils @ssuperlilei-lib/hooks @ssuperlilei-lib/directives
+npm install @ssuperlilei/ui @ssuperlilei/utils @ssuperlilei/hooks @ssuperlilei/directives
 ```
 
 ```bash [yarn]
-yarn add @ssuperlilei-lib/ui @ssuperlilei-lib/utils @ssuperlilei-lib/hooks @ssuperlilei-lib/directives
+yarn add @ssuperlilei/ui @ssuperlilei/utils @ssuperlilei/hooks @ssuperlilei/directives
 ```
 
 ```bash [pnpm]
-pnpm add @ssuperlilei-lib/ui @ssuperlilei-lib/utils @ssuperlilei-lib/hooks @ssuperlilei-lib/directives
+pnpm add @ssuperlilei/ui @ssuperlilei/utils @ssuperlilei/hooks @ssuperlilei/directives
 ```
 
 ```bash [bun]
-bun add @ssuperlilei-lib/ui @ssuperlilei-lib/utils @ssuperlilei-lib/hooks @ssuperlilei-lib/directives
+bun add @ssuperlilei/ui @ssuperlilei/utils @ssuperlilei/hooks @ssuperlilei/directives
 ```
 
 :::
@@ -40,16 +40,16 @@ bun add @ssuperlilei-lib/ui @ssuperlilei-lib/utils @ssuperlilei-lib/hooks @ssupe
 ```ts
 // Global import
 import { createApp } from 'vue';
-import UI from '@ssuperlilei-lib/ui';
-import '@ssuperlilei-lib/ui/style.css';
+import UI from '@ssuperlilei/ui';
+import '@ssuperlilei/ui/style.css';
 const app = createApp(App);
 app.use(UI);
 // Additionally, add the following configuration to tsconfig.json for type hints:
-// "types": ["@ssuperlilei-lib/ui/global.d.ts"]
+// "types": ["@ssuperlilei/ui/global.d.ts"]
 
 // Import on demand
-import { Button } from '@ssuperlilei-lib/ui';
-import '@ssuperlilei-lib/ui/style.css';
+import { Button } from '@ssuperlilei/ui';
+import '@ssuperlilei/ui/style.css';
 const app = createApp(App);
 app.use(Button);
 ```
@@ -57,25 +57,25 @@ app.use(Button);
 ### Utility Functions
 
 ```ts
-import { isString } from '@ssuperlilei-lib/utils';
+import { isString } from '@ssuperlilei/utils';
 console.log(isString('hello')); // true
 ```
 
 ### Hooks
 
 ```ts
-import { useCounter } from '@ssuperlilei-lib/hooks';
+import { useCounter } from '@ssuperlilei/hooks';
 const { count, increment, decrement } = useCounter();
 ```
 
 ### Directives
 
 ```ts
-import { vFocus } from '@ssuperlilei-lib/directives';
+import { vFocus } from '@ssuperlilei/directives';
 // Global import
 app.directive('focus', vFocus);
 
 // Import on demand
-import { vFocus } from '@ssuperlilei-lib/directives';
+import { vFocus } from '@ssuperlilei/directives';
 app.directive('focus', vFocus);
 ```

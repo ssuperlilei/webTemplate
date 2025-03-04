@@ -1,5 +1,5 @@
-import { I18nLanguageEnum, getLanguage, t } from '@ssuperlilei-lib/i18n';
-import { isNumber, isString } from '@ssuperlilei-lib/utils';
+import { I18nLanguageEnum, getLanguage, t } from '@ssuperlilei/i18n';
+import { isNumber, isString } from '@ssuperlilei/utils';
 import type { RuleObject } from 'ant-design-vue/es/form/';
 import dayjs from 'dayjs';
 import { Component, VNode } from 'vue';

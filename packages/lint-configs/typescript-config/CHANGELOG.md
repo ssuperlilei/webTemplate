@@ -1,4 +1,4 @@
-# @ssuperlilei-lib/typescript-config
+# @ssuperlilei/typescript-config
 
 ## 2.0.0
 

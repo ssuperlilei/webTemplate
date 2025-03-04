@@ -88,7 +88,7 @@ import {
   isObject,
   isString,
   objectPick,
-} from '@ssuperlilei-lib/utils';
+} from '@ssuperlilei/utils';
 import { Col, Divider, Form, Spin } from 'ant-design-vue';
 import type { RuleObject } from 'ant-design-vue/es/form/';
 import { computed, isVNode, nextTick, onMounted, toRefs, unref, watch } from 'vue';
@@ -105,7 +105,7 @@ import type {
 import { lFormItemProps } from './types/ll-form-item';
 import { type ComponentMapType, componentMap } from './utils/componentMap';
 import { createPlaceholderMessage } from './utils/helper';
-import { t } from '@ssuperlilei-lib/i18n';
+import { t } from '@ssuperlilei/i18n';
 import LEllipsis from '../Ellipsis';
 import { aDividerPropKeys } from './types/component';
 

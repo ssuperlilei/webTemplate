@@ -1,6 +1,6 @@
 import { DragOutlined } from '@ant-design/icons-vue';
-import { t } from '@ssuperlilei-lib/i18n';
-import { cloneDeep, isArray, isBoolean, isEmpty } from '@ssuperlilei-lib/utils';
+import { t } from '@ssuperlilei/i18n';
+import { cloneDeep, isArray, isBoolean, isEmpty } from '@ssuperlilei/utils';
 import type { Slots } from 'vue';
 import { ref, unref, watchEffect } from 'vue';
 import type { TableMethods, TableState } from '../hooks';

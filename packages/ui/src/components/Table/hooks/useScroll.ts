@@ -1,4 +1,4 @@
-import { debounce } from '@ssuperlilei-lib/utils';
+import { debounce } from '@ssuperlilei/utils';
 import { Ref, computed, getCurrentInstance, onBeforeUnmount, ref } from 'vue';
 import type { TableProps } from '../types';
 

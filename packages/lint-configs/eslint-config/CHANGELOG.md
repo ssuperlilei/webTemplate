@@ -1,4 +1,4 @@
-# @ssuperlilei-lib/eslint-config
+# @ssuperlilei/eslint-config
 
 ## 2.0.0
 

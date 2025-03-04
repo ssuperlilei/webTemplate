@@ -1,4 +1,4 @@
-# @ssuperlilei-lib/utils
+# @ssuperlilei/utils
 
 ## 3.0.0
 

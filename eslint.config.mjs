@@ -1,1 +1,1 @@
-export { default } from '@ssuperlilei-lib/eslint-config';
+export { default } from '@ssuperlilei/eslint-config';

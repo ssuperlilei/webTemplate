@@ -32,10 +32,10 @@
 
 <script lang="tsx" setup>
 import { UploadOutlined } from '@ant-design/icons-vue';
-import { cloneDeep } from '@ssuperlilei-lib/utils';
+import { cloneDeep } from '@ssuperlilei/utils';
 import { Button, Card, Select, message } from 'ant-design-vue';
 import { computed, ref, unref } from 'vue';
-import { type FormProps, type FormSchema, LForm, type formInstance } from '@ssuperlilei-lib/ui';
+import { type FormProps, type FormSchema, LForm, type formInstance } from '@ssuperlilei/ui';
 import Layout from '../Layout.vue';
 
 defineOptions({

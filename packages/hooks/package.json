@@ -1,7 +1,7 @@
 {
-  "name": "@ssuperlilei-lib/hooks",
+  "name": "@ssuperlilei/hooks",
   "version": "3.0.0",
-  "description": "@ssuperlilei-lib hooks library",
+  "description": "@ssuperlilei hooks library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-json": "^6.1.0",
-    "@ssuperlilei-lib/typescript-config": "workspace:*",
+    "@ssuperlilei/typescript-config": "workspace:*",
     "rollup": "^4.34.9",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-esbuild": "6.2.1",

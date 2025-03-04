@@ -5,7 +5,7 @@
 > 判断是否为字符串。
 
 ```ts
-import { isString } from '@ssuperlilei-lib/utils';
+import { isString } from '@ssuperlilei/utils';
 
 isString('hello'); // true
 isString(123); // false
@@ -16,7 +16,7 @@ isString(123); // false
 判断是什么类型。
 
 ```ts
-import { isType } from '@ssuperlilei-lib/utils';
+import { isType } from '@ssuperlilei/utils';
 
 isType<string>('hello'); // true
 isType<number>(123); // true
@@ -27,7 +27,7 @@ isType<number>(123); // true
 获取类型。
 
 ```ts
-import { getType } from '@ssuperlilei-lib/utils';
+import { getType } from '@ssuperlilei/utils';
 
 getType('hello'); // [object String]
 getType(123); // [object Number]
@@ -38,7 +38,7 @@ getType(123); // [object Number]
 判断是否为函数。
 
 ```ts
-import { isFn } from '@ssuperlilei-lib/utils';
+import { isFn } from '@ssuperlilei/utils';
 
 isFn(() => {}); // true
 isFn(async () => {}); // true
@@ -49,7 +49,7 @@ isFn(async () => {}); // true
 判断是否为 window 对象。
 
 ```ts
-import { isWindow } from '@ssuperlilei-lib/utils';
+import { isWindow } from '@ssuperlilei/utils';
 
 isWindow(window); // true
 ```
@@ -59,7 +59,7 @@ isWindow(window); // true
 判断是否为 HTMLElement 对象。
 
 ```ts
-import { isHTMLElement } from '@ssuperlilei-lib/utils';
+import { isHTMLElement } from '@ssuperlilei/utils';
 
 isHTMLElement(document.body); // true
 ```
@@ -69,7 +69,7 @@ isHTMLElement(document.body); // true
 判断是否为数组。
 
 ```ts
-import { isArray } from '@ssuperlilei-lib/utils';
+import { isArray } from '@ssuperlilei/utils';
 
 isArray([]); // true
 ```
@@ -79,7 +79,7 @@ isArray([]); // true
 判断是否为普通对象。
 
 ```ts
-import { isPlainObj } from '@ssuperlilei-lib/utils';
+import { isPlainObj } from '@ssuperlilei/utils';
 
 isPlainObj({}); // true
 ```
@@ -89,7 +89,7 @@ isPlainObj({}); // true
 判断是否为布尔值。
 
 ```ts
-import { isBoolean } from '@ssuperlilei-lib/utils';
+import { isBoolean } from '@ssuperlilei/utils';
 
 isBoolean(true); // true
 ```
@@ -99,7 +99,7 @@ isBoolean(true); // true
 判断是否为数字。
 
 ```ts
-import { isNumber } from '@ssuperlilei-lib/utils';
+import { isNumber } from '@ssuperlilei/utils';
 
 isNumber(123); // true
 ```
@@ -109,7 +109,7 @@ isNumber(123); // true
 判断是否为对象。
 
 ```ts
-import { isObject } from '@ssuperlilei-lib/utils';
+import { isObject } from '@ssuperlilei/utils';
 
 isObject({}); // true
 ```
@@ -119,7 +119,7 @@ isObject({}); // true
 判断是否为正则表达式。
 
 ```ts
-import { isRegExp } from '@ssuperlilei-lib/utils';
+import { isRegExp } from '@ssuperlilei/utils';
 
 isRegExp(/hello/); // true
 ```
@@ -129,7 +129,7 @@ isRegExp(/hello/); // true
 判断是否为有效值。
 
 ```ts
-import { isValid } from '@ssuperlilei-lib/utils';
+import { isValid } from '@ssuperlilei/utils';
 
 isValid('hello'); // true
 isValid(null); // false
@@ -140,7 +140,7 @@ isValid(null); // false
 判断是否为有效数字。
 
 ```ts
-import { isValidNumber } from '@ssuperlilei-lib/utils';
+import { isValidNumber } from '@ssuperlilei/utils';
 
 isValidNumber(123); // true
 isValidNumber(NaN); // false
@@ -151,7 +151,7 @@ isValidNumber(NaN); // false
 判断是否为某种类型。
 
 ```ts
-import { is } from '@ssuperlilei-lib/utils';
+import { is } from '@ssuperlilei/utils';
 
 is('hello', 'String'); // true
 is(123, 'Number'); // true
@@ -162,7 +162,7 @@ is(123, 'Number'); // true
 判断是否定义。
 
 ```ts
-import { isDef } from '@ssuperlilei-lib/utils';
+import { isDef } from '@ssuperlilei/utils';
 
 isDef('hello'); // true
 isDef(undefined); // false
@@ -173,7 +173,7 @@ isDef(undefined); // false
 判断是否未定义。
 
 ```ts
-import { isUnDef } from '@ssuperlilei-lib/utils';
+import { isUnDef } from '@ssuperlilei/utils';
 
 isUnDef('hello'); // false
 isUnDef(undefined); // true
@@ -184,7 +184,7 @@ isUnDef(undefined); // true
 判断是否为空。
 
 ```ts
-import { isEmpty } from '@ssuperlilei-lib/utils';
+import { isEmpty } from '@ssuperlilei/utils';
 
 isEmpty(''); // true
 isEmpty([]); // true
@@ -195,7 +195,7 @@ isEmpty([]); // true
 判断是否为日期。
 
 ```ts
-import { isDate } from '@ssuperlilei-lib/utils';
+import { isDate } from '@ssuperlilei/utils';
 
 isDate(new Date()); // true
 ```
@@ -205,7 +205,7 @@ isDate(new Date()); // true
 判断是否为 null。
 
 ```ts
-import { isNull } from '@ssuperlilei-lib/utils';
+import { isNull } from '@ssuperlilei/utils';
 
 isNull(null); // true
 ```
@@ -215,7 +215,7 @@ isNull(null); // true
 判断是否为 null 或未定义。
 
 ```ts
-import { isNullAndUnDef } from '@ssuperlilei-lib/utils';
+import { isNullAndUnDef } from '@ssuperlilei/utils';
 
 isNullAndUnDef(null); // true
 isNullAndUnDef(undefined); // true
@@ -226,7 +226,7 @@ isNullAndUnDef(undefined); // true
 判断是否为 null 或未定义。
 
 ```ts
-import { isNullOrUnDef } from '@ssuperlilei-lib/utils';
+import { isNullOrUnDef } from '@ssuperlilei/utils';
 
 isNullOrUnDef(null); // true
 isNullOrUnDef(undefined); // true
@@ -237,7 +237,7 @@ isNullOrUnDef(undefined); // true
 判断是否为 Promise 对象。
 
 ```ts
-import { isPromise } from '@ssuperlilei-lib/utils';
+import { isPromise } from '@ssuperlilei/utils';
 
 isPromise(Promise.resolve()); // true
 ```
@@ -247,7 +247,7 @@ isPromise(Promise.resolve()); // true
 判断是否为函数。
 
 ```ts
-import { isFunction } from '@ssuperlilei-lib/utils';
+import { isFunction } from '@ssuperlilei/utils';
 
 isFunction(() => {}); // true
 ```
@@ -257,7 +257,7 @@ isFunction(() => {}); // true
 判断是否为异步函数。
 
 ```ts
-import { isAsyncFunction } from '@ssuperlilei-lib/utils';
+import { isAsyncFunction } from '@ssuperlilei/utils';
 
 isAsyncFunction(async () => {}); // true
 ```
@@ -267,7 +267,7 @@ isAsyncFunction(async () => {}); // true
 判断是否为元素。
 
 ```ts
-import { isElement } from '@ssuperlilei-lib/utils';
+import { isElement } from '@ssuperlilei/utils';
 
 isElement(document.body); // true
 ```
@@ -277,7 +277,7 @@ isElement(document.body); // true
 判断是否为 Map 对象。
 
 ```ts
-import { isMap } from '@ssuperlilei-lib/utils';
+import { isMap } from '@ssuperlilei/utils';
 
 isMap(new Map()); // true
 ```
@@ -287,7 +287,7 @@ isMap(new Map()); // true
 判断是否为服务端。
 
 ```ts
-import { isServer } from '@ssuperlilei-lib/utils';
+import { isServer } from '@ssuperlilei/utils';
 
 isServer; // true
 ```
@@ -297,7 +297,7 @@ isServer; // true
 判断是否为客户端。
 
 ```ts
-import { isClient } from '@ssuperlilei-lib/utils';
+import { isClient } from '@ssuperlilei/utils';
 
 isClient; // true
 ```
@@ -307,7 +307,7 @@ isClient; // true
 判断是否为 URL。
 
 ```ts
-import { isUrl } from '@ssuperlilei-lib/utils';
+import { isUrl } from '@ssuperlilei/utils';
 
 isUrl('https://www.example.com'); // true
 ```
@@ -317,7 +317,7 @@ isUrl('https://www.example.com'); // true
 判断是否为对象或数组。
 
 ```ts
-import { isObjectOrArray } from '@ssuperlilei-lib/utils';
+import { isObjectOrArray } from '@ssuperlilei/utils';
 
 isObjectOrArray({}); // true
 isObjectOrArray([]); // true
@@ -328,7 +328,7 @@ isObjectOrArray([]); // true
 判断是否为未定义。
 
 ```ts
-import { isUndefined } from '@ssuperlilei-lib/utils';
+import { isUndefined } from '@ssuperlilei/utils';
 
 isUndefined(undefined); // true
 ```

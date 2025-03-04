@@ -59,7 +59,7 @@ import { Button, Dropdown, Menu, MenuItem, Popconfirm } from 'ant-design-vue';
 import { EllipsisOutlined } from '@ant-design/icons-vue';
 import type { ActionItem } from '../types/tableAction';
 import type { CustomRenderParams } from '../types/column';
-import { isAsyncFunction, isBoolean, isFunction, omit } from '@ssuperlilei-lib/utils';
+import { isAsyncFunction, isBoolean, isFunction, omit } from '@ssuperlilei/utils';
 import BMEllipsis from '~/components/Ellipsis';
 import { llPropsKey } from '~/components/ConfigProvider/hooks/context';
 import type { LLPropsInjection } from '~/components/ConfigProvider';

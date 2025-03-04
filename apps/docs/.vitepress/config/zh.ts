@@ -28,7 +28,7 @@ export const zh = defineConfig({
           items: [{ text: '介绍', link: '/guide/index' }],
         },
         {
-          text: '组件（@ssuperlilei-lib/ui）',
+          text: '组件（@ssuperlilei/ui）',
           items: [
             { text: 'ConfigProvider 组件', link: '/guide/ui/configProvider' },
             { text: 'PasswordInput 组件', link: '/guide/ui/passwordInput' },
@@ -37,22 +37,22 @@ export const zh = defineConfig({
           ],
         },
         {
-          text: 'Hooks（@ssuperlilei-lib/hooks）',
+          text: 'Hooks（@ssuperlilei/hooks）',
           items: [{ text: 'useCounter 计数器', link: '/guide/hooks/useCounter' }],
         },
         {
-          text: '指令（@ssuperlilei-lib/directives）',
+          text: '指令（@ssuperlilei/directives）',
           items: [{ text: 'vFocus 聚焦', link: '/guide/directives/vFocus' }],
         },
         {
-          text: '工具函数（@ssuperlilei-lib/utils）',
+          text: '工具函数（@ssuperlilei/utils）',
           items: [
             { text: '类型方法', link: '/guide/utils/types' },
             { text: '常用方法', link: '/guide/utils/func' },
           ],
         },
         {
-          text: 'i18n（@ssuperlilei-lib/i18n）',
+          text: 'i18n（@ssuperlilei/i18n）',
           items: [{ text: '多语言', link: '/guide/i18n/index' }],
         },
         {

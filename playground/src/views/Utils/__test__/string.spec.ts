@@ -1,4 +1,4 @@
-import { capitalize, camelToKebab, isString } from '@ssuperlilei-lib/utils';
+import { capitalize, camelToKebab, isString } from '@ssuperlilei/utils';
 import { describe, expect, it } from 'vitest';
 
 describe('string工具', () => {
