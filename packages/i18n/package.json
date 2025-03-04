@@ -1,6 +1,6 @@
 {
   "name": "@ssuperlilei/i18n",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "@ssuperlilei i18n library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",

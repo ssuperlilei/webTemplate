@@ -1,5 +1,11 @@
 # @ssuperlilei/hooks
 
+## 3.0.1
+
+### Patch Changes
+
+- init
+
 ## 3.0.0
 
 ### Major Changes
