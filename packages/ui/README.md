@@ -29,11 +29,11 @@ pnpm add @ssuperlilei/ui
 import { createApp } from 'vue';
 import App from './App.vue';
 
-import VUI from '@ssuperlilei/ui';
+import LUI from '@ssuperlilei/ui';
 import '@ssuperlilei/ui/style.css';
 
 const app = createApp(App);
-app.use(VUI);
+app.use(LUI);
 app.mount('#app');
 ```
 
@@ -44,11 +44,10 @@ app.mount('#app');
 import { createApp } from 'vue';
 import App from './App.vue';
 
-import { Button } from '@ssuperlilei/ui';
-import '@ssuperlilei/ui/style.css';
+import { LPasswordInput } from '@ssuperlilei/ui';
 
 const app = createApp(App);
-app.use(Button);
+app.component('LPasswordInput', LPasswordInput);
 app.mount('#app');
 ```
 
@@ -56,20 +55,12 @@ app.mount('#app');
 
 ```vue
 <template>
-  <VButton @click="open = true">弹窗</VButton>
-  <VButton type="primary">按钮</VButton>
-  <VButton type="success">按钮</VButton>
-  <VButton type="warning">按钮</VButton>
-  <VButton type="danger">按钮</VButton>
-  <VButton type="info">按钮</VButton>
-  <VDialog v-model:open="open">
-    <div>弹窗测试2222</div>
-  </VDialog>
+  <LPasswordInput v-model:value="password"></LPasswordInput>
 </template>
 
 <script setup lang="ts">
-import { VButton, VDialog } from '@ssuperlilei/ui';
+import { LPasswordInput } from '@ssuperlilei/ui';
 import { ref } from 'vue';
-const open = ref(false);
+const password = ref<string>('123456');
 </script>
 ```
