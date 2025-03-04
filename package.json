@@ -31,6 +31,7 @@
     "bu": "pnpm -F @ssuperlilei/ui run build",
     "build:gulp": "gulp -f build/gulpfile.js",
     "publish": "turbo run publish",
+    "publish:ui": "turbo run publish --filter=@ssuperlilei/ui",
     "lint:eslint": "eslint --max-warnings 0 \"**/*.{ts,tsx,js,jsx,cjs,mjs,vue}\" --fix",
     "lint:format": "prettier --write \"**/*.{js,jsx,cjs,ts,tsx,mjs,mts,md,vue,scss,css,less,html,json}\"",
     "lint:style": "stylelint \"**/*.{css,scss,less}\" --fix",
