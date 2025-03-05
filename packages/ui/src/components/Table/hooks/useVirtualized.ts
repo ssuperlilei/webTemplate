@@ -1,10 +1,15 @@
 import { GetRowKey } from 'ant-design-vue/es/table/interface';
-import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
+import { computed, inject, nextTick, onMounted, onUnmounted, ref, watch } from 'vue';
 import { TableState } from '.';
+import { configProviderInjectionKey, type ConfigProviderInjection } from '~/components';
 
 export const useVirtualized = ({ state }: { state: TableState }) => {
   const { tableData, getProps } = state;
   const yItemHeight = ref(44);
+  // 获取configProvider的 前缀
+  const provideConfig: ConfigProviderInjection = inject(
+    configProviderInjectionKey,
+  ) as ConfigProviderInjection;
   //表格特有class名生成
   const virtualizedClass = ref(`y-virtualized-${generateUniqueRandomPositiveInteger()}`);
 
@@ -16,8 +21,14 @@ export const useVirtualized = ({ state }: { state: TableState }) => {
   //可视区域数据长度
   const visibleCount = computed(() => Math.ceil(screenHeight.value / yItemHeight.value));
 
-  const parentNode = ref(document.querySelector(`.mes-table-body`) as HTMLDivElement);
-  const contentNode = ref(document.querySelector(`.mes-table-body table`) as HTMLDivElement);
+  const parentNode = ref(
+    document.querySelector(`.${provideConfig.clsPrefixRef?.value}-table-body`) as HTMLDivElement,
+  );
+  const contentNode = ref(
+    document.querySelector(
+      `.${provideConfig.clsPrefixRef?.value}-table-body table`,
+    ) as HTMLDivElement,
+  );
 
   const placeholderWrapper = ref();
 
@@ -50,10 +61,10 @@ export const useVirtualized = ({ state }: { state: TableState }) => {
 
   const initVir = () => {
     parentNode.value = document.querySelector(
-      `.${virtualizedClass.value} .mes-table-body`,
+      `.${virtualizedClass.value} .${provideConfig.clsPrefixRef?.value}-table-body`,
     ) as HTMLDivElement;
     contentNode.value = document.querySelector(
-      `.${virtualizedClass.value} .mes-table-body table`,
+      `.${virtualizedClass.value} .${provideConfig.clsPrefixRef?.value}-table-body table`,
     ) as HTMLDivElement;
     if (parentNode.value && contentNode.value) {
       placeholderWrapper.value = document.createElement('div');

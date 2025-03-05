@@ -159,4 +159,4 @@ export type FormProps<T = any> = Partial<ExtractPropTypes<typeof lFormProps>> & 
 };
 
 // @ts-ignore:next-line
-export type formInstance = Partial<InstanceType<typeof LForm>>;
+export type FormInstance = Partial<InstanceType<typeof LForm>>;

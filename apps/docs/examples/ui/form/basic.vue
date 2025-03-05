@@ -35,7 +35,7 @@ import { UploadOutlined } from '@ant-design/icons-vue';
 import { cloneDeep } from '@ssuperlilei/utils';
 import { Button, Card, Select, message } from 'ant-design-vue';
 import { computed, ref, unref } from 'vue';
-import { type FormProps, type FormSchema, LForm, type formInstance } from '@ssuperlilei/ui';
+import { type FormInstance, type FormProps, type FormSchema, LForm } from '@ssuperlilei/ui';
 import Layout from '../Layout.vue';
 
 defineOptions({
@@ -507,7 +507,7 @@ function handleSubmit(values: any) {
   );
 }
 
-const myFormRef = ref<formInstance>();
+const myFormRef = ref<FormInstance>();
 const handleSet = () => {
   console.log('myFormRef', myFormRef.value?.formModel);
 };

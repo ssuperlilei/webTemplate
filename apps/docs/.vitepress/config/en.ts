@@ -32,10 +32,7 @@ export const en = defineConfig({
       },
       {
         text: 'Components (@ssuperlilei/ui)',
-        items: [
-          { text: 'Button', link: 'en/packages/ui/button' },
-          { text: 'Dialog', link: 'en/packages/ui/dialog' },
-        ],
+        items: [{ text: 'Button', link: 'en/packages/ui/button' }],
       },
       {
         text: 'Hooks (@ssuperlilei/hooks)',

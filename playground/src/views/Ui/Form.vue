@@ -36,7 +36,7 @@ import { cloneDeep } from '@ssuperlilei/utils';
 import { Button, Card, RadioGroup, Select, message } from 'ant-design-vue';
 import { computed, ref, unref } from 'vue';
 import { type FormProps, type FormSchema, LConfigProvider, LForm } from '~@ssuperlilei/ui';
-import type { formInstance } from '@ssuperlilei/ui';
+import type { FormInstance } from '@ssuperlilei/ui';
 
 defineOptions({
   name: 'DemosFormBasicForm',
@@ -507,7 +507,7 @@ function handleSubmit(values: any) {
   );
 }
 
-const myFormRef = ref<formInstance>();
+const myFormRef = ref<FormInstance>();
 const handleSet = () => {
   console.log('myFormRef', myFormRef.value?.formModel);
 };

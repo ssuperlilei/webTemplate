@@ -1,7 +1,7 @@
 {
   "name": "@ssuperlilei/ui",
   "description": "@ssuperlilei ui library",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
@@ -32,6 +32,7 @@
     "@ssuperlilei/i18n": "workspace:*",
     "@ssuperlilei/typescript-config": "workspace:*",
     "@ssuperlilei/utils": "workspace:*",
+    "@ssuperlilei/hooks": "workspace:*",
     "@types/node": "^22.13.8",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",

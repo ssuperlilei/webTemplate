@@ -34,6 +34,7 @@ export const zh = defineConfig({
             { text: 'PasswordInput 组件', link: '/guide/ui/passwordInput' },
             { text: 'table 组件', link: '/guide/ui/table' },
             { text: 'form 组件', link: '/guide/ui/form' },
+            { text: 'modalForm 组件', link: '/guide/ui/modalForm' },
           ],
         },
         {

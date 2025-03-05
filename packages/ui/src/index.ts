@@ -1,17 +1,17 @@
 import type { App } from 'vue';
 import {
-  VButton,
-  VDialog,
+  LButton,
   LConfigProvider,
   LPasswordInput,
   LForm,
   LEllipsis,
   LTable,
+  LModalForm,
 } from './components';
 
 export { version } from './version';
 
-const components = [VButton, VDialog, LConfigProvider, LPasswordInput, LForm, LEllipsis, LTable];
+const components = [LButton, LConfigProvider, LPasswordInput, LForm, LEllipsis, LTable, LModalForm];
 
 function install(app: App) {
   components.forEach((component) => {

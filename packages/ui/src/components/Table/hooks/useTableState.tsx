@@ -4,7 +4,7 @@ import type { TableProps as AntTableProps, InputProps, Table } from 'ant-design-
 import type { Slots } from 'vue';
 import { computed, inject, ref, unref, watch } from 'vue';
 import { ConfigProviderInjection, configProviderInjectionKey } from '~/components/ConfigProvider';
-import type { formInstance } from '~/components/Form';
+import type { FormInstance } from '~/components/Form';
 import type { SortParams, TableEmitFn, TableProps } from '../types';
 import { useScroll } from './useScroll';
 
@@ -32,7 +32,7 @@ export const useTableState = ({ props, emit }: UseTableStateParams): any => {
   /** 表格实例 */
   const tableRef = ref<InstanceType<typeof Table>>();
   /** 查询表单实例 */
-  const queryFormRef = ref<formInstance>();
+  const queryFormRef = ref<FormInstance>();
   /** 表头搜索输入框实例 */
   const headerSearchInputRef = ref<InputProps>();
   /** 表头搜索数据 */

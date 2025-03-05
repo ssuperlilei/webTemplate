@@ -12,8 +12,7 @@
 declare module 'vue' {
   // GlobalComponents for Volar
   export interface GlobalComponents {
-    VButton: (typeof import('@ssuperlilei/ui'))['VButton'];
-    VDialog: (typeof import('@ssuperlilei/ui'))['VDialog'];
+    LButton: (typeof import('@ssuperlilei/ui'))['LButton'];
     LConfigProvider: (typeof import('@ssuperlilei/ui'))['LConfigProvider'];
     LPasswordInput: (typeof import('@ssuperlilei/ui'))['LPasswordInput'];
     LForm: (typeof import('@ssuperlilei/ui'))['LForm'];

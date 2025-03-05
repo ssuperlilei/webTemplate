@@ -1,6 +1,6 @@
 {
   "name": "@ssuperlilei/hooks",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "@ssuperlilei hooks library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",

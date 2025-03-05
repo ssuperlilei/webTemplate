@@ -297,6 +297,9 @@ importers:
         specifier: ^0.15.14
         version: 0.15.14
     devDependencies:
+      '@ssuperlilei/hooks':
+        specifier: workspace:*
+        version: link:../hooks
       '@ssuperlilei/i18n':
         specifier: workspace:*
         version: link:../i18n

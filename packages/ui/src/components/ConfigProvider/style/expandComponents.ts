@@ -3,14 +3,40 @@ import { c, cB, cE, mountStyle } from '~/_utils';
 // 基础扩展组件样式
 export const expandComponentsStyle = (prefix: string) => {
   const modalBasicStyle = [
-    cB('modal-header', {
-      display: 'flex',
-      alignItems: 'center',
-      paddingLeft: 'var(--ll-padding-small)',
-      marginBottom: '0',
-      borderBottom: '1px solid #e4e4e4',
-      height: '44px',
-    }),
+    cB(
+      'modal-header',
+      {
+        display: 'flex',
+        alignItems: 'center',
+        paddingLeft: 'var(--ll-padding-small)',
+        marginBottom: '0',
+        borderBottom: '1px solid #e4e4e4',
+        height: '44px',
+      },
+      [
+        cB(
+          'modal-title',
+          {
+            width: '100%',
+            height: '100%',
+          },
+          [
+            c('.l-modal-title', {
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              cursor: 'move',
+              userSelect: 'none',
+            }),
+            c('.l-modal-title', {
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+            }),
+          ],
+        ),
+      ],
+    ),
     cB('modal-footer', {
       marginInlineStart: '0px',
       marginTop: '0px ',
@@ -126,12 +152,6 @@ export const expandComponentsStyle = (prefix: string) => {
       ]),
       // 弹出框 M号
       c('.modalSizeMedium', [
-        cB(
-          'modal-content',
-          `
-          width: 560px;
-          `,
-        ),
         cB('modal-content', {
           padding: '0',
           maxHeight: 'calc(100vh - 150px)',
@@ -147,18 +167,8 @@ export const expandComponentsStyle = (prefix: string) => {
       ]),
       // 弹出框 L号
       c('.modalSizeLarge', [
-        cB(
-          'modal',
-          `
-      left:50%;
-      transform: translateX(-82%);
-      animation: none;
-      margin:0
-      `,
-        ),
         cB('modal-content', {
           padding: '0',
-          width: '860px',
           maxHeight: 'calc(100vh - 150px)',
         }),
         cB('modal-body', {
@@ -172,20 +182,9 @@ export const expandComponentsStyle = (prefix: string) => {
       ]),
       // 弹出框 XL号
       c('.modalSizeExtraLarge', [
-        cB(
-          'modal',
-          `
-      left:50%;
-      transform: translateX(-124%);
-      animation: none;
-      margin:0
-      `,
-        ),
         cB('modal-content', {
-          width: '1290px',
           padding: '0',
           maxHeight: 'calc(100vh - 120px - 60px)',
-          overflow: 'hidden',
         }),
         cB('modal-body', {
           margin: '16px',
@@ -201,11 +200,11 @@ export const expandComponentsStyle = (prefix: string) => {
         cB(
           'modal',
           `
-        max-width: 100%;
-        top: 0;
-        padding-bottom: 0;
-        margin: 0;
-      `,
+          max-width: 100%;
+          top: 0;
+          padding-bottom: 0;
+          margin: 0;
+        `,
         ),
         cB('modal-content', {
           width: '100%',

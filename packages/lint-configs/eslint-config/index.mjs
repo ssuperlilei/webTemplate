@@ -46,7 +46,7 @@ export default tseslint.config(
           svg: 'always', // 强制 svg 元素始终自闭合
         },
       ],
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // 禁止未使用的变量，但允许以 _ 开头的变量
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }], // 禁止未使用的变量，但允许以 _ 开头的变量
     },
   },
 );

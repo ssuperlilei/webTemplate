@@ -20,7 +20,7 @@
 import type { ButtonEmits, ButtonProps } from './Button.types';
 
 defineOptions({
-  name: 'VButton',
+  name: 'LButton',
 });
 
 const {

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { plugin as BemPlugin } from '@css-render/plugin-bem';
 import { CNodeChildren, CssRender, type CNode, type CProperties } from 'css-render';
 import { useClsPrefix } from '../hooks/useConfig';

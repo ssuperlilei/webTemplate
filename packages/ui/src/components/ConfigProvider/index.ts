@@ -7,3 +7,4 @@ export const LConfigProvider = withInstall(ConfigProvider);
 export default LConfigProvider;
 export * from './ConfigProvider.type';
 export * from './hooks';
+export * from './common';

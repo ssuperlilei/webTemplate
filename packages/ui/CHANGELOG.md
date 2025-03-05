@@ -1,5 +1,11 @@
 # @ssuperlilei/ui
 
+## 3.1.0
+
+### Minor Changes
+
+- feat: modalForm and drag
+
 ## 3.0.2
 
 ### Patch Changes

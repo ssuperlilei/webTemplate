@@ -4,7 +4,7 @@ import type { NamePath, RuleObject } from 'ant-design-vue/es/form/interface';
 import type { Component, HTMLAttributes, VNode } from 'vue';
 import { JSX } from 'vue/jsx-runtime';
 import { LFormType } from '../hooks';
-import type { formInstance } from './ll-form';
+import type { FormInstance } from './ll-form';
 import type { ColEx, ComponentMapType, ComponentProps } from './component';
 
 export type { RowProps };
@@ -54,7 +54,7 @@ export interface FormActionType {
   scrollToField: (name: NamePath, options?: ScrollOptions) => Promise<void>;
 }
 
-export type RegisterFn = (formInstance: formInstance) => void;
+export type RegisterFn = (formInstance: FormInstance) => void;
 
 /** 表单项 */
 export interface FormSchema<T = string> {
