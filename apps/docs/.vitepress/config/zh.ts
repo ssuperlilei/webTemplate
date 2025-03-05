@@ -68,6 +68,7 @@ export const zh = defineConfig({
             { text: 'Git 的技巧', link: '/blog/git' },
             { text: 'iframe 微前端问题', link: '/blog/iframe' },
             { text: '删除 node_modules', link: '/blog/quickDeleteNodeModules' },
+            { text: 'vue3 组件封装技巧', link: '/blog/componentSkill' },
           ],
         },
       ],
