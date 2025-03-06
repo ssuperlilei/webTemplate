@@ -39,6 +39,19 @@ export const useModalFormState = ({ props, attrs, emit }: useModalFormStateParam
     (v) => {
       if (v === undefined) {
         openUndefined.value = true;
+      } else {
+        openUndefined.value = false;
+      }
+    },
+    { immediate: true },
+  );
+  watch(
+    () => modalFormPropsRef.value?.open,
+    (v) => {
+      if (v === undefined) {
+        openUndefined.value = true;
+      } else {
+        openUndefined.value = false;
       }
     },
     { immediate: true },

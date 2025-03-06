@@ -8,6 +8,8 @@
       wrap-class-name="modalSizeMedium"
       :submit="submit"
     />
+
+    <Button type="primary" @click="openHooksModal">函数式弹窗</Button>
   </LConfigProvider>
 </template>
 
@@ -17,6 +19,7 @@ import {
   LConfigProvider,
   LModalForm,
   type ModalFormInstance,
+  useModal,
 } from '@ssuperlilei/ui';
 import { reactive, ref } from 'vue';
 
@@ -52,6 +55,19 @@ const submit = async (formModal: Record<string, any>) => {
     console.log(_error);
     return Promise.reject();
   }
+};
+
+const [ModalRender] = useModal();
+
+const openHooksModal = () => {
+  ModalRender.show({
+    title: '我是hook纯函数式模态框',
+    content: 'hello',
+    drag: true,
+    formProps,
+    wrapClassName: 'modalSizeMedium',
+    submit,
+  });
 };
 </script>
 

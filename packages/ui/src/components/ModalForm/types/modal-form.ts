@@ -73,6 +73,11 @@ export const modalFormProps = {
     type: Boolean as PropType<boolean>,
     default: true,
   },
+  // 前缀
+  clsPrefix: {
+    type: String as PropType<string>,
+    default: 'ant',
+  },
 };
 
 // form 默认值

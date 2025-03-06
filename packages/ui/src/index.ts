@@ -7,6 +7,7 @@ import {
   LEllipsis,
   LTable,
   LModalForm,
+  installUseModal,
 } from './components';
 
 export { version } from './version';
@@ -16,6 +17,10 @@ const components = [LButton, LConfigProvider, LPasswordInput, LForm, LEllipsis, 
 function install(app: App) {
   components.forEach((component) => {
     app.use(component);
+  });
+  installUseModal(app, {
+    clsPrefix: 'ant',
+    drag: true,
   });
 }
 

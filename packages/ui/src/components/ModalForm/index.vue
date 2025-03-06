@@ -11,7 +11,6 @@
     <div v-if="slots.formBefore" style="padding-bottom: 20px">
       <slot name="formBefore" v-bind="instance" />
     </div>
-
     <LForm
       v-if="!isUnDef(getModalFormProps.formProps)"
       ref="formRef"
@@ -132,7 +131,11 @@ watch(
   async (v) => {
     if (v) {
       await nextTick();
-      initDrag(document.querySelector(`.${provideConfig.clsPrefixRef?.value}-modal`));
+      initDrag(
+        document.querySelector(
+          `.${provideConfig?.clsPrefixRef?.value ?? props.clsPrefix}-modal`,
+        ) as HTMLElement,
+      );
     }
   },
   { immediate: false },

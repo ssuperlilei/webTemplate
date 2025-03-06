@@ -1,5 +1,7 @@
-import { ModalFormEmitFn } from '../types';
+import { deepMerge } from '@ssuperlilei/utils';
+import { ModalFormEmitFn, type ModalFormProps } from '../types';
 import { ModalFormState } from './useModalFormState';
+import { unref } from 'vue';
 
 export type ModalFormMethods = ReturnType<typeof useModalFormMethods>;
 
@@ -31,6 +33,16 @@ export function useModalFormMethods(modalFormActionContext: UseModalFormActionCo
       return formModel as Recordable<any>;
     } catch (error) {
       return Promise.reject(error);
+    }
+  };
+
+  /**
+   * @description 设置弹窗属性
+   */
+  const setProps = (props: Partial<ModalFormProps>) => {
+    modalFormPropsRef.value = deepMerge(unref(modalFormPropsRef) || {}, props);
+    if (props.open) {
+      innerOpen.value = true;
     }
   };
 
@@ -78,5 +90,6 @@ export function useModalFormMethods(modalFormActionContext: UseModalFormActionCo
     getFormValues,
     setLoading,
     innerOpenModal,
+    setProps,
   };
 }

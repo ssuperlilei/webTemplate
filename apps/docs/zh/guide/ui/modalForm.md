@@ -34,3 +34,22 @@
 | 'update:open' | open值改变   |          |
 | cancelModal   | 同 antdV     | -        |
 | okModal       | 同 antdV     | -        |
+
+## 函数式调用
+
+函数式调用允许使用 hook 形式创建模态框，必须在 main.ts 中注册组件。
+
+```ts
+import { installUseModal } from '@ssuperlilei/ui';
+
+installUseModal(app, {
+  clsPrefix: 'ant',
+  // 同 ModalForm Props
+});
+```
+
+以下是一个示例：
+
+::: raw
+<demo class="vp-raw" vue="ui/modalForm/basic.vue" />
+:::
