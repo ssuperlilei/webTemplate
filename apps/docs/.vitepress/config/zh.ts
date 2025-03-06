@@ -32,6 +32,7 @@ export const zh = defineConfig({
           items: [
             { text: 'ConfigProvider 组件', link: '/guide/ui/configProvider' },
             { text: 'PasswordInput 组件', link: '/guide/ui/passwordInput' },
+            { text: 'Ellipsis 文本省略', link: '/guide/ui/ellipsis' },
             { text: 'table 组件', link: '/guide/ui/table' },
             { text: 'form 组件', link: '/guide/ui/form' },
             { text: 'modalForm 组件', link: '/guide/ui/modalForm' },
@@ -39,7 +40,10 @@ export const zh = defineConfig({
         },
         {
           text: 'Hooks（@ssuperlilei/hooks）',
-          items: [{ text: 'useCounter 计数器', link: '/guide/hooks/useCounter' }],
+          items: [
+            { text: 'useCounter 计数器', link: '/guide/hooks/useCounter' },
+            { text: 'useDrag 拖拽', link: '/guide/hooks/useDrag' },
+          ],
         },
         {
           text: '指令（@ssuperlilei/directives）',
