@@ -1,5 +1,11 @@
 # @ssuperlilei/hooks
 
+## 3.1.1
+
+### Patch Changes
+
+- fix: add homepage link
+
 ## 3.1.0
 
 ### Minor Changes

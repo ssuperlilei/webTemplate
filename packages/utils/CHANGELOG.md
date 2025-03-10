@@ -1,5 +1,11 @@
 # @ssuperlilei/utils
 
+## 3.0.2
+
+### Patch Changes
+
+- fix: add homepage link
+
 ## 3.0.1
 
 ### Patch Changes
