@@ -8,11 +8,11 @@
         mode="inline"
         @select="onMenuSelect"
       >
-        <a-menu-item v-for="route in routes" :key="route.path">
+        <a-menu-item v-for="routeItem in routes" :key="routeItem.path">
           <template #icon>
-            <component :is="route.meta?.icon" />
+            <component :is="routeItem.meta?.icon" />
           </template>
-          <span>{{ route.meta?.title }}</span>
+          <span>{{ routeItem.meta?.title }}</span>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
