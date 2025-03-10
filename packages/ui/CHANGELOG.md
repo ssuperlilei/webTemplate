@@ -1,5 +1,11 @@
 # @ssuperlilei/ui
 
+## 3.1.1
+
+### Patch Changes
+
+- fix: 表单展开收起逻辑修改
+
 ## 3.1.0
 
 ### Minor Changes
