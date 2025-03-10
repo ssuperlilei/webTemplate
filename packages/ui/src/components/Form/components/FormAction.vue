@@ -68,7 +68,7 @@ defineOptions({
   inheritAttrs: false,
 });
 
-const emit = defineEmits(['toggle-advanced', 'update:actionColOptions']);
+const emit = defineEmits(['toggle-advanced']);
 
 const props = defineProps({
   showActionButtonGroup: {
@@ -117,22 +117,15 @@ const props = defineProps({
 
 const { resetForm, submit } = useFormContext();
 const actionColOpt = computed(() => {
-  const { showAdvancedButton, actionSpan: span, actionColOptions } = props;
+  const { actionSpan: span, actionColOptions } = props;
   const actionSpan = span || ActionColOptions.Span;
-  const advancedSpanObj = showAdvancedButton
-    ? { span: actionSpan < ActionColOptions.Span ? 24 : actionSpan }
-    : {};
-  const curSpan = showAdvancedButton ? ActionColOptions.Span : ActionColOptions.SpanWithOutAdvance;
   const actionColOpt: Partial<ColEx> = {
     style: { textAlign: 'right' },
-    ...advancedSpanObj,
     ...{
       ...actionColOptions,
-      span: showAdvancedButton ? advancedSpanObj.span : actionColOptions.span || curSpan,
+      span: actionSpan < ActionColOptions.Span ? 24 : actionSpan,
     },
   };
-
-  emit('update:actionColOptions', actionColOptions.span || curSpan);
   return actionColOpt;
 });
 

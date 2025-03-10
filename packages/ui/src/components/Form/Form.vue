@@ -29,7 +29,6 @@
           v-if="getFormProps.showActionButtonGroup"
           v-bind="getFormActionBindProps"
           @toggle-advanced="handleToggleAdvanced"
-          @update:action-col-options="updateActionColOptions"
         >
           <template
             v-for="item in ['advanceBefore', 'resetBefore', 'submitBefore', 'submitAfter']"
@@ -47,7 +46,7 @@
 <script lang="ts" setup>
 import { cloneDeep, isNullOrUnDef, objectPick } from '@ssuperlilei/utils';
 import { Form, Row } from 'ant-design-vue';
-import { ref, useAttrs, useSlots, watch } from 'vue';
+import { useAttrs, useSlots, watch } from 'vue';
 import FormAction from './components/FormAction.vue';
 import {
   type LFormType,
@@ -90,16 +89,10 @@ const instance = {
   ...formMethods,
 } as LFormType;
 
-const actionColOptionsSpan = ref<number>(0);
-const updateActionColOptions = (span: number) => {
-  actionColOptionsSpan.value = span;
-};
-
 // 搜索表单 展开/收起 表单项hooks
 const { handleToggleAdvanced } = useAdvanced({
   instance,
   emit,
-  actionColOptionsSpan,
 });
 
 // initialValues 变化时，更新表单数据

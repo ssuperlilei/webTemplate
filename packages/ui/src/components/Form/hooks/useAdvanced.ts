@@ -1,6 +1,5 @@
 import { isBoolean, isFunction, isNumber, isObject } from '@ssuperlilei/utils';
-import { Ref, computed, unref, watch } from 'vue';
-import type { LFormEmitFn } from '../types/ll-form';
+import { computed, unref, watch } from 'vue';
 import type { ColEx } from '../types/component';
 import type { LFormType } from './';
 import { useBreakpoint } from './useBreakpoint';
@@ -10,11 +9,9 @@ const BASIC_LINE_HIDDEN = 1;
 
 type UseAdvancedContext = {
   instance: LFormType;
-  emit: LFormEmitFn;
-  actionColOptionsSpan: Ref<number>;
 };
 
-export const useAdvanced = ({ instance, emit, actionColOptionsSpan }: UseAdvancedContext) => {
+export const useAdvanced = ({ instance }: UseAdvancedContext) => {
   const { realWidthRef, screenEnum, screenRef } = useBreakpoint();
   const { advanceState, getFormProps, formSchemasRef, formModel, defaultFormValues } = instance;
   const getEmptySpan = computed((): number => {
@@ -44,6 +41,8 @@ export const useAdvanced = ({ instance, emit, actionColOptionsSpan }: UseAdvance
       const { showAdvancedButton } = unref(getFormProps);
       if (showAdvancedButton) {
         updateAdvanced();
+      } else {
+        updateActionSpan();
       }
     },
     { immediate: true },
@@ -96,7 +95,7 @@ export const useAdvanced = ({ instance, emit, actionColOptionsSpan }: UseAdvance
       return { isAdvanced: advanceState.isAdvanced, itemColSum };
     }
     if (
-      itemColSum >
+      itemColSum >=
       BASIC_COL_LEN *
         (unref(getFormProps).alwaysShowLines ||
           unref(getFormProps).autoAdvancedLine ||
@@ -110,7 +109,8 @@ export const useAdvanced = ({ instance, emit, actionColOptionsSpan }: UseAdvance
   }
 
   function updateAdvanced() {
-    let itemColSum = actionColOptionsSpan.value;
+    const { actionColOptions = {} } = unref(getFormProps);
+    let itemColSum = 0;
     let realItemColSum = 0;
     const { baseColProps = {} } = unref(getFormProps);
 
@@ -148,20 +148,47 @@ export const useAdvanced = ({ instance, emit, actionColOptionsSpan }: UseAdvance
         schema.isAdvanced = isAdvanced;
       }
     }
-
-    advanceState.actionSpan =
-      24 - ((realItemColSum - actionColOptionsSpan.value) % BASIC_COL_LEN) + unref(getEmptySpan);
+    const span = 24 - (realItemColSum % BASIC_COL_LEN) + unref(getEmptySpan);
+    advanceState.actionSpan = actionColOptions?.span ?? span;
 
     getAdvanced(unref(getFormProps).actionColOptions || { span: BASIC_COL_LEN }, itemColSum, true);
+  }
 
-    emit('advancedChange');
+  function updateActionSpan() {
+    // 重新计算操作栏的 span ， 如果 传了 actionColOptions.span 则使用传入的，否则计算 span
+    const { actionColOptions = {}, baseColProps = {} } = unref(getFormProps);
+    let realItemColSum = 0;
+    for (const schema of unref(formSchemasRef)) {
+      const { vShow, colProps } = schema;
+      let isShow = true;
+
+      if (isBoolean(vShow)) {
+        isShow = vShow;
+      }
+
+      if (isFunction(vShow)) {
+        isShow = vShow({
+          schema,
+          formModel,
+          field: schema.field,
+          formInstance: instance,
+          values: {
+            ...unref(defaultFormValues),
+            ...formModel,
+          },
+        });
+      }
+
+      if (isShow && (colProps || baseColProps)) {
+        const { itemColSum: sum } = getAdvanced({ ...baseColProps, ...colProps }, realItemColSum);
+        realItemColSum = sum || 0;
+      }
+    }
+    advanceState.actionSpan = actionColOptions?.span || 24 - (realItemColSum % BASIC_COL_LEN);
   }
 
   function handleToggleAdvanced() {
     advanceState.isAdvanced = !advanceState.isAdvanced;
-    // if (advanceState.isAdvanced) {
-    //   advanceState.hideAdvanceBtn = false;
-    // }
   }
 
   return { handleToggleAdvanced };
