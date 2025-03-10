@@ -5,6 +5,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
+  "homepage": "https://ssuperlilei.github.io/webTemplate/",
   "files": [
     "dist"
   ],
