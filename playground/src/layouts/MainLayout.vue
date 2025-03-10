@@ -22,7 +22,13 @@
       </a-layout-header>
       <a-layout-content style="margin: 24px 16px">
         <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
-          <router-view />
+          <router-view v-slot="{ Component }">
+            <Transition name="fade-slide" mode="out-in" appear>
+              <KeepAlive>
+                <component :is="Component" :key="route.fullPath" />
+              </KeepAlive>
+            </Transition>
+          </router-view>
         </div>
       </a-layout-content>
     </a-layout>
@@ -31,13 +37,14 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { routes } from '@/router';
 import type { MenuProps } from 'ant-design-vue';
 
 const collapsed = ref<boolean>(false);
 const selectedKeys = ref<string[]>(['/ui']);
 const router = useRouter();
+const route = useRoute();
 
 const pageTitle = computed(() => {
   return routes.filter((item) => item.path == selectedKeys.value[0]).pop()?.meta?.title + '演示';
@@ -59,5 +66,21 @@ const onMenuSelect: MenuProps['onSelect'] = ({ key }) => {
   font-weight: bold;
   color: #fff;
   background: rgb(255 255 255 / 30%);
+}
+
+/* 添加过渡动画样式 */
+.fade-slide-leave-active,
+.fade-slide-enter-active {
+  transition: all 0.3s;
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translate(-30px);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translate(30px);
 }
 </style>
