@@ -35,6 +35,7 @@ export const zh = defineConfig({
             { text: 'table 组件', link: '/guide/ui/table' },
             { text: 'form 组件', link: '/guide/ui/form' },
             { text: 'modalForm 组件', link: '/guide/ui/modalForm' },
+            { text: '手写签名组件', link: '/guide/ui/signature' },
           ],
         },
         {

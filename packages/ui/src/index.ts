@@ -8,11 +8,21 @@ import {
   LTable,
   LModalForm,
   installUseModal,
+  LSignature,
 } from './components';
 
 export { version } from './version';
 
-const components = [LButton, LConfigProvider, LPasswordInput, LForm, LEllipsis, LTable, LModalForm];
+const components = [
+  LButton,
+  LConfigProvider,
+  LPasswordInput,
+  LForm,
+  LEllipsis,
+  LTable,
+  LModalForm,
+  LSignature,
+];
 
 function install(app: App) {
   components.forEach((component) => {
