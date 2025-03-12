@@ -11,6 +11,7 @@ export default defineConfig({
       // 使用本地UI库，ui组件修改实时变化，提高调试效率。
       '~@ssuperlilei/ui': resolve(import.meta.dirname, '../packages/ui/src'),
       '~@ssuperlilei/directives': resolve(import.meta.dirname, '../packages/directives/src'),
+      '~@ssuperlilei/hooks': resolve(import.meta.dirname, '../packages/hooks/src'),
       '~': resolve(import.meta.dirname, '../packages/ui/src'),
     },
   },
