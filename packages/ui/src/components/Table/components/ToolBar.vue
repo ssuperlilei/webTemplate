@@ -3,7 +3,7 @@
     <slot name="headerTitle" v-bind="tableInstance">
       <div class="ll-tool-bar-title">
         {{ props.title }}
-        <BMHelp v-if="props.titleTooltip" class="ll-tool-bar-help" :text="props.titleTooltip" />
+        <LLHelp v-if="props.titleTooltip" class="ll-tool-bar-help" :text="props.titleTooltip" />
       </div>
     </slot>
 
@@ -21,13 +21,13 @@
 
 <script lang="ts" setup>
 import { Divider, Space } from 'ant-design-vue';
-import BMHelp from '~/components/Form/components/Help.vue';
+import LLHelp from '~/components/Form/components/Help.vue';
 import { Refresh } from '.';
 import type { PropType } from 'vue';
 import type { TableActionType } from '../Table.types';
 
 defineOptions({
-  name: 'BMToolBar',
+  name: 'LLToolBar',
 });
 
 const props = defineProps({

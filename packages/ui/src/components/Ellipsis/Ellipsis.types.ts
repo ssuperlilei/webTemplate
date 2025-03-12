@@ -26,4 +26,4 @@ export const llEllipsisProps = {
 };
 
 // props 类型
-export type BMEllipsisProps = Partial<ExtractPropTypes<typeof llEllipsisProps>>;
+export type LLEllipsisProps = Partial<ExtractPropTypes<typeof llEllipsisProps>>;

@@ -15,10 +15,10 @@
         }"
         v-bind="actionItem"
       >
-        <BMEllipsis :other-width="14">
+        <LLEllipsis :other-width="14">
           {{ actionItem.label }}
           <template #title>{{ actionItem.label }}</template>
-        </BMEllipsis>
+        </LLEllipsis>
       </Button>
     </component>
   </template>
@@ -41,10 +41,10 @@
               }"
               v-bind="omit(actionItem, ['onClick'])"
             >
-              <BMEllipsis>
+              <LLEllipsis>
                 {{ actionItem.label }}
                 <template #title>{{ actionItem.label }}</template>
-              </BMEllipsis>
+              </LLEllipsis>
             </Button>
           </Menu-Item>
         </Menu>
@@ -60,12 +60,12 @@ import { EllipsisOutlined } from '@ant-design/icons-vue';
 import type { ActionItem } from '../types/tableAction';
 import type { CustomRenderParams } from '../types/column';
 import { isAsyncFunction, isBoolean, isFunction, omit } from '@ssuperlilei/utils';
-import BMEllipsis from '~/components/Ellipsis';
+import LLEllipsis from '~/components/Ellipsis';
 import { llPropsKey } from '~/components/ConfigProvider/hooks/context';
 import type { LLPropsInjection } from '~/components/ConfigProvider';
 
 defineOptions({
-  name: 'BMTableAction',
+  name: 'LLTableAction',
 });
 
 const props = defineProps({

@@ -15,7 +15,7 @@ import { useTableContext } from '../hooks/useTableContext';
 import { UndoOutlined } from '@ant-design/icons-vue';
 
 defineOptions({
-  name: 'BMRefresh',
+  name: 'LLRefresh',
 });
 
 const table = useTableContext();

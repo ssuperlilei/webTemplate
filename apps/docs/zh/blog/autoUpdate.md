@@ -59,7 +59,7 @@ contextBridge.exposeInMainWorld('autoUpdate', {
 ```js
 ipcMain.handle('update', async (event, link) => {
   try {
-    const savePath = path.join(app.getPath('temp'), 'Bmos.exe');
+    const savePath = path.join(app.getPath('temp'), '软件.exe');
     const request = net.request(link);
     const file = fs.createWriteStream(savePath);
 

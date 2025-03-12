@@ -48,10 +48,10 @@ export const useColumns = ({ state, methods, props, tableAction }: UseTableColum
     // 是否开启拖拽排序
     if (
       innerProps?.dragSort &&
-      columns.every((item: TableColumn) => item.dataIndex !== 'BMOS_SORT')
+      columns.every((item: TableColumn) => item.dataIndex !== 'LL_SORT')
     ) {
       columns.unshift({
-        dataIndex: 'BMOS_SORT',
+        dataIndex: 'LL_SORT',
         title: t('排序'),
         width: 60,
         align: 'center',
@@ -65,10 +65,10 @@ export const useColumns = ({ state, methods, props, tableAction }: UseTableColum
     // 是否添加序号列
     if (
       innerProps?.showIndex &&
-      columns.every((item: TableColumn) => item.dataIndex !== 'BMOS_INDEX')
+      columns.every((item: TableColumn) => item.dataIndex !== 'LL_INDEX')
     ) {
       columns.unshift({
-        dataIndex: 'BMOS_INDEX',
+        dataIndex: 'LL_INDEX',
         title: t('序号'),
         width: 60,
         align: 'center',
