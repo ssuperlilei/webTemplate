@@ -41,7 +41,7 @@
         <template #customFilterIcon="{ column }">
           <SearchOutlined
             :style="{
-              color: headerSearchDataRef[column.dataIndex] ? 'var(--ll-primary-color)' : '#6C7380',
+              color: headerSearchDataRef[column.dataIndex as keyof typeof headerSearchDataRef] ? 'var(--ll-primary-color)' : '#6C7380',
             }"
           />
         </template>
@@ -51,7 +51,7 @@
         >
           <span
             :style="{
-              color: headerSearchDataRef[column.dataIndex] ? 'var(--ll-primary-color)' : undefined,
+              color: headerSearchDataRef[column.dataIndex as keyof typeof headerSearchDataRef] ? 'var(--ll-primary-color)' : undefined,
             }"
           >
             {{ column.title }}
@@ -61,14 +61,14 @@
           <InputSearch
             v-if="column.headerSearchComponent === 'Input'"
             ref="headerSearchInputRef"
-            v-model:value="headerSearchDataRef[column.dataIndex]"
+            v-model:value="headerSearchDataRef[column.dataIndex as keyof typeof headerSearchDataRef]"
             :column="column"
             @search="tableHeaderSearch(confirm)"
             @reset="tableHeaderSearch(confirm)"
           />
           <CheckboxSearch
             v-if="column.headerSearchComponent === 'Checkbox'"
-            v-model:value="headerSearchDataRef[column.dataIndex]"
+            v-model:value="headerSearchDataRef[column.dataIndex as keyof typeof headerSearchDataRef]"
             :column="column"
             @search="tableHeaderSearch(confirm)"
             @reset="tableHeaderSearch(confirm)"

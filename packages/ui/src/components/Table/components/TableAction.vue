@@ -8,7 +8,7 @@
       <Button
         type="link"
         class="ll-table-action-btn"
-        :loading="loadingMap.get(getKey(actionItem, index))"
+        :loading="!!loadingMap.get(getKey(actionItem, index))"
         :style="{
           maxWidth: '100px',
           minWidth: '40px',
@@ -34,7 +34,7 @@
             <Button
               type="link"
               class="ll-table-dropdown-btn"
-              :loading="loadingMap.get(getKey(actionItem, index))"
+              :loading="!!loadingMap.get(getKey(actionItem, index))"
               :style="{
                 maxWidth: '100px',
                 minWidth: '40px',
@@ -175,7 +175,7 @@ const isIfShow = (item: ActionItem) => {
   return isIfShow;
 };
 
-const getKey = (actionItem: ActionItem, index: number) => {
+const getKey = (actionItem: ActionItem, index: number): string => {
   return `${props.rowKey}${index}${actionItem.label}`;
 };
 </script>

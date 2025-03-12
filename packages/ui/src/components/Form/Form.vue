@@ -92,7 +92,6 @@ const instance = {
 // 搜索表单 展开/收起 表单项hooks
 const { handleToggleAdvanced } = useAdvanced({
   instance,
-  emit,
 });
 
 // initialValues 变化时，更新表单数据

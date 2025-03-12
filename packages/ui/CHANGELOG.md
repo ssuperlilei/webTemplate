@@ -1,5 +1,11 @@
 # @ssuperlilei/ui
 
+## 3.2.0
+
+### Minor Changes
+
+- 新增手写签名组件
+
 ## 3.1.2
 
 ### Patch Changes
