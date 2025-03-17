@@ -34,6 +34,7 @@
     "publish:ui": "turbo run publish --filter=@ssuperlilei/ui",
     "publish:hooks": "turbo run publish --filter=@ssuperlilei/hooks",
     "publish:utils": "turbo run publish --filter=@ssuperlilei/utils",
+    "publish:i18n": "turbo run publish --filter=@ssuperlilei/i18n",
     "lint:eslint": "eslint --max-warnings 0 \"**/*.{ts,tsx,js,jsx,cjs,mjs,vue}\" --fix",
     "lint:format": "prettier --write \"**/*.{js,jsx,cjs,ts,tsx,mjs,mts,md,vue,scss,css,less,html,json}\"",
     "lint:style": "stylelint \"**/*.{css,scss,less}\" --fix",
