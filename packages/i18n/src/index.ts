@@ -1,9 +1,18 @@
 import i18next, { InitOptions } from 'i18next';
 import { I18nLanguageEnum, I18nLanguageType } from './i18n.types';
+import { ref } from 'vue';
 import local from './locale';
 
 // 默认值
 const DEFAULT_LNG = I18nLanguageEnum.ZH_CN;
+
+// 使用 Vue3 的 ref 创建响应式的语言状态
+const reactiveLang = ref<I18nLanguageEnum>(DEFAULT_LNG);
+
+// 当 i18next 切换语言时，更新响应式状态
+i18next.on('languageChanged', (lng) => {
+  reactiveLang.value = lng as I18nLanguageEnum;
+});
 
 // 创建一个I18n类，用于封装i18nNext的初始化和配置
 class I18n {
@@ -55,11 +64,11 @@ class I18n {
   }
 
   /**
-   * 获取当前语言
+   * 获取当前语言（通过读取 reactiveLang.value 触发依赖收集）
    * @returns {I18nLanguageType} 当前语言标识
    */
   public getLanguage(): I18nLanguageType {
-    return (i18next.language || DEFAULT_LNG) as I18nLanguageType;
+    return (reactiveLang.value || DEFAULT_LNG) as I18nLanguageType;
   }
 
   /**
@@ -96,30 +105,15 @@ class I18n {
    */
   public t(key: string, options?: Record<string, any>): string {
     if (!key) return '';
-    if (!i18next.exists(key) && i18next.language) {
-      const obj = i18next.getResourceBundle(i18next.language, 'translation');
+    const lang = reactiveLang.value;
+    if (!i18next.exists(key) && lang) {
+      const obj = i18next.getResourceBundle(lang, 'translation');
       if (obj && obj[key]) {
         return obj[key];
       }
       this.logger.warn(`[i18n] Key not found: ${key}`);
     }
     return (i18next.t(key, options) || key) as string;
-  }
-
-  /**
-   * 批量翻译文本
-   * @param {string[]} keys 翻译键数组
-   * @param {Record<string, any>} [options] 翻译选项
-   * @returns {Record<string, string>} 键值对形式的翻译结果
-   */
-  public tBatch(keys: string[], options?: Record<string, any>): Record<string, string> {
-    const result: Record<string, string> = {};
-    if (!keys || !keys.length) return result;
-
-    keys.forEach((key) => {
-      result[key] = this.t(key, options);
-    });
-    return result;
   }
 
   /**
@@ -130,26 +124,17 @@ class I18n {
    */
   public customizeT(key: string, options?: Record<string, any>): string | boolean {
     if (!key) return false;
+    const lang = reactiveLang.value;
     if (i18next.exists(key)) {
       return i18next.t(key, options) as string;
-    } else if (i18next.language) {
-      const obj = i18next.getResourceBundle(i18next.language, 'translation');
+    } else if (lang) {
+      const obj = i18next.getResourceBundle(lang, 'translation');
       if (obj && obj[key]) {
         return obj[key];
       }
     }
     this.logger.warn(`[i18n] Key not found: ${key}`);
     return false;
-  }
-
-  /**
-   * 带插值的翻译
-   * @param {string} key 翻译键
-   * @param {Record<string, any>} interpolation 插值参数
-   * @returns {string} 翻译后的文本
-   */
-  public tWithInterpolation(key: string, interpolation: Record<string, any>): string {
-    return this.t(key, { interpolation });
   }
 }
 
@@ -189,20 +174,6 @@ export const t = (key: string, options?: Record<string, any>): string => {
 };
 
 /**
- * 批量翻译文本
- * @param {string[]} keys 翻译键数组
- * @param {Record<string, any>} [options] 翻译选项
- * @returns {Record<string, string>} 键值对形式的翻译结果
- * @example
- * import { tBatch } from '@ssuperlilei/i18n';
- * const translations = tBatch(['submit', 'cancel']);
- * // 结果: { submit: '提交', cancel: '取消' }
- */
-export const tBatch = (keys: string[], options?: Record<string, any>): Record<string, string> => {
-  return I18n.getInstance().tBatch(keys, options);
-};
-
-/**
  * 特殊翻译文本
  * @param {string} key 翻译键
  * @param {Record<string, any>} [options] 翻译选项，支持插值
@@ -210,19 +181,6 @@ export const tBatch = (keys: string[], options?: Record<string, any>): Record<st
  */
 export const customizeT = (key: string, options?: Record<string, any>): string | boolean => {
   return I18n.getInstance().customizeT(key, options);
-};
-
-/**
- * 带插值的翻译
- * @param {string} key 翻译键
- * @param {Record<string, any>} interpolation 插值参数
- * @returns {string} 翻译后的文本
- * @example
- * import { tWithInterpolation } from '@ssuperlilei/i18n';
- * const message = tWithInterpolation('welcome', { name: 'John' });
- */
-export const tWithInterpolation = (key: string, interpolation: Record<string, any>): string => {
-  return I18n.getInstance().tWithInterpolation(key, interpolation);
 };
 
 /**
