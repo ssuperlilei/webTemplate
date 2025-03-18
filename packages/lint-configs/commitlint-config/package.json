@@ -15,8 +15,8 @@
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1"
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0"
   },
   "peerDependencies": {
     "@commitlint/cli": "^19.6.0"

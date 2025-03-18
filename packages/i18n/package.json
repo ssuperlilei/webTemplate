@@ -20,8 +20,8 @@
   "devDependencies": {
     "@rollup/plugin-json": "^6.1.0",
     "@ssuperlilei/typescript-config": "workspace:*",
-    "i18next": "^24.2.2",
-    "rollup": "^4.34.9",
+    "i18next": "^24.2.3",
+    "rollup": "^4.36.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-esbuild": "6.2.1"
   },
