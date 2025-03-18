@@ -10,22 +10,23 @@
 
 ## 属性
 
-| 属性名          | 说明     | 类型    | 默认值  |
-| --------------- | -------- | ------- | ------- |
-| lineWidth       | 线条宽度 | number  | 2       |
-| lineColor       | 线条颜色 | string  | #000000 |
-| backgroundColor | 背景颜色 | string  | #ffffff |
-| disabled        | 是否禁用 | boolean | false   |
+| 属性名          | 说明       | 类型    | 默认值  |
+| --------------- | ---------- | ------- | ------- |
+| lineWidth       | 线条宽度   | number  | 2       |
+| lineColor       | 线条颜色   | string  | #000000 |
+| backgroundColor | 背景颜色   | string  | #ffffff |
+| quality         | 图片的质量 | number  | 1       |
+| disabled        | 是否禁用   | boolean | false   |
 
 ## 事件
 
-| 事件名        | 说明               | 回调参数                          |
-| ------------- | ------------------ | --------------------------------- |
-| save          | 保存签名时触发     | data: string (签名的 base64 编码) |
-| clear         | 清除签名时触发     | -                                 |
-| start-drawing | 开始绘制时触发     | -                                 |
-| end-drawing   | 结束绘制时触发     | -                                 |
-| change        | 签名内容变化时触发 | isEmpty: boolean (是否为空)       |
+| 事件名  | 说明               | 回调参数                          |
+| ------- | ------------------ | --------------------------------- |
+| confirm | 保存签名时触发     | data: string (签名的 base64 编码) |
+| clear   | 清除签名时触发     | -                                 |
+| start   | 开始绘制时触发     | -                                 |
+| end     | 结束绘制时触发     | -                                 |
+| signing | 签名内容变化时触发 | isEmpty: boolean (是否为空)       |
 
 ## 方法
 
