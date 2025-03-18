@@ -24,6 +24,7 @@ defineOptions({
 });
 
 const props = withDefaults(defineProps<SignatureProps>(), {
+  quality: 1,
   lineWidth: 2,
   lineColor: '#000000',
   backgroundColor: '#ffffff',
@@ -123,7 +124,7 @@ const onStartDrawing = (event: MouseEvent | TouchEvent) => {
     ctx.value.moveTo(x, y);
   }
 
-  emit('start-drawing');
+  emit('start');
 };
 
 const onDrawing = (event: MouseEvent | TouchEvent) => {
@@ -136,14 +137,14 @@ const onDrawing = (event: MouseEvent | TouchEvent) => {
   ctx.value.stroke();
 
   isEmpty.value = false;
-  emit('change', isEmpty.value);
+  emit('signing', isEmpty.value);
 };
 
 const onEndDrawing = () => {
   if (!isDrawing.value) return;
 
   isDrawing.value = false;
-  emit('end-drawing');
+  emit('end');
 };
 
 const getEventPosition = (event: MouseEvent | TouchEvent) => {
@@ -175,26 +176,26 @@ const clear = () => {
 
   isEmpty.value = true;
   emit('clear');
-  emit('change', isEmpty.value);
+  emit('signing', isEmpty.value);
 };
 
-const save = () => {
-  if (!canvasRef.value) return;
+const getBase64 = (quality = 1) => {
+  if (!canvasRef.value) return '';
+  return canvasRef.value.toDataURL('image/jpeg', quality);
+};
 
-  const dataUrl = canvasRef.value.toDataURL('image/png');
-  emit('save', dataUrl);
+const confirm = () => {
+  if (!canvasRef.value) return;
+  const dataUrl = getBase64(props.quality);
+  emit('confirm', dataUrl);
 };
 
 // 暴露方法
 defineExpose({
   clear,
-  save,
+  confirm,
   isEmpty: () => isEmpty.value,
-  getBase64: () => {
-    if (!canvasRef.value) return '';
-
-    return canvasRef.value.toDataURL('image/png');
-  },
+  getBase64,
 });
 
 styleFn();
