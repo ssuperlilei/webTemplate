@@ -28,7 +28,7 @@ export const expandComponentsStyle = (prefix: string) => {
               cursor: 'move',
               userSelect: 'none',
             }),
-            c('.l-modal-title', {
+            c('.l-modal-title-no-drag', {
               height: '100%',
               display: 'flex',
               alignItems: 'center',

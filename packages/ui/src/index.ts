@@ -9,6 +9,7 @@ import {
   LModalForm,
   installUseModal,
   LSignature,
+  type HookModalProps,
 } from './components';
 
 export { version } from './version';
@@ -24,13 +25,12 @@ const components = [
   LSignature,
 ];
 
-function install(app: App) {
+function install(app: App, options?: HookModalProps) {
   components.forEach((component) => {
     app.use(component);
   });
   installUseModal(app, {
-    clsPrefix: 'ant',
-    drag: true,
+    ...options,
   });
 }
 

@@ -63,7 +63,7 @@ const openHooksModal = () => {
   ModalRender.show({
     title: '我是hook纯函数式模态框',
     content: 'hello',
-    drag: true,
+    // drag: true,
     formProps,
     wrapClassName: 'modalSizeMedium',
     submit,
