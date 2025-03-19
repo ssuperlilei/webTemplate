@@ -33,10 +33,12 @@ pnpm add @ssuperlilei/ui @ssuperlilei/utils @ssuperlilei/hooks @ssuperlilei/i18n
 ## 帮助指南
 
 1. 如果遇到不能执行 `rm -rf` 或者 `shell` 命令的问题，可以使用git bash终端运行命令（安装git后自带的）。
-   ![](https://ssuperlilei.github.io/drawing-bed/images/pic-go/202412251542234.png)
    项目根目录中的，`clean`、`rename-pkg`等相关命令不能运行，可以使用上面的方法解决。
 2. 如遇到 `pnpm run dev` 运行失败的问题，需要先执行一遍打包命令：`pnpm run build`，再运行 `pnpm run dev`。
 
 ## License
 
 [MIT](LICENSE)
+
+## 借鉴
+  [vue3-turbo-component-lib-template](https://github.com/huangmingfu/vue3-turbo-component-lib-template)
