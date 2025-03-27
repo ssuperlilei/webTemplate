@@ -113,7 +113,10 @@ class I18n {
       }
       this.logger.warn(`[i18n] Key not found: ${key}`);
     }
-    return (i18next.t(key, options) || key) as string;
+    return (i18next.t(key, {
+      ...options,
+      lng: lang || DEFAULT_LNG,
+    }) || key) as string;
   }
 
   /**
@@ -126,7 +129,10 @@ class I18n {
     if (!key) return false;
     const lang = reactiveLang.value;
     if (i18next.exists(key)) {
-      return i18next.t(key, options) as string;
+      return i18next.t(key, {
+        ...options,
+        lng: lang || DEFAULT_LNG,
+      }) as string;
     } else if (lang) {
       const obj = i18next.getResourceBundle(lang, 'translation');
       if (obj && obj[key]) {
