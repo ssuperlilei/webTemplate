@@ -1,4 +1,4 @@
-// // For this project development
+// For this project development
 // import 'vue';
 
 /**

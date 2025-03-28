@@ -25,6 +25,7 @@ import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons-vue';
 import { llPasswordInputProps } from './PasswordInput.types';
 import { styleFn } from './style';
 import { t } from '@ssuperlilei/i18n';
+import type { InputRef } from 'ant-design-vue/es/vc-input/inputProps';
 
 defineOptions({
   name: 'LPasswordInput',
@@ -36,7 +37,7 @@ const attrs = useAttrs() as Record<string, unknown>;
 const slots = useSlots() as Record<string, unknown>;
 const getBindValue = computed(() => ({ ...unref(attrs), ...props, autocomplete: 'off' }));
 
-const llPasswordRef = ref<any>(null);
+const llPasswordRef = ref<InputRef>();
 
 const passwordType = ref<string>('text');
 const pwdClass = ref<boolean>(true);

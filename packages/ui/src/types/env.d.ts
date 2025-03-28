@@ -1,28 +1,27 @@
-import { EmitsOptions, SetupContext } from 'vue';
+import type { EmitsOptions, SetupContext } from 'vue';
 declare module '*.vue' {
-  import { DefineComponent } from 'vue';
-  const component: DefineComponent<{}, {}, any>;
+  const component: DefineComponent<object, object, unknown>;
   export default component;
 }
 
 declare global {
-  interface PromiseFn<T = any, R = T> {
+  interface PromiseFn<T = unknown, R = T> {
     (...arg: T[]): Promise<R>;
   }
 
-  type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
+  type UnionToIntersection<U> = (U extends unknown ? (k: U) => void : never) extends (
     k: infer I,
   ) => void
     ? I
     : never;
 
-  type Recordable<T = any> = Record<string, T>;
+  type Recordable<T = unknown> = Record<string, T>;
 
   type Key = string | number;
 
   type EmitFn<E = EmitsOptions> = SetupContext<E>['emit'];
 
-  interface Fn<T = any, R = T> {
+  interface Fn<T = unknown, R = T> {
     (...arg: T[]): R;
   }
   enum LogoBackgroundMode {

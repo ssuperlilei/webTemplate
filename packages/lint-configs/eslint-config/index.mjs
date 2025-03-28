@@ -6,6 +6,7 @@ export default tseslint.config(
   { ignores: ['**/node_modules', '**/dist', '**/*.js'] }, // 忽略 node_modules 和 dist 目录
   eslint.configs.recommended, // 使用 ESLint 的推荐配置
   tseslint.configs.base, // 使用 TypeScript ESLint 的基础配置
+  tseslint.configs.recommended, // 添加 TypeScript 的推荐规则
   ...pluginVue.configs['flat/recommended'], // 使用 Vue ESLint 的推荐配置
   {
     files: ['**/*.vue'], // 针对所有 .vue 文件
@@ -19,7 +20,7 @@ export default tseslint.config(
   {
     rules: {
       'no-debugger': 'error', // 禁止使用 debugger 语句
-      // 'no-console': ['error', { allow: ['warn', 'error', 'info', 'clear'] }], // 禁止使用 console 语句，但允许 warn, error, info 和 clear
+      'no-console': ['error', { allow: ['warn', 'error', 'info', 'clear'] }], // 禁止使用 console 语句，但允许 warn, error, info 和 clear
       'prefer-const': 'error', // 强制使用 const 而不是 let
       'sort-imports': ['error', { ignoreDeclarationSort: true }], // 强制排序导入语句，但忽略声明排序
       'no-duplicate-imports': 'error', // 禁止重复导入
@@ -46,7 +47,12 @@ export default tseslint.config(
           svg: 'always', // 强制 svg 元素始终自闭合
         },
       ],
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }], // 禁止未使用的变量，但允许以 _ 开头的变量
+      // 替换为 TypeScript 特定版本的未使用变量规则
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ], // 禁止未使用的变量，但允许以 _ 开头的变量
+      'no-unused-vars': 'off', // 关闭原生 ESLint 规则，避免冲突
     },
   },
 );
