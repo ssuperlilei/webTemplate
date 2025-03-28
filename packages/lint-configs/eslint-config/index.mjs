@@ -1,6 +1,7 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginVue from 'eslint-plugin-vue';
+import globals from 'globals';
 
 export default tseslint.config(
   { ignores: ['**/node_modules', '**/dist', '**/*.js'] }, // 忽略 node_modules 和 dist 目录
@@ -14,6 +15,17 @@ export default tseslint.config(
       parserOptions: {
         parser: '@typescript-eslint/parser', // 使用 TypeScript ESLint 解析器
         ecmaFeatures: { jsx: true }, // 启用 JSX
+      },
+    },
+  },
+  {
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        myCustomGlobal: 'readonly',
       },
     },
   },

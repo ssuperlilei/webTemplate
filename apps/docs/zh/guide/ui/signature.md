@@ -36,6 +36,10 @@
 | save      | 保存签名并触发 save 事件 | -    | -       |
 | isEmpty   | 检查签名是否为空         | -    | boolean |
 | getBase64 | 获取签名的 base64 编码   | -    | string  |
+| undo      | 撤销上一步操作           | -    | -       |
+| redo      | 重做上一步操作           | -    | -       |
+| canUndo   | 判断是否可以撤销         | -    | boolean |
+| canRedo   | 判断是否可以重做         | -    | boolean |
 
 ## 自定义样式示例
 

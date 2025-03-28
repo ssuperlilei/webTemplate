@@ -1,5 +1,11 @@
 # @ssuperlilei/ui
 
+## 3.2.2
+
+### Patch Changes
+
+- 为手写签名组件添加历史功能（撤销/重做）
+
 ## 3.2.1
 
 ### Patch Changes

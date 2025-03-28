@@ -6,6 +6,7 @@ export interface SignatureProps {
   backgroundColor?: string;
   quality?: number;
   disabled?: boolean;
+  enableHistory?: boolean; // 是否启用历史功能
 }
 
 export interface SignatureEmits {
@@ -14,6 +15,7 @@ export interface SignatureEmits {
   (e: 'start'): void;
   (e: 'end'): void;
   (e: 'signing', isEmpty: boolean): void;
+  (e: 'historyChange', canUndo: boolean, canRedo: boolean): void; // 历史状态改变事件
 }
 
 export type LSignatureInstance = Partial<InstanceType<typeof LSignature>>;

@@ -29,6 +29,7 @@ const props = withDefaults(defineProps<SignatureProps>(), {
   lineColor: '#000000',
   backgroundColor: '#ffffff',
   disabled: false,
+  enableHistory: true,
 });
 
 const emit = defineEmits<SignatureEmits>();
@@ -39,10 +40,19 @@ const isDrawing = ref(false);
 const isEmpty = ref(true);
 const ctx = ref<CanvasRenderingContext2D | null>(null);
 
+// 历史相关变量
+const history = ref<string[]>([]);
+const historyIndex = ref(-1);
+
 onMounted(() => {
   initCanvas();
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
+
+  // 初始化时保存一个空白状态
+  if (props.enableHistory) {
+    saveHistory();
+  }
 });
 
 onBeforeUnmount(() => {
@@ -72,6 +82,9 @@ watch(
   () => {
     if (ctx.value) {
       fillBackground();
+      if (props.enableHistory) {
+        saveHistory();
+      }
     }
   },
 );
@@ -145,6 +158,74 @@ const onEndDrawing = () => {
 
   isDrawing.value = false;
   emit('end');
+
+  // 绘制完成后保存历史
+  if (props.enableHistory) {
+    saveHistory();
+  }
+};
+
+// 保存当前画布状态到历史记录
+const saveHistory = () => {
+  if (!canvasRef.value || !props.enableHistory) return;
+
+  // 如果当前不是最新状态（即用户撤销后又绘制），则移除当前状态之后的历史
+  if (historyIndex.value < history.value.length - 1) {
+    history.value = history.value.slice(0, historyIndex.value + 1);
+  }
+
+  // 保存当前状态
+  const dataUrl = canvasRef.value.toDataURL('image/jpeg', props.quality);
+  history.value.push(dataUrl);
+  historyIndex.value = history.value.length - 1;
+
+  // 通知历史状态变化
+  emit('historyChange', canUndo(), canRedo());
+};
+
+// 判断是否可以撤销
+const canUndo = (): boolean => {
+  return props.enableHistory && historyIndex.value > 0;
+};
+
+// 判断是否可以重做
+const canRedo = (): boolean => {
+  return props.enableHistory && historyIndex.value < history.value.length - 1;
+};
+
+// 撤销功能
+const undo = () => {
+  if (!canUndo() || !ctx.value || !canvasRef.value) return;
+
+  historyIndex.value--;
+  restoreFromHistory();
+};
+
+// 重做功能
+const redo = () => {
+  if (!canRedo() || !ctx.value || !canvasRef.value) return;
+
+  historyIndex.value++;
+  restoreFromHistory();
+};
+
+// 从历史记录恢复画布状态
+const restoreFromHistory = () => {
+  if (!ctx.value || !canvasRef.value) return;
+
+  const img = new Image();
+  img.onload = () => {
+    ctx.value!.clearRect(0, 0, canvasRef.value!.width, canvasRef.value!.height);
+    ctx.value!.drawImage(img, 0, 0);
+
+    // 检查当前是否为空
+    isEmpty.value = historyIndex.value === 0;
+    emit('signing', isEmpty.value);
+
+    // 通知历史状态变化
+    emit('historyChange', canUndo(), canRedo());
+  };
+  img.src = history.value[historyIndex.value];
 };
 
 const getEventPosition = (event: MouseEvent | TouchEvent) => {
@@ -177,9 +258,14 @@ const clear = () => {
   isEmpty.value = true;
   emit('clear');
   emit('signing', isEmpty.value);
+
+  // 清除操作也记录到历史
+  if (props.enableHistory) {
+    saveHistory();
+  }
 };
 
-const getBase64 = (quality = 1) => {
+const getBase64 = (quality = 1): string => {
   if (!canvasRef.value) return '';
   return canvasRef.value.toDataURL('image/jpeg', quality);
 };
@@ -196,6 +282,10 @@ defineExpose({
   confirm,
   isEmpty: () => isEmpty.value,
   getBase64,
+  undo,
+  redo,
+  canUndo,
+  canRedo,
 });
 
 styleFn();
