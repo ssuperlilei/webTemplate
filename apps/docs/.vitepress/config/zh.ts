@@ -47,7 +47,10 @@ export const zh = defineConfig({
         },
         {
           text: '指令（@ssuperlilei/directives）',
-          items: [{ text: 'vFocus 聚焦', link: '/guide/directives/vFocus' }],
+          items: [
+            { text: 'vFocus 聚焦', link: '/guide/directives/vFocus' },
+            { text: 'vLazy 懒加载', link: '/guide/directives/vLazy' },
+          ],
         },
         {
           text: '工具函数（@ssuperlilei/utils）',

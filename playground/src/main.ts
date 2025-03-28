@@ -8,7 +8,7 @@ import 'ant-design-vue/dist/reset.css';
 // 引入@ssuperlilei/ui
 import ll_libUI from '~@ssuperlilei/ui';
 import '@ssuperlilei/ui/style.css';
-// import { globalRegister } from '@ssuperlilei/directives';
+// import { globalRegister } from '~@ssuperlilei/directives';
 
 const app = createApp(App);
 app.use(Antd); // 全局引入antdv组件

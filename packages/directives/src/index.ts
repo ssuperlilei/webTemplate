@@ -1,8 +1,10 @@
-import type { App, Directive } from 'vue';
+import type { App } from 'vue';
 import vFocus from './v-focus';
+import vLazy from './v-lazy';
 
 const directives = {
   vFocus,
+  vLazy,
 };
 export { version } from './version';
 
@@ -25,6 +27,6 @@ const globalRegister = (app: App, directiveKeys?: DirectiveKeys[]): void => {
     });
   }
 };
-export { vFocus, globalRegister };
+export { vFocus, vLazy, globalRegister };
 
 export default directives;

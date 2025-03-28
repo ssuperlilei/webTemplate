@@ -3,7 +3,6 @@
   "compilerOptions": {
     "skipLibCheck": true,
     // "types": ["vite/client", "@ssuperlilei/ui/global.d.ts"], // 已在env.d.ts引入了
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -15,11 +14,25 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "~/*": ["../packages/ui/src/*"],
-      "~@ssuperlilei/ui": ["../packages/ui/src/index.ts"]
+      "@/*": [
+        "src/*"
+      ],
+      "~/*": [
+        "../packages/ui/src/*"
+      ],
+      "~@ssuperlilei/ui": [
+        "../packages/ui/src/index.ts"
+      ],
+      "~@ssuperlilei/directives": [
+        "../packages/directives/src/index.ts"
+      ]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
   // "references": [{ "path": "./tsconfig.node.json" }]
 }
