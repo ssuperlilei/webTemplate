@@ -2,18 +2,27 @@
   "extends": "@ssuperlilei/typescript-config/vite.json",
   "compilerOptions": {
     "skipLibCheck": true,
-    "types": ["vite/client", "@ssuperlilei/ui/global.d.ts"],
-
+    "types": [
+      "vite/client",
+      "@ssuperlilei/ui/global.d.ts"
+    ],
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "jsxImportSource": "vue",
-
     /* Linting */
     "strict": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
   },
-  "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.vue"]
+  "include": [
+    "examples/**/*.vue",
+    "examples/**/*.ts",
+    "examples/**/*.tsx",
+    ".vitepress/**/*.vue",
+    ".vitepress/**/*.ts",
+    ".vitepress/**/*.tsx",
+  ],
+  "exclude": []
 }

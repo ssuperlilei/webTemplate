@@ -2,7 +2,7 @@
 
 ## 3.2.2
 
-### Patch Changes
+### Patch Changes (3.2.2)
 
 - 为手写签名组件添加历史功能（撤销/重做）
 
@@ -20,31 +20,31 @@
 
 ## 3.1.2
 
-### Patch Changes
+### Patch Changes (3.1.2)
 
 - fix: add homepage link
 
 ## 3.1.1
 
-### Patch Changes
+### Patch Changes (3.1.1)
 
 - fix: 表单展开收起逻辑修改
 
 ## 3.1.0
 
-### Minor Changes
+### Minor Changes (3.1.0)
 
 - feat: modalForm and drag
 
 ## 3.0.2
 
-### Patch Changes
+### Patch Changes (3.0.2)
 
 - fix: update readme
 
 ## 3.0.1
 
-### Patch Changes
+### Patch Changes (3.0.1)
 
 - init
 
@@ -56,12 +56,12 @@
 
 ## 2.0.0
 
-### Major Changes
+### Major Changes (2.0.0)
 
 - eeefc1b: test
 
 ## 1.0.0
 
-### Major Changes
+### Major Changes (1.0.0)
 
 - test发布
