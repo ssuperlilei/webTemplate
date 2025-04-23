@@ -79,6 +79,7 @@ export const zh = defineConfig({
             { text: 'uni-app 自动更新', link: '/blog/autoUpdate' },
             { text: 'mqtt class', link: '/blog/mqtt' },
             { text: 'Vue大数据量渲染优化', link: '/blog/vueLargeDataRenderingOptimization' },
+            { text: 'vite 使用 monaco-Editor', link: '/blog/monacoEditor' },
           ],
         },
       ],
