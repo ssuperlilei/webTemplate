@@ -140,7 +140,7 @@ export const copyToClipboard = (text: string): Promise<void> => {
   @param {obj} obj 需要序列化的对象
   @return {string}
 */
-export const safeStringify = (obj: any) {
+export const safeStringify = (obj: any) => {
   const seen = new WeakSet();
   return JSON.stringify(obj, (k, v) => {
     if (typeof v === 'object' && v !== null) {
