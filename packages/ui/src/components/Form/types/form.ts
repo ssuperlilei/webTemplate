@@ -2,8 +2,8 @@ import type { RowProps } from 'ant-design-vue';
 import type { FormItemProps } from 'ant-design-vue/es/form/FormItem';
 import type { NamePath, RuleObject } from 'ant-design-vue/es/form/interface';
 import type { Component, HTMLAttributes, VNode } from 'vue';
-import { JSX } from 'vue/jsx-runtime';
-import { LFormType } from '../hooks';
+import type { JSX } from 'vue/jsx-runtime';
+import type { LFormType } from '../hooks';
 import type { FormInstance } from './ll-form';
 import type { ColEx, ComponentMapType, ComponentProps } from './component';
 
@@ -20,16 +20,16 @@ export type GetFieldKeys<T> = Exclude<keyof T, symbol | number>;
 
 export interface RenderCallbackParams<T = string> {
   schema: FormSchema<T>;
-  formModel: T extends string ? Recordable : Record<GetFieldKeys<T>, any>;
+  formModel: T extends string ? Recordable : Record<GetFieldKeys<T>, unknown>;
   field: T extends string ? string : GetFieldKeys<T>;
-  values: any;
+  values: unknown;
   /** 动态表单实例 */
   formInstance: LFormType;
   /** 作用域插槽数据 */
   slotData?: Recordable;
 }
 /** 自定义VNode渲染器 */
-export type CustomRenderFn<T = any> = (
+export type CustomRenderFn<T = unknown> = (
   opt: RenderCallbackParams<T>,
 ) => Component | VNode | VNode[] | string | JSX.Element | Element;
 
@@ -38,7 +38,7 @@ export interface FormActionType {
   submit: () => Promise<void>;
   setFieldsValue: <T>(values: T) => Promise<void>;
   resetForm: () => Promise<void>;
-  getFormValues: () => any;
+  getFormValues: () => unknown;
   clearValidate: (name?: string | string[]) => Promise<void>;
   updateSchema: (data: Partial<FormSchema> | Partial<FormSchema>[]) => Promise<void>;
   resetSchema: (data: Partial<FormSchema> | Partial<FormSchema>[]) => Promise<void>;
@@ -49,8 +49,8 @@ export interface FormActionType {
     prefixField: string | undefined,
     first?: boolean | undefined,
   ) => Promise<void>;
-  validateFields: (nameList?: NamePath[]) => Promise<any>;
-  validate: (nameList?: NamePath[]) => Promise<any>;
+  validateFields: (nameList?: NamePath[]) => Promise<unknown>;
+  validate: (nameList?: NamePath[]) => Promise<unknown>;
   scrollToField: (name: NamePath, options?: ScrollOptions) => Promise<void>;
 }
 
@@ -113,7 +113,7 @@ export interface FormSchema<T = string> {
   /** 搜索表单项排序 */
   order?: number;
   // 默认值
-  defaultValue?: any;
+  defaultValue?: unknown;
   isAdvanced?: boolean;
   // label 是否显示铺满
   labelFullWidth?: boolean;
@@ -155,7 +155,7 @@ export interface HelpComponentProps {
   // Whether to display the serial number
   showIndex: boolean;
   // Text list
-  text: any;
+  text: unknown;
   // colour
   color: string;
   // font size
@@ -163,5 +163,5 @@ export interface HelpComponentProps {
   icon: string;
   absolute: boolean;
   // Positioning
-  position: any;
+  position: unknown;
 }

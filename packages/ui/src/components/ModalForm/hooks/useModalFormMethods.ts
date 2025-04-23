@@ -1,6 +1,6 @@
 import { deepMerge } from '@ssuperlilei/utils';
-import { ModalFormEmitFn, type ModalFormProps } from '../types';
-import { ModalFormState } from './useModalFormState';
+import type { ModalFormEmitFn, ModalFormProps } from '../types';
+import type { ModalFormState } from './useModalFormState';
 import { unref } from 'vue';
 
 export type ModalFormMethods = ReturnType<typeof useModalFormMethods>;
@@ -79,6 +79,7 @@ export function useModalFormMethods(modalFormActionContext: UseModalFormActionCo
    * @description 内部打开弹窗
    */
   const innerOpenModal = (e: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     modalFormPropsRef.value.preventDefault && e.preventDefault();
     innerOpen.value = true;
   };

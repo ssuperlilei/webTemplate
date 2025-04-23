@@ -1,9 +1,17 @@
 import { cloneDeep, isFunction } from '@ssuperlilei/utils';
 import type { FormInstance } from 'ant-design-vue';
-import type { DefineComponent, SetupContext } from 'vue';
-import { computed, reactive, ref, unref, watch, watchEffect } from 'vue';
+import {
+  type DefineComponent,
+  type SetupContext,
+  computed,
+  reactive,
+  ref,
+  unref,
+  watch,
+  watchEffect,
+} from 'vue';
 import { ActionColOptions } from '../enums/common';
-import type { ComponentProps, RenderCallbackParams } from '../types';
+import type { ComponentProps, FormSchema, RenderCallbackParams } from '../types';
 import type { FormProps } from '../types/ll-form';
 import type { AdvanceState } from '../types/hooks';
 
@@ -42,7 +50,7 @@ export const useFormState = ({ props, attrs }: useFormStateParams): any => {
   // 表单实例
   const lFormRef = ref<FormInstance>();
   // 将所有的表单组件实例保存起来
-  const compRefMap = new Map<string, DefineComponent<any>>();
+  const compRefMap = new Map<string, DefineComponent<unknown>>();
   // 初始时的componentProps，用于updateSchema更新时不覆盖componentProps为函数时的值
   const originComponentPropsFnMap = new Map<
     string,
@@ -77,7 +85,9 @@ export const useFormState = ({ props, attrs }: useFormStateParams): any => {
     (): Recordable => ({ ...getFormProps.value, ...advanceState }),
   );
   watchEffect(() => {
-    formPropsRef.value.schemas?.forEach((item: any) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    formPropsRef.value.schemas?.forEach((item: FormSchema) => {
       if (isFunction(item.componentProps)) {
         originComponentPropsFnMap.set(item.field, item.componentProps);
       }

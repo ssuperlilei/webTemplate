@@ -1,8 +1,7 @@
 import { cloneDeep, deepMerge } from '@ssuperlilei/utils';
-import { SetupContext, computed, ref, watch, nextTick } from 'vue';
-import { FormProps, FormInstance } from '../../Form';
-import type { ModalFormEmitFn, ModalFormProps } from '../types';
-import { defaultFormProps } from '../types';
+import { type SetupContext, computed, nextTick, ref, watch } from 'vue';
+import type { FormInstance, FormProps } from '../../Form';
+import { type ModalFormEmitFn, type ModalFormProps, defaultFormProps } from '../types';
 import { ModalSize } from '~/components';
 
 export type useModalFormStateParams = {
@@ -17,7 +16,7 @@ export const useModalFormState = ({ props, attrs, emit }: useModalFormStateParam
   const cloneProps = cloneDeep(props);
   const modalFormPropsRef = ref<ModalFormProps>(cloneProps as ModalFormProps);
   // modalForm 实例
-  const modalFormRef = ref<any>();
+  const modalFormRef = ref<Recordable>();
   // 表单实例
   const formRef = ref<FormInstance | null>();
   // 内部控制 modal 的显示
@@ -31,6 +30,14 @@ export const useModalFormState = ({ props, attrs, emit }: useModalFormStateParam
       emit('update:open', val as boolean);
     },
   });
+  // 监听 内部控制 modal 的显示
+  watch(
+    () => innerOpen.value,
+    (v) => {
+      emit('update:open', v as boolean);
+    },
+    { immediate: true },
+  );
 
   // props.open 是否为 undefined
   const openUndefined = ref<boolean>(false);
@@ -63,12 +70,11 @@ export const useModalFormState = ({ props, attrs, emit }: useModalFormStateParam
     (v) => {
       if (v && props.formProps) {
         modalFormPropsRef.value = cloneDeep(props);
-        const newDefaultFormProps: Record<any, any> = cloneDeep(defaultFormProps);
+        const newDefaultFormProps: Record<string, unknown> = cloneDeep(defaultFormProps);
         const formProps = deepMerge(newDefaultFormProps, {
           ...v.formProps,
-        }) as FormProps;
-        // @ts-ignore
-        modalFormPropsRef.value.formProps = formProps;
+        }) as unknown as FormProps;
+        modalFormPropsRef.value.formProps = formProps as any;
       }
     },
     { immediate: true, deep: true },
@@ -113,7 +119,7 @@ export const useModalFormState = ({ props, attrs, emit }: useModalFormStateParam
     async (v) => {
       if (v) {
         await nextTick();
-        formRef.value?.resetForm();
+        formRef.value?.resetForm?.();
       }
     },
     { immediate: false },

@@ -10,7 +10,7 @@ import {
   omit,
   set,
 } from '@ssuperlilei/utils';
-import { DefineComponent, unref } from 'vue';
+import { type DefineComponent, unref } from 'vue';
 import type { FormProps } from '../types/ll-form';
 import type { FormState } from './useFormState';
 
@@ -163,7 +163,7 @@ export const useFormMethods = (formMethodsContext: UseFormMethodsContext) => {
         continue;
       }
 
-      const [startTime, endTime]: string[] = values[field];
+      const [startTime, endTime]: string[] = values[field] as string[];
 
       values[startTimeKey] = dateUtil(startTime).format(format);
       values[endTimeKey] = dateUtil(endTime).format(format);
@@ -173,23 +173,33 @@ export const useFormMethods = (formMethodsContext: UseFormMethodsContext) => {
     return values;
   }
 
+  const setNestedFormModel = (formModel: Recordable, keys: string[], defaultValue: any) => {
+    let current: Recordable = formModel;
+
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      if (!current[key] || !isObject(current[key])) {
+        current[key] = {};
+      }
+      if (i === keys.length - 1) {
+        current[key] = defaultValue;
+      }
+      current = current[key] as Recordable;
+    }
+  };
+
   /**
    * @description 初始化表单数据
    */
   const initFormValues = (initialValues?: Recordable) => {
     try {
-      unref(formPropsRef).schemas?.forEach((item: { field?: any; defaultValue?: any }) => {
+      unref(formPropsRef).schemas?.forEach((item: { field: string; defaultValue?: any }) => {
         const { defaultValue } = item;
         const namePath = isArray(item.field) ? item.field : item.field.split('.');
         if (namePath.length > 1) {
-          const target = namePath
-            .slice(1)
-            .reduce((prev: any, item: any) => (prev[item] ??= {}), {});
-          target[namePath.slice(1)[0]] = defaultValue;
-          const prop = namePath.shift()!;
-          formModel[prop] = target;
-          cacheFormModel[prop] = target;
-          defaultFormValues[prop] = target;
+          setNestedFormModel(formModel, namePath, defaultValue);
+          setNestedFormModel(cacheFormModel, namePath, defaultValue);
+          setNestedFormModel(defaultFormValues, namePath, defaultValue);
         } else if (!isNullOrUnDef(defaultValue)) {
           formModel[item.field] = defaultValue;
           cacheFormModel[item.field] = defaultValue;
@@ -205,7 +215,10 @@ export const useFormMethods = (formMethodsContext: UseFormMethodsContext) => {
           formModel[key] = !isNullOrUnDef(initialValues[key]) ? initialValues[key] : undefined;
         });
       }
-    } catch (error) {}
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (_error) {
+      //
+    }
   };
 
   return {

@@ -65,6 +65,7 @@ export default tseslint.config(
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ], // 禁止未使用的变量，但允许以 _ 开头的变量
       'no-unused-vars': 'off', // 关闭原生 ESLint 规则，避免冲突
+      '@typescript-eslint/no-explicit-any': 'off', // 禁止使用 any 类型
     },
   },
 );

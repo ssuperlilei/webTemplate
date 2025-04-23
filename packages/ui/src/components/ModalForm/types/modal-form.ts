@@ -1,8 +1,8 @@
 import { isObject } from '@ssuperlilei/utils';
-import { ButtonProps } from 'ant-design-vue';
+import type { ButtonProps } from 'ant-design-vue';
 import { modalProps } from 'ant-design-vue/es/modal/Modal';
 import type { ComponentInternalInstance, ExtractPropTypes, PropType } from 'vue';
-import { FormProps } from '../../Form';
+import type { FormProps } from '../../Form';
 import { initDefaultProps } from '~/_utils';
 import type ModalForm from '../index.vue';
 
@@ -106,5 +106,4 @@ export type ModalFormEmits = typeof modalFormEmits;
 
 export type ModalFormEmitFn = EmitFn<ModalFormEmits>;
 
-// @ts-ignore:next-line
 export type ModalFormInstance = InstanceType<typeof ModalForm>;
