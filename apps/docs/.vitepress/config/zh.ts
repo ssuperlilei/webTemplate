@@ -80,6 +80,7 @@ export const zh = defineConfig({
             { text: 'mqtt class', link: '/blog/mqtt' },
             { text: 'Vue大数据量渲染优化', link: '/blog/vueLargeDataRenderingOptimization' },
             { text: 'vite 使用 monaco-Editor', link: '/blog/monacoEditor' },
+            { text: 'Monorepo 多项目 Nginx 配置', link: '/blog/monorepoNginx' },
           ],
         },
       ],
