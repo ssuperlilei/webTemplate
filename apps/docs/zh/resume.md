@@ -15,6 +15,7 @@ GitHub: [https://github.com/ssuperlilei](https://github.com/ssuperlilei)
 - 精通 HTML5、CSS3、JavaScript、ES6，具备扎实的前端开发基础。
 - 熟练掌握 Vue 及其生态，擅长使用 Vite、Pinia、Axios、Antdv、Naive UI 等工具和库。
 - 具备 TypeScript、qiankun 微前端、uniapp 等前沿技术开发经验。
+- 了解 React、React Native，具备跨平台开发能力。
 - 熟悉 Git、Nginx，具备项目搭建与配置能力，能够独立完成 ESLint、Prettier、husky 等工具的配置。
 - 具备丰富的组件封装、项目架构设计与优化经验，注重代码规范与性能优化。
 
@@ -30,6 +31,7 @@ GitHub: [https://github.com/ssuperlilei](https://github.com/ssuperlilei)
 - 设计并开发公共组件与业务组件（如表单、搜索表格、弹窗、可搜索树），实现 JSON 配置化开发，提高组件复用率。
 - 解决项目中的复杂路由跳转、i18n 国际化资源整合、uniapp 中的 webview 嵌套等技术难题。
 - 优化搜索表格组件，支持虚拟渲染、拖拽排序和动态配置，提升页面性能和开发效率。
+- 开发 agent 项目，使用 React Native 实现 AI 移动端应用。
 
 ### 杭州映云科技有限公司 | 前端开发
 
@@ -62,8 +64,19 @@ GitHub: [https://github.com/ssuperlilei](https://github.com/ssuperlilei)
   - 解决 iframe 微前端路由跳转及 i18n 资源共享问题。
 - **技术栈**：Vue3 + Vite + Pinia + Antdv + Axios + echarts + iframe + uniapp
 - **项目难点**：
+
   - 复杂表单组件的设计与开发，支持联动、自动请求、自定义渲染。
   - 搜索表格的虚拟渲染和拖拽排序，提升数据展示性能。
+
+### Agent 平台 和 AI 移动端应用
+
+2025.02 - 2025.06
+
+- **项目描述**：类似 Dify agent 平台，包括智能体编排以及移动 AI 聊天应用。
+- **职责**：
+  - 使用 React Native 开发移动端应用，集成 AI 聊天功能。
+  - 设计并实现智能体编排功能，支持多种 AI 模型的调用与管理。
+- **技术栈**：React + React Native + TypeScript + Axios + Ant Design + Ant Design X
 
 ### emqx ECP 平台
 
