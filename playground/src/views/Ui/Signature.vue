@@ -1,14 +1,6 @@
 <template>
   <LConfigProvider>
-    <div style="height: 300px">
-      <LSignature
-        ref="signature"
-        :line-width="5"
-        :line-color="'#000000'"
-        :background-color="'#ffffff'"
-        :quality="1"
-      />
-    </div>
+    <LSignature ref="signature" />
     <div style="display: flex; gap: 10px; margin-top: 10px">
       <a-button @click="confirm">获取图片</a-button>
       <a-button @click="clear">清除签名</a-button>

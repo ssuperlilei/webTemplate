@@ -1,9 +1,10 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { type RouteRecordRaw, createRouter, createWebHistory } from 'vue-router';
 import {
+  BorderInnerOutlined,
   CommentOutlined,
   ExperimentOutlined,
-  ToolOutlined,
   SettingOutlined,
+  ToolOutlined,
 } from '@ant-design/icons-vue';
 
 export const routes: RouteRecordRaw[] = [
@@ -42,6 +43,15 @@ export const routes: RouteRecordRaw[] = [
       icon: ToolOutlined,
     },
     component: () => import('@/layouts/container/Utils.vue'),
+  },
+  {
+    path: '/lowCode',
+    name: 'LowCode',
+    meta: {
+      title: 'LowCode',
+      icon: BorderInnerOutlined,
+    },
+    component: () => import('@/views/LowCode/index.vue'),
   },
 ];
 
