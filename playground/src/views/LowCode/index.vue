@@ -46,54 +46,14 @@
 </template>
 
 <script lang="tsx" setup>
-import { ref, watch } from 'vue';
-import {
-  type FormInstance,
-  type FormProps,
-  LConfigProvider,
-  LForm,
-  LSignature,
-  LTable,
-} from '~@ssuperlilei/ui';
-import {
-  AudioOutlined,
-  CalendarOutlined,
-  CheckSquareOutlined,
-  FormOutlined,
-  NumberOutlined,
-  SelectOutlined,
-  SwapOutlined,
-} from '@ant-design/icons-vue';
-
+import { type BasicComponent, useLowCodeState } from './hooks/useLowCodeState';
+import { type FormSchema, LConfigProvider, LForm, LSignature, LTable } from '~@ssuperlilei/ui';
 defineOptions({
   name: 'DemosLowCode',
 });
 
-const myFormRef = ref<FormInstance>();
-const selectedComponent = ref<any>(null);
-
-const formProps: FormProps = {
-  schemas: [],
-  labelWidth: 120,
-  baseColProps: {
-    span: 24,
-  },
-  showActionButtonGroup: false,
-};
-
-const basicComponents = [
-  { type: 'Input', label: '输入框', icon: FormOutlined },
-  { type: 'InputTextArea', label: '文本域', icon: FormOutlined },
-  { type: 'InputNumber', label: '数字输入框', icon: NumberOutlined },
-  { type: 'Select', label: '下拉选择', icon: SelectOutlined },
-  { type: 'DatePicker', label: '日期选择', icon: CalendarOutlined },
-  { type: 'Switch', label: '开关', icon: SwapOutlined },
-  { type: 'Radio', label: '单选框', icon: AudioOutlined },
-  { type: 'Checkbox', label: '多选框', icon: CheckSquareOutlined },
-  { type: 'InputPassword', label: '密码', icon: CheckSquareOutlined },
-  { component: 'LTable', label: '表格', icon: CheckSquareOutlined, noLabel: true },
-  { component: 'LSignature', label: '签名', icon: CheckSquareOutlined },
-];
+const { myFormRef, selectedComponent, formProps, basicComponents, appendSchema } =
+  useLowCodeState();
 
 const handleDragStart = (event: DragEvent, component: any) => {
   if (event.dataTransfer) {
@@ -114,36 +74,21 @@ const getComponent = (component: any) => {
 const handleDrop = (event: DragEvent) => {
   const componentData = event.dataTransfer?.getData('component');
   if (componentData) {
-    const component = JSON.parse(componentData);
-    const newSchema = {
+    const component: BasicComponent = JSON.parse(componentData);
+    const newSchema: FormSchema = {
       field: `field_${Date.now()}`,
       label: component.label,
       component: getComponent(component),
       componentProps: {
         placeholder: `请输入${component.label}`,
+        ...component.componentProps,
       },
       noLabel: component.noLabel,
       required: false,
     };
-    myFormRef.value?.appendSchemaByField(newSchema);
-    selectedComponent.value = newSchema;
+    appendSchema(newSchema);
   }
 };
-
-// Watch for changes in selected component
-watch(
-  selectedComponent,
-  (newVal) => {
-    if (newVal) {
-      // Update the schema in formProps when configuration changes
-      const index = formProps.schemas.findIndex((schema) => schema.field === newVal.field);
-      if (index !== -1) {
-        formProps.schemas[index] = { ...newVal };
-      }
-    }
-  },
-  { deep: true },
-);
 </script>
 
 <style lang="less" scoped>

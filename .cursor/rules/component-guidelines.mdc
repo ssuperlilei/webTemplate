@@ -1,0 +1,74 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 组件开发规范
+
+## 组件目录结构
+
+每个组件应该遵循以下目录结构：
+
+```
+packages/ui/src/components/[ComponentName]/
+├── src/
+│   ├── [ComponentName].vue        # 组件主文件
+│   ├── [ComponentName].ts         # 组件类型定义
+│   └── [ComponentName].less       # 组件样式
+├── __tests__/                     # 测试文件
+└── index.ts                       # 组件入口文件
+```
+
+## 组件开发规范
+
+1. 命名规范
+   - 组件名使用 PascalCase
+   - 文件名与组件名保持一致
+   - Props 和 Events 使用 camelCase
+
+2. 类型定义
+   - 必须使用 TypeScript
+   - 为所有 props 定义类型
+   - 导出组件类型定义
+
+3. 样式规范
+   - 使用 Less 预处理器
+   - 遵循 BEM 命名规范
+   - 使用 CSS 变量实现主题定制
+
+4. 文档规范
+   - 组件必须包含使用说明
+   - 提供 Props 和 Events 文档
+   - 包含使用示例
+
+## 最佳实践
+
+1. 组件设计
+   - 保持组件的单一职责
+   - 提供合理的默认值
+   - 支持主题定制
+   - 考虑可访问性
+
+2. 性能优化
+   - 合理使用 v-show 和 v-if
+   - 避免不必要的计算属性
+   - 使用 v-memo 优化渲染
+   - 合理使用异步组件
+
+3. 测试要求
+   - 编写单元测试
+   - 测试组件的主要功能
+   - 测试边界情况
+   - 测试用户交互
+
+## 发布流程
+
+1. 版本管理
+   - 遵循语义化版本
+   - 使用 changesets 管理版本
+   - 更新 CHANGELOG.md
+
+2. 构建发布
+   - 运行 `pnpm build` 构建
+   - 使用 `pnpm publish:ui` 发布
+   - 确保文档同步更新
