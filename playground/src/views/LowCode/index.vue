@@ -7,7 +7,7 @@
             <div class="category-title">基础组件</div>
             <div
               v-for="item in basicComponents"
-              :key="item.type"
+              :key="item.type || item.component"
               class="component-item"
               draggable="true"
               @dragstart="handleDragStart($event, item)"
@@ -19,25 +19,46 @@
         </div>
       </div>
       <div class="low-code-canvas" @dragover.prevent @drop="handleDrop">
-        <LForm ref="myFormRef" v-bind="formProps" :show-action-button-group="false" />
+        <div
+          v-if="formSchemas.length === 0"
+          style="padding: 40px 0; color: #bbb; text-align: center"
+        >
+          请从左侧拖拽组件到此处
+        </div>
+        <div v-else>
+          <div
+            v-for="(schema, idx) in formSchemas"
+            :key="schema.field"
+            class="form-item-wrapper"
+            :class="{ selected: selectedComponent === schema }"
+            style="position: relative; margin-bottom: 12px"
+            @click="handleSelect(schema)"
+          >
+            <LForm
+              :schemas="[schema]"
+              :label-width="formProps.labelWidth"
+              :show-action-button-group="false"
+            />
+            <div style="position: absolute; top: 8px; right: 8px; display: flex; gap: 4px">
+              <button :disabled="idx === 0" @click.stop="handleMoveUp(idx)">↑</button>
+              <button :disabled="idx === formSchemas.length - 1" @click.stop="handleMoveDown(idx)">
+                ↓
+              </button>
+              <button @click.stop="handleRemove(idx)">删除</button>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="low-code-config">
         <div v-if="selectedComponent" class="config-panel">
           <div class="config-title">属性配置</div>
-          <a-form :model="selectedComponent" layout="vertical">
-            <a-form-item label="标签">
-              <a-input v-model:value="selectedComponent.label" />
-            </a-form-item>
-            <a-form-item label="字段名">
-              <a-input v-model:value="selectedComponent.field" />
-            </a-form-item>
-            <a-form-item label="必填">
-              <a-switch v-model:checked="selectedComponent.required" />
-            </a-form-item>
-            <a-form-item label="占位符">
-              <a-input v-model:value="selectedComponent.componentProps.placeholder" />
-            </a-form-item>
-          </a-form>
+          <LForm
+            v-model="selectedComponent"
+            :schemas="propFormSchemas"
+            layout="vertical"
+            :label-width="100"
+            :show-action-button-group="false"
+          />
         </div>
         <div v-else class="empty-config">请选择组件进行配置</div>
       </div>
@@ -47,13 +68,24 @@
 
 <script lang="tsx" setup>
 import { type BasicComponent, useLowCodeState } from './hooks/useLowCodeState';
-import { type FormSchema, LConfigProvider, LForm, LSignature, LTable } from '~@ssuperlilei/ui';
+import { type FormSchema, LConfigProvider, LForm } from '~@ssuperlilei/ui';
+import { getComponentPropsConfig } from './hooks/useComponentPropsConfig';
+import { computed } from 'vue';
+
 defineOptions({
   name: 'DemosLowCode',
 });
 
-const { myFormRef, selectedComponent, formProps, basicComponents, appendSchema } =
-  useLowCodeState();
+const {
+  selectedComponent,
+  formSchemas,
+  formProps,
+  basicComponents,
+  appendSchema,
+  selectComponent,
+  removeSchema,
+  moveSchema,
+} = useLowCodeState();
 
 const handleDragStart = (event: DragEvent, component: any) => {
   if (event.dataTransfer) {
@@ -63,9 +95,9 @@ const handleDragStart = (event: DragEvent, component: any) => {
 
 const getComponent = (component: any) => {
   if (component.component === 'LTable') {
-    return <LTable />;
+    return 'LTable';
   } else if (component.component === 'LSignature') {
-    return <LSignature />;
+    return 'LSignature';
   } else {
     return component.type;
   }
@@ -89,6 +121,45 @@ const handleDrop = (event: DragEvent) => {
     appendSchema(newSchema);
   }
 };
+
+const handleSelect = (schema: FormSchema) => {
+  selectComponent(schema);
+};
+
+const handleRemove = (index: number) => {
+  removeSchema(index);
+};
+
+const handleMoveUp = (index: number) => {
+  if (index > 0) moveSchema(index, index - 1);
+};
+const handleMoveDown = (index: number) => {
+  if (index < formSchemas.value.length - 1) moveSchema(index, index + 1);
+};
+
+// 动态属性 schema
+const currentComponentType = computed(() => {
+  if (!selectedComponent.value) return '';
+  return selectedComponent.value.component || selectedComponent.value.type || '';
+});
+const propConfigList = computed(() => getComponentPropsConfig(currentComponentType.value));
+
+// propConfigList 映射为 LForm schema
+const propFormSchemas = computed<FormSchema[]>(() => {
+  return propConfigList.value.map((item) => {
+    let component = 'Input';
+    if (item.type === 'input') component = 'Input';
+    else if (item.type === 'number') component = 'InputNumber';
+    else if (item.type === 'switch') component = 'Switch';
+    else if (item.type === 'select') component = 'Select';
+    return {
+      field: item.prop,
+      label: item.label,
+      component,
+      componentProps: item.options ? { options: item.options } : {},
+    };
+  });
+});
 </script>
 
 <style lang="less" scoped>

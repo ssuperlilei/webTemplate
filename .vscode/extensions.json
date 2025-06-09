@@ -12,12 +12,16 @@
     "mikestead.dotenv",
     // iconify 图标插件
     "antfu.iconify",
-    // CSS 变量提示
-    "vunguyentuan.vscode-css-variables",
     // Markdown 格式化支持
     "yzhang.markdown-all-in-one",
     // 统一编辑器代码风格
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    // 显示 PNPM catalogs 版本信息Add commentMore actions
+    "antfu.pnpm-catalog-lens",
+    // 单词拼写检查
+    "streetsidesoftware.code-spell-checker",
+    // 多行字符串高亮
+    "tobermory.es6-string-html"
   ],
   "unwantedRecommendations": [
     // 和 volar 冲突

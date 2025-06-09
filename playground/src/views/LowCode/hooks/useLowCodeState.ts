@@ -22,9 +22,13 @@ export interface BasicComponent {
 interface LowCodeState {
   myFormRef: ReturnType<typeof ref<FormInstance | undefined>>;
   selectedComponent: ReturnType<typeof ref<FormSchema | null>>;
+  formSchemas: ReturnType<typeof ref<FormSchema[]>>;
   formProps: FormProps;
   basicComponents: ReturnType<typeof ref<BasicComponent[]>>;
   appendSchema: (schema: FormSchema) => void;
+  selectComponent: (schema: FormSchema) => void;
+  removeSchema: (index: number) => void;
+  moveSchema: (from: number, to: number) => void;
 }
 
 export function useLowCodeState(): LowCodeState {
@@ -34,9 +38,14 @@ export function useLowCodeState(): LowCodeState {
   // 当前选中的组件
   const selectedComponent = ref<FormSchema | null>(null);
 
+  // 所有表单项 schema
+  const formSchemas = ref<FormSchema[]>([]);
+
   // 表单配置
   const formProps: FormProps = {
-    schemas: [],
+    get schemas() {
+      return formSchemas.value;
+    },
     labelWidth: 120,
     baseColProps: {
       span: 24,
@@ -61,15 +70,40 @@ export function useLowCodeState(): LowCodeState {
 
   // 添加新的schema
   const appendSchema = (schema: FormSchema) => {
-    myFormRef.value?.appendSchemaByField(schema);
+    formSchemas.value.push(schema);
     selectedComponent.value = schema;
+  };
+
+  // 选中某个 schema
+  const selectComponent = (schema: FormSchema) => {
+    selectedComponent.value = schema;
+  };
+
+  // 删除 schema
+  const removeSchema = (index: number) => {
+    if (formSchemas.value[index] === selectedComponent.value) {
+      selectedComponent.value = null;
+    }
+    formSchemas.value.splice(index, 1);
+  };
+
+  // 移动 schema（排序）
+  const moveSchema = (from: number, to: number) => {
+    const arr = formSchemas.value;
+    if (from < 0 || to < 0 || from >= arr.length || to >= arr.length) return;
+    const item = arr.splice(from, 1)[0];
+    arr.splice(to, 0, item);
   };
 
   return {
     myFormRef,
     selectedComponent,
+    formSchemas,
     formProps,
     basicComponents,
     appendSchema,
+    selectComponent,
+    removeSchema,
+    moveSchema,
   };
 }

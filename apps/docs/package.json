@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "vitepress dev",
-    "build": "rm -rf .vitepress/dist && vitepress build",
+    "build": "rimraf .vitepress/dist && vitepress build",
     "preview": "vitepress preview",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .vitepress/dist && rm -rf .vitepress/cache && rm -rf .vitepress/.temp"
+    "clean": "rimraf .turbo node_modules .vitepress/dist .vitepress/cache .vitepress/.temp"
   },
   "keywords": [],
   "author": "ssuperlilei <15528022618@163.com>",

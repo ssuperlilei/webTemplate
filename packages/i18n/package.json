@@ -13,8 +13,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "rm -rf dist && rollup -c rollup.config.mjs",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "build": "rimraf dist && rollup -c rollup.config.mjs",
+    "clean": "rimraf .turbo node_modules dist",
     "publish": "pnpm publish"
   },
   "devDependencies": {
