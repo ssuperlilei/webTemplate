@@ -3,72 +3,115 @@ description:
 globs: 
 alwaysApply: false
 ---
-# 工具函数开发规范
+# Utils 工具库使用规范
 
-## 目录结构
+本规则适用于 [packages/utils](mdc:../../packages/utils) 目录下的所有工具模块。每个模块均为纯函数实现，适用于通用数据处理、类型判断、对象操作等场景。请优先使用本库工具，避免重复造轮子。
 
-```
-packages/utils/src/
-├── [category]/              # 功能分类目录
-│   ├── [function].ts       # 具体功能实现
-│   └── index.ts           # 分类导出文件
-├── types/                  # 类型定义
-└── index.ts               # 主入口文件
-```
+---
 
-## 开发规范
+## 1. array
+- **用途**：数组去重、分块等常用操作。
+- **主力 API**：
+  - `unique<T>(arr: T[]): T[]` —— 数组去重。
+  - `chunk<T>(arr: T[], size: number): T[][]` —— 数组分块。
+- **示例**：
+  ```ts
+  unique([1, 2, 2, 3]); // [1, 2, 3]
+  chunk([1,2,3,4,5], 2); // [[1,2],[3,4],[5]]
+  ```
 
-1. 函数命名
-   - 使用 camelCase
-   - 名称应该清晰表达功能
-   - 避免使用缩写（除非是通用缩写）
+## 2. date
+- **用途**：基于 dayjs 的日期格式化。
+- **主力 API**：
+  - `formatToDateTime(date, format?)` —— 格式化为日期时间字符串。
+  - `formatToDate(date, format?)` —— 格式化为日期字符串。
+  - `dateUtil` —— dayjs 实例。
+- **示例**：
+  ```ts
+  formatToDateTime('2024-01-01'); // '2024-01-01 00:00:00'
+  formatToDate(Date.now()); // '2024-01-01'
+  ```
 
-2. 类型定义
-   - 必须使用 TypeScript
-   - 为所有参数和返回值定义类型
-   - 使用泛型增加函数灵活性
-   - 导出类型定义供其他模块使用
+## 3. fun
+- **用途**：函数节流、防抖、一次性执行、剪贴板、序列化等。
+- **主力 API**：
+  - `throttle(fn, wait, immediate?)` —— 节流。
+  - `debounce(fn, wait, immediate?)` —— 防抖。
+  - `once(fn)` —— 只执行一次。
+  - `copyToClipboard(text)` —— 复制文本到剪贴板。
+  - `safeStringify(obj)` —— 处理循环引用的安全序列化。
+- **示例**：
+  ```ts
+  const throttled = throttle(() => {}, 500);
+  copyToClipboard('hello');
+  ```
+- **注意**：`copyToClipboard` 兼容性依赖浏览器环境。
 
-3. 文档规范
-   - 使用 JSDoc 注释
-   - 说明函数用途
-   - 描述参数和返回值
-   - 提供使用示例
+## 4. object
+- **用途**：对象遍历、合并、深拷贝、取值、赋值、去重、属性过滤等。
+- **主力 API**：
+  - `objectEach(obj, cb)`
+  - `objectPick(obj, keys)`
+  - `merge(source, other, ...args)`
+  - `deepMerge(obj, target)`
+  - `cloneDeep(obj)`
+  - `get(obj, path, def?)`
+  - `set(obj, path, value)`
+  - `deepEqual(obj1, obj2)`
+  - `omit(obj, fields)`
+  - `uniqBy(arr, key)`
+  - `objectToArray(obj)`
+  - `arrayToObject(arr, key)`
+  - `omitNil(obj)`
+  - `getNestedValue(obj, path)`
+- **示例**：
+  ```ts
+  merge({a:1}, {b:2}); // {a:1, b:2}
+  get({a:{b:1}}, 'a.b'); // 1
+  cloneDeep({x:1});
+  ```
 
-4. 测试要求
-   - 编写单元测试
-   - 测试正常情况
-   - 测试边界情况
-   - 测试异常情况
+## 5. string
+- **用途**：字符串处理。
+- **主力 API**：
+  - `capitalize(str)` —— 首字母大写。
+  - `camelToKebab(str)` —— 驼峰转短横线。
+- **示例**：
+  ```ts
+  capitalize('foo'); // 'Foo'
+  camelToKebab('fooBar'); // 'foo-bar'
+  ```
 
-## 最佳实践
+## 6. tree
+- **用途**：树形结构数据的查找、选择性处理。
+- **主力 API**：
+  - `findItemByAttr(arr, attr, value, children?)` —— 查找树节点。
+  - `loopSelectableTree(arr, attr, value)` —— 指定值不可选。
+  - `loopSelectableNotValueTree(arr, attr, value)` —— 非指定值不可选。
+  - `loopSelectableLeafTree(arr, childrenAttr?)` —— 仅叶子节点可选。
+- **示例**：
+  ```ts
+  findItemByAttr(tree, 'id', 1);
+  loopSelectableLeafTree(tree);
+  ```
 
-1. 函数设计
-   - 保持函数单一职责
-   - 避免副作用
-   - 提供合理的默认值
-   - 考虑性能优化
+## 7. types
+- **用途**：类型判断、辅助类型、环境判断。
+- **主力 API**：
+  - `isArray`, `isObject`, `isString`, `isFn`, `isBoolean`, `isNumber`, `isRegExp`, `isDate`, `isPromise`, `isFunction`, `isAsyncFunction`, `isElement`, `isMap`, `isUrl`, `isEmpty`, `isDef`, `isUnDef`, `isNull`, `isNullOrUnDef`, `isObjectOrArray`, `isUndefined`, `isServer`, `isClient` 等。
+- **示例**：
+  ```ts
+  isArray([]); // true
+  isObject({}); // true
+  isUrl('https://a.com'); // true
+  isEmpty(''); // true
+  ```
+- **注意**：类型判断函数返回布尔值或类型守卫。
 
-2. 错误处理
-   - 使用 TypeScript 类型约束
-   - 提供清晰的错误信息
-   - 合理使用异常处理
-   - 考虑兼容性
+---
 
-3. 性能优化
-   - 避免重复计算
-   - 使用缓存机制
-   - 优化循环和递归
-   - 考虑内存使用
-
-## 发布流程
-
-1. 版本管理
-   - 遵循语义化版本
-   - 使用 changesets 管理版本
-   - 更新 CHANGELOG.md
-
-2. 构建发布
-   - 运行 `pnpm build` 构建
-   - 使用 `pnpm publish:utils` 发布
-   - 确保文档同步更新
+## 其他说明
+- 所有工具函数均为纯函数，无副作用（除剪贴板等特殊说明）。
+- 如需扩展，请优先保证 API 设计一致性。
+- 详细类型定义见 [types/index.ts](mdc:../../packages/utils/src/types/index.ts)。
+- 版本号见 [version.ts](mdc:../../packages/utils/src/version.ts)。

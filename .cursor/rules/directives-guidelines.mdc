@@ -3,109 +3,64 @@ description:
 globs: 
 alwaysApply: false
 ---
-# 自定义指令开发规范
+# Directives 指令库使用规范
 
-## 目录结构
+本规则适用于 [packages/directives](mdc:../../packages/directives) 目录下的所有自定义指令模块。每个指令均为 Vue 3 兼容实现，适用于全局或局部注册。
 
-```
-packages/directives/src/
-├── directives/            # 指令目录
-│   ├── [directive]/      # 具体指令
-│   │   ├── index.ts      # 指令实现
-│   │   └── types.ts      # 类型定义
-│   └── index.ts          # 指令导出
-├── types/                # 通用类型定义
-└── index.ts             # 主入口文件
-```
+---
 
-## 开发规范
+## 1. 指令总览
+- 所有指令统一导出于 [src/index.ts](mdc:../../packages/directives/src/index.ts)。
+- 支持全局批量注册、按需注册。
+- 目前内置指令：`vFocus`、`vLazy`。
 
-1. 命名规范
-   - 指令名使用 kebab-case
-   - 文件名使用 kebab-case
-   - 类型名使用 PascalCase
-   - 保持命名语义化
+---
 
-2. 类型定义
-   - 为指令参数定义类型
-   - 为指令钩子函数定义类型
-   - 导出类型定义
-   - 使用 TypeScript 类型推导
+## 2. vFocus
+- **用途**：自动聚焦元素。
+- **主力 API**：
+  - `vFocus` 指令对象，默认导出于 [v-focus/index.ts](mdc:../../packages/directives/src/v-focus/index.ts)。
+- **用法**：
+  ```vue
+  <input v-focus />
+  ```
+- **注意**：仅在元素挂载后生效。
 
-3. 指令实现
-   - 实现必要的钩子函数
-   - 处理指令参数
-   - 处理指令更新
-   - 清理指令副作用
+---
 
-4. 文档规范
-   - 说明指令用途
-   - 描述参数和修饰符
-   - 提供使用示例
-   - 说明注意事项
+## 3. vLazy
+- **用途**：图片懒加载，仅适用于 `<img>` 元素。
+- **主力 API**：
+  - `vLazy` 指令对象，默认导出于 [v-lazy/index.ts](mdc:../../packages/directives/src/v-lazy/index.ts)。
+- **用法**：
+  ```vue
+  <img v-lazy="'https://example.com/image.png'" />
+  ```
+- **注意**：
+  - 仅能用于 `<img>` 标签，否则控制台警告。
+  - 依赖浏览器 `IntersectionObserver`，低版本浏览器需注意兼容性。
+  - `rootMargin` 设为 100px，提前加载。
 
-## 最佳实践
+---
 
-1. 指令设计
-   - 保持指令功能单一
-   - 提供合理的默认值
-   - 支持参数配置
-   - 考虑性能影响
+## 4. 全局注册
+- 推荐通过 `globalRegister(app, directiveKeys?)` 批量注册。
+- **用法**：
+  ```ts
+  import { globalRegister } from '@ssuperlilei/directives';
+  app.use(globalRegister); // 注册全部
+  // 或
+  app.use((app) => globalRegister(app, ['vFocus'])); // 只注册 vFocus
+  ```
+- **注意**：注册时会自动去除 `v` 前缀，指令名为 `focus`、`lazy`。
 
-2. 性能优化
-   - 避免不必要的更新
-   - 优化事件监听
-   - 及时清理资源
-   - 使用防抖/节流
+---
 
-3. 错误处理
-   - 参数类型检查
-   - 异常情况处理
-   - 提供错误提示
-   - 优雅降级处理
+## 5. 版本号
+- 版本号见 [version.ts](mdc:../../packages/directives/src/version.ts)。
 
-## 使用示例
+---
 
-```typescript
-// 指令定义
-const vMyDirective = {
-  mounted(el, binding) {
-    // 指令挂载时的处理
-  },
-  updated(el, binding) {
-    // 指令更新时的处理
-  },
-  unmounted(el) {
-    // 指令卸载时的处理
-  }
-}
-
-// 使用指令
-<div v-my-directive:arg.modifier="value"></div>
-```
-
-## 测试规范
-
-1. 单元测试
-   - 测试指令挂载
-   - 测试指令更新
-   - 测试指令卸载
-   - 测试参数处理
-
-2. 集成测试
-   - 测试与其他组件交互
-   - 测试性能影响
-   - 测试边界情况
-   - 测试错误处理
-
-## 发布流程
-
-1. 版本管理
-   - 遵循语义化版本
-   - 使用 changesets 管理版本
-   - 更新 CHANGELOG.md
-
-2. 构建发布
-   - 运行 `pnpm build` 构建
-   - 使用 `pnpm publish:directives` 发布
-   - 确保文档同步更新
+## 其他说明
+- 所有指令均为无副作用实现。
+- 如需扩展新指令，请保持 API 风格一致，统一导出并支持全局注册。

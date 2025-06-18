@@ -54,7 +54,7 @@ export function useDrag() {
     const computedStyle = getComputedStyle(targetElement);
 
     // 解析transform矩阵
-    let transformMatrix = new DOMMatrix(computedStyle.transform);
+    const transformMatrix = new DOMMatrix(computedStyle.transform);
 
     // 记录初始状态
     dragState.startX = e.clientX;

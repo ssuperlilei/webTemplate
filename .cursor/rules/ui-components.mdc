@@ -1,0 +1,171 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# @/ui 组件库全局优先使用规范
+
+## 1. 组件库定位与设计理念
+- `@/ui`（`@ssuperlilei/ui`）是基于 Vue3 + TypeScript 的二次封装组件库，统一交互、样式、API，适配团队业务需求。
+- 设计理念：
+  - 统一风格、交互体验
+  - 统一 API 设计，简化开发
+  - 支持国际化（i18n）、权限（llProps）、主题定制
+  - 便于二次封装和扩展
+- **全局开发时，必须优先使用本组件库，禁止直接使用 ant-design-vue、element-plus 等原始UI库，除非特殊场景且需注明理由。**
+
+## 2. 组件命名规范
+- 所有组件均以 `L` 前缀命名，如 `LButton`、`LForm`、`LTable`、`LModalForm`、`LConfigProvider`、`LPasswordInput`、`LSignature`、`LEllipsis` 等。
+- 便于与原始UI库区分，保证全局唯一性。
+
+## 3. 引入与注册方式
+### 3.1 全局引入（推荐）
+```ts
+// main.ts
+import { createApp } from 'vue';
+import App from './App.vue';
+import LUI from '@ssuperlilei/ui';
+import '@ssuperlilei/ui/style.css';
+
+const app = createApp(App);
+app.use(LUI);
+app.mount('#app');
+```
+
+### 3.2 按需引入
+```ts
+import { LButton, LForm } from '@ssuperlilei/ui';
+app.component('LButton', LButton);
+```
+
+### 3.3 自动导入（如使用 unplugin-vue-components）
+```js
+// vite.config.ts
+import Components from 'unplugin-vue-components/vite';
+Components({
+  resolvers: [
+    // 配置 @ssuperlilei/ui 自动导入
+  ],
+});
+```
+
+### 3.4 样式引入
+- 全局样式需引入 `@ssuperlilei/ui/style.css`，否则部分主题变量、重置样式无效。
+
+## 4. 类型声明与全局类型提示
+- 推荐在 `tsconfig.json` 中添加：
+  ```json
+  "types": ["@ssuperlilei/ui/global.d.ts"]
+  ```
+- 或在全局 `.d.ts` 文件添加：
+  ```ts
+  /// <reference types="@ssuperlilei/ui/global.d.ts" />
+  ```
+- 获得如 `LButton`、`LForm`、`LTable` 等全局组件类型提示。
+
+## 5. 推荐用法与禁止事项
+- **优先用法**：所有表单、按钮、弹窗、表格等UI，均应使用 `@/ui` 提供的 L 系列组件。
+- **禁止**：除非特殊需求，禁止直接 import/use ant-design-vue 原始组件。
+- **如需扩展或自定义，优先基于 @/ui 组件二次封装。**
+- **如确需用原始UI库，建议包裹为 LXXX 组件后再用，并在代码中注明原因。**
+
+## 6. 组件扩展/自定义推荐方式
+- 通过继承/组合 L 组件实现业务扩展，如：
+  ```vue
+  <template>
+    <LButton type="primary" v-bind="$attrs">自定义按钮</LButton>
+  </template>
+  ```
+- 统一风格、API，便于维护。
+
+## 7. 典型组件用法示例
+
+### 7.1 按钮（LButton）
+```vue
+<LButton type="primary" size="large" :disabled="loading" @click="onClick">主要按钮</LButton>
+```
+
+### 7.2 表单（LForm）基础/高级用法
+```vue
+<LForm :schemas="schemas" v-model:form-model="formModel" @submit="onSubmit" />
+```
+- 高级用法：动态校验、插槽、ref、暴露方法
+```vue
+<LForm ref="formRef" :schemas="schemas" v-model:form-model="formModel">
+  <template #formHeader>自定义表单头</template>
+</LForm>
+<script setup lang="ts">
+import { ref } from 'vue';
+const formRef = ref();
+const onValidate = async () => {
+  await formRef.value.validate();
+};
+</script>
+```
+
+### 7.3 弹窗表单（LModalForm）动态内容/方法
+```vue
+<LModalForm :form-props="{ schemas }" :open="open" @okModal="onOk">
+  <template #footer="{ instance }">
+    <LButton @click="instance.cancel()">自定义取消</LButton>
+  </template>
+</LModalForm>
+```
+
+### 7.4 配置提供者（LConfigProvider）国际化/权限/主题
+```vue
+<LConfigProvider lang="en_US" :llProps="{ hasPermission: code => code === 'admin' }">
+  <App />
+</LConfigProvider>
+```
+
+### 7.5 表格（LTable）复杂用法
+```vue
+<LTable :columns="columns" :data-source="data" row-key="id">
+  <template #action="{ record }">
+    <LButton @click="edit(record)">编辑</LButton>
+    <LButton type="danger" @click="remove(record)">删除</LButton>
+  </template>
+</LTable>
+```
+
+### 7.6 密码输入框（LPasswordInput）显示/隐藏
+```vue
+<LPasswordInput v-model:value="password" />
+```
+
+### 7.7 手写签名（LSignature）撤销/重做
+```vue
+<LSignature ref="signRef" @confirm="onSign" />
+<LButton @click="signRef.value.undo()">撤销</LButton>
+<LButton @click="signRef.value.redo()">重做</LButton>
+```
+
+### 7.8 文本省略（LEllipsis）多行/tooltip
+```vue
+<LEllipsis :tooltip="true" :double="true">多行省略内容...</LEllipsis>
+```
+
+### 7.9 组件 API（props/事件/插槽/ref/方法）
+- props：`<LButton type="primary" />`
+- 事件：`@click`、`@submit`、`@okModal` 等
+- 插槽：`<template #footer>`、`<template #formHeader>`
+- ref/方法：`formRef.value.validate()`、`signRef.value.undo()`
+
+## 8. 组件库升级/issue/二次封装建议流程
+- 发现不满足需求时，优先提 issue 或 PR，团队评审后统一升级。
+- 临时需求可本地二次封装，后续合并到主库。
+- 禁止随意绕过组件库直接用原始UI库。
+
+## 9. 何时允许直接用原始UI库
+- 仅在 @/ui 暂无对应组件且短期无法支持时，允许临时直接用原始UI库，并需：
+  - 包裹为 LXXX 组件
+  - 代码注释说明原因，后续补充到 @/ui
+
+## 10. 其他说明
+- 组件 props、事件、插槽等 API 详见各自源码和文档。
+- 如需自定义主题、国际化、权限等，优先通过 LConfigProvider、llProps 等全局配置实现。
+- 组件库持续维护，遇到不满足需求时，优先提 issue 或二次封装。
+
+---
+**务必遵循本规范，确保 UI 体验一致性与可维护性。**
