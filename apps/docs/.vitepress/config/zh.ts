@@ -81,6 +81,7 @@ export const zh = defineConfig({
             { text: 'Vue大数据量渲染优化', link: '/blog/vueLargeDataRenderingOptimization' },
             { text: 'vite 使用 monaco-Editor', link: '/blog/monacoEditor' },
             { text: 'Monorepo 多项目 Nginx 配置', link: '/blog/monorepoNginx' },
+            { text: 'Vue3 组件属性（Props）辅助工具详解', link: '/blog/vueProps' },
           ],
         },
       ],
