@@ -11,6 +11,7 @@ export const zh = defineConfig({
       { text: '首页', link: '/' },
       { text: '个人简历', link: '/resume' },
       { text: '博客', link: '/blog/iframe' },
+      { text: '年龄计算', link: '/age' },
       {
         text: '更多',
         items: [
